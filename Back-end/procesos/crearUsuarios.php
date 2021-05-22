@@ -22,6 +22,8 @@ try{
 	$clave = $_POST['password'];
 	$nacionalidad = $_POST['nacionalidad'];
 	
+	
+	
 	$sql = "INSERT INTO `HorariosBus`.`Usuarios` (`idUsuario`, `nombre`, `apellido1`, `apellido2`, `correo`, `telefono`, `clave`, `nacionalidad`)
 	VALUES ('$idUsuario','$nombre','$apellido1','$apellido2','$correo','$telefono','md5($clave'),'$nacionalidad')";
 	if ($conn->query($sql) === TRUE) {
@@ -33,7 +35,7 @@ try{
 			alert("No se pudo crear el usuario");
 		</script>';
 	}
-	
+	echo "$idUsuario','$nombre','$apellido1','$apellido2','$correo','$telefono','$clave','$nacionalidad";
 }catch (mysqli_sql_exception $e) {
 	throw $e;
 }catch(Exception $e) {
