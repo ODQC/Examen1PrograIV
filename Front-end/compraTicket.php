@@ -163,11 +163,11 @@
               while ($row = $result->fetch_assoc()) {
                 echo "<tr>
                         <td>" . $row["idTiquetes"] . "</td>
-                        <td>" . $row["idEspacio"] . "</td>
-                        <td>" . $row["idBus"] . "</td>
-                        <td>" . $row["idhorario"] . "</td>
-                        <td>" . $row["idRutas"] . "</td>
-                        <td>" . $row["idUsuario"] . "</td>
+                        <td>" . $row["Espacios_idEspacio"] . "</td>
+                        <td>" . $row["Espacios_Buses_idBus"] . "</td>
+                        <td>" . $row["Horarios_idhorario"] . "</td>
+                        <td>" . $row["Horarios_Rutas_idRutas"] . "</td>
+                        <td>" . $row["Usuarios_idUsuario"] . "</td>
                         <td>" . $row["fechaEmision"] . "</td>
                         <td>" . $row["fechaSalida"] . "</td>
                         
