@@ -25,7 +25,7 @@ try{
 	
 	
 	$sql = "INSERT INTO `HorariosBus`.`Usuarios` (`idUsuario`, `nombre`, `apellido1`, `apellido2`, `correo`, `telefono`, `clave`, `nacionalidad`)
-	VALUES ('$idUsuario','$nombre','$apellido1','$apellido2','$correo','$telefono','md5($clave'),'$nacionalidad')";
+	VALUES ('$idUsuario','$nombre','$apellido1','$apellido2','$correo','$telefono','$clave','$nacionalidad')";
 	if ($conn->query($sql) === TRUE) {
 		echo '<script type="text/JavaScript"> 
 			alert("El usuario se creó correctamente");
