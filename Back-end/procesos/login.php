@@ -19,7 +19,7 @@ try {
 		$_SESSION['verificar'] = true;
 		$_SESSION['start'] = time();
 		$_SESSION['expire'] = $_SESSION['start'] + (15 * 60);
-		header("Location: ../Front-end/indexAdmin.php");
+		header("Location: ../Front-end/compraTicket.php");
 		
 	} else {
 		echo '<script type="text/JavaScript"> 
