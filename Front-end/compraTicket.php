@@ -272,7 +272,7 @@ $idUsuario = $_SESSION['idUsuario'];
                 <option value="">--Estado--</option>
                 <?php while ($row1 = mysqli_fetch_array($result)) :; ?>
 
-                  <option value="<?php echo $row1[0]; ?>"><?php echo $row1[1]; ?></option>
+                  <option value="<?php echo $row1['idRutas']; ?>"><?php echo $row1[1]; ?></option>
 
                 <?php endwhile; ?>
               </select>
