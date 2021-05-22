@@ -21,7 +21,7 @@ try{
 			alert("No se pudo crea el usuario");
 		</script>';
 	}
-
+	require_once "./Front-end/login.php";
 	}catch (mysqli_sql_exception $e) {
 		throw $e;
 	}catch(Exception $e) {
