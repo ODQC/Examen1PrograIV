@@ -1,5 +1,5 @@
 SELECT * FROM HorariosBus.Usuarios;
-INSERT INTO `HorariosBus`.`Usuarios` (`idUsuario`, `nombre`, `apellido2`, `apellido2`, `correo`, `telefono`, `clave`, `nacionalidad`) VALUES ('207460988', 'Oscar', 'Quesada', 'Calderon', 'oscardanielq6@gmail.com', '62001032', md5('12345'), 'Costarricense');
+INSERT INTO `HorariosBus`.`Usuarios` (`idUsuario`, `nombre`, `apellido1`, `apellido2`, `correo`, `telefono`, `clave`, `nacionalidad`) VALUES ('207460988', 'Oscar', 'Quesada', 'Calderon', 'oscardanielq6@gmail.com', '62001032', md5('12345'), 'Costarricense');
 DELETE FROM `HorariosBus`.`Usuarios` WHERE (`idUsuario` = '207460988');
 SELECT * FROM  HorariosBus.Usuarios WHERE idUsuario='207460988';
 SELECT * FROM  HorariosBus.Usuarios WHERE correo='oscardanielq5@gmail.com' AND clave=md5('12345');

@@ -1,6 +1,14 @@
 <?php
 try{
-	require_once "../php/connect.php";
+
+
+	$servername = "localhost";
+	$username = "root";
+	$password = "207460988";
+	$dbname = "HorariosBus";
+
+	// Create connection
+	$conn = new mysqli($servername, $username, $password, $dbname);
 	$idUsuario = $_POST['idUsuario'];
 	$nombre = $_POST['nombre'];
 	$apellido1 = $_POST['apellido1'];
@@ -10,9 +18,11 @@ try{
 	$clave = $_POST['password'];
 	$nacionalidad = $_POST['nacionalidad'];
 
-	$query = "INSERT INTO `HorariosBus`.`Usuarios` (`idUsuario`, `nombre`, `apellido1`, `apellido2`, `correo`, `telefono`, `clave`, `nacionalidad`)
+	
+	$sql = "INSERT INTO `HorariosBus`.`Usuarios` (`idUsuario`, `nombre`, `apellido1`, `apellido2`, `correo`, `telefono`, `clave`, `nacionalidad`)
 	VALUES('$idUsuario','$nombre','$apellido1','$apellido2','$correo','$telefono','md5($clave'),'$nacionalidad')";
-	if ($mysqli->query($query)) {
+	$result = $conn->query($sql);
+	if ($result) {
 		echo '<script type="text/JavaScript"> 
 			alert("El usuario se creó correctamente");
 		</script>';
