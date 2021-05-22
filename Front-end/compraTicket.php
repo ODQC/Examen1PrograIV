@@ -253,8 +253,28 @@ $idUsuario = $_SESSION['idUsuario'];
             <div class="form-group">
 
               <select size="1" class="form-control" id="" name="">
+                <?php
+                $servername = "localhost";
+                $username = "root";
+                $password = "207460988";
+                $dbname = "HorariosBus";
+
+                // Create connection
+                $conn = new mysqli($servername, $username, $password, $dbname);
+                // Check connection
+                if ($conn->connect_error) {
+                  die("Connection failed: " . $conn->connect_error);
+                }
+
+                $sql = "SELECT `idRutas` FROM `HorariosBus`.`Rutas`";
+                $result = mysqli_query($conn, $sql);
+                ?>
                 <option value="">--Estado--</option>
-                <option value=""></option>
+                <?php while ($row1 = mysqli_fetch_array($result)) :; ?>
+
+                  <option value="<?php echo $row1[0]; ?>"><?php echo $row1[1]; ?></option>
+
+                <?php endwhile; ?>
               </select>
             </div>
             <div class=""><button type="submit">Seleccionar</button></div>
