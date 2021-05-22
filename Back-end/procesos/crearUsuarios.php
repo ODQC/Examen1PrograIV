@@ -9,6 +9,10 @@ try{
 
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname);
+	if ($conn->connect_error) {
+		die("Connection failed: " . $conn->connect_error);
+	}
+
 	$idUsuario = $_POST['idUsuario'];
 	$nombre = $_POST['nombre'];
 	$apellido1 = $_POST['apellido1'];
@@ -17,25 +21,28 @@ try{
 	$telefono = $_POST['telefono'];
 	$clave = $_POST['password'];
 	$nacionalidad = $_POST['nacionalidad'];
-
 	
 	$sql = "INSERT INTO `HorariosBus`.`Usuarios` (`idUsuario`, `nombre`, `apellido1`, `apellido2`, `correo`, `telefono`, `clave`, `nacionalidad`)
-	VALUES('$idUsuario','$nombre','$apellido1','$apellido2','$correo','$telefono','md5($clave'),'$nacionalidad')";
-	$result = $conn->query($sql);
-	if ($result) {
+	VALUES ('$idUsuario','$nombre','$apellido1','$apellido2','$correo','$telefono','md5($clave'),'$nacionalidad')";
+	if ($conn->query($sql) === TRUE) {
 		echo '<script type="text/JavaScript"> 
 			alert("El usuario se creó correctamente");
 		</script>';
-		require_once "./Front-end/login.php";
 	} else {
 		echo '<script type="text/JavaScript"> 
 			alert("No se pudo crear el usuario");
 		</script>';
-		require_once "./Front-end/registrar.php";
 	}
 	
-	}catch (mysqli_sql_exception $e) {
-		throw $e;
-	}catch(Exception $e) {
-		echo 'Message: ' .$e->getMessage();
-	}
+}catch (mysqli_sql_exception $e) {
+	throw $e;
+}catch(Exception $e) {
+	echo 'Message: ' .$e->getMessage();
+}
+
+$conn->close();
+
+
+
+
+
