@@ -16,12 +16,14 @@ try{
 		echo '<script type="text/JavaScript"> 
 			alert("El usuario se creó correctamente");
 		</script>';
+		require_once "./Front-end/login.php";
 	} else {
 		echo '<script type="text/JavaScript"> 
 			alert("No se pudo crea el usuario");
 		</script>';
+		require_once "./Front-end/registrar.php";
 	}
-	require_once "./Front-end/login.php";
+	
 	}catch (mysqli_sql_exception $e) {
 		throw $e;
 	}catch(Exception $e) {
