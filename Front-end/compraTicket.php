@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!$_SESSION['verificar']) {
-  header("Location: logIn.php");
+  header("Location: index.php");
 }
 $user = $_SESSION['user'];
 $usuario = implode(", ", $user);
