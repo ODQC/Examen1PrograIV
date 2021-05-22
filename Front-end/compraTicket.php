@@ -1,3 +1,12 @@
+<?php
+session_start();
+if (!$_SESSION['verificar']) {
+  header("Location: logIn.php");
+}
+$user = $_SESSION['user'];
+$usuario = implode(", ", $user);
+$idUsuario = $_SESSION['idUsuario'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 
