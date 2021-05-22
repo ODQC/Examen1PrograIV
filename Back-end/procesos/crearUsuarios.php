@@ -2,7 +2,7 @@
 try{
 	require_once "../php/connect.php";
 	$idUsuario = $_POST['idUsuario'];
-	$nombre = $_POST['email'];
+	$nombre = $_POST['nombre'];
 	$apellido1 = $_POST['apellido1'];
 	$apellido2 = $_POST['apellido2'];
 	$correo = $_POST['email'];
