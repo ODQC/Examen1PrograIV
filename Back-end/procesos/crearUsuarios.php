@@ -10,8 +10,8 @@ try{
 	$clave = $_POST['password'];
 	$nacionalidad = $_POST['nacionalidad'];
 
-	$query = "INSERT INTO usuario(idUsuario,nombre,apellido1,apellido2,correo,telefono,clave,nacionalidad) 
-	VALUES('$idUsuario','$nombre','$apellido1','$apellido2','$correo','$telefono','$clave','$nacionalidad')";
+	$query = "INSERT INTO `HorariosBus`.`Usuarios` (`idUsuario`, `nombre`, `apellido2`, `apellido2`, `correo`, `telefono`, `clave`, `nacionalidad`)
+	VALUES('$idUsuario','$nombre','$apellido1','$apellido2','$correo','$telefono','md5($clave'),'$nacionalidad')";
 	if ($mysqli->query($query)) {
 		echo '<script type="text/JavaScript"> 
 			alert("El usuario se creó correctamente");
@@ -19,7 +19,7 @@ try{
 		require_once "./Front-end/login.php";
 	} else {
 		echo '<script type="text/JavaScript"> 
-			alert("No se pudo crea el usuario");
+			alert("No se pudo crear el usuario");
 		</script>';
 		require_once "./Front-end/registrar.php";
 	}
