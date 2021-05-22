@@ -31,7 +31,7 @@
                 <label for="password">Contraseña</label>
                 <input type="password" name="password" id="password" class="form-control" placeholder="Ingrese su contraseña">
               </div>
-              <input name="ingresar" id="ingresar" class="btn btn-block login-btn" type="button" value="Ingresar">
+              <input name="ingresar" id="ingresar" class="btn btn-block login-btn" type="submit" value="Ingresar">
             </form>
 
             <p class="login-wrapper-footer-text">No tiene una cuenta? <a href="registrar.html" class="text-reset">Registrese aquí</a></p>
