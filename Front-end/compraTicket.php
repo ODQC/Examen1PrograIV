@@ -97,7 +97,7 @@ $idUsuario = $_SESSION['idUsuario'];
           <li><a href="#lugares">Lugares</a></li>
           <li><a href="#cta">Pagar</a></li>
 
-          <li><a href="#team">Salir</a></li>
+          <li><a href="../Back-end/procesos/logout.php">Salir</a></li>
 
 
 
