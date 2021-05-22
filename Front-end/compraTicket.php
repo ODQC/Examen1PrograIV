@@ -232,7 +232,7 @@ function connection()
 
               </div>
             </div>
-            <div class=""><button type="submit">Seleccionar</button></div>
+            <div class="fecha_btn"><button type="submit">Seleccionar</button></div>
 
           </div>
         </form>
