@@ -7,6 +7,21 @@ $user = $_SESSION['user'];
 $usuario = implode(", ", $user);
 $idUsuario = $_SESSION['idUsuario'];
 ?>
+<?php
+   function connection(){
+   $servername = "localhost";
+    $username = "root";
+    $password = "207460988";
+    $dbname = "HorariosBus";
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    // Check connection
+    if ($conn->connect_error) {
+      die("Connection failed: " . $conn->connect_error);
+    }
+    return $conn;
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -151,17 +166,8 @@ $idUsuario = $_SESSION['idUsuario'];
           <tbody>
 
             <?php
-            $servername = "localhost";
-            $username = "root";
-            $password = "207460988";
-            $dbname = "HorariosBus";
-
-            // Create connection
-            $conn = new mysqli($servername, $username, $password, $dbname);
-            // Check connection
-            if ($conn->connect_error) {
-              die("Connection failed: " . $conn->connect_error);
-            }
+            
+            $conn = connection();
 
             $sql = "SELECT * FROM `HorariosBus`.`Tiquetes`";
             $result = $conn->query($sql);
@@ -214,18 +220,7 @@ $idUsuario = $_SESSION['idUsuario'];
           </thead>
           <tbody>
             <?php
-            $servername = "localhost";
-            $username = "root";
-            $password = "207460988";
-            $dbname = "HorariosBus";
-
-            // Create connection
-            $conn = new mysqli($servername, $username, $password, $dbname);
-            // Check connection
-            if ($conn->connect_error) {
-              die("Connection failed: " . $conn->connect_error);
-            }
-
+            $conn = connection();
             $sql = "SELECT * FROM `HorariosBus`.`Horarios`";
             $result = $conn->query($sql);
 
@@ -254,18 +249,7 @@ $idUsuario = $_SESSION['idUsuario'];
 
               <select size="1" class="form-control" id="" name="">
                 <?php
-                $servername = "localhost";
-                $username = "root";
-                $password = "207460988";
-                $dbname = "HorariosBus";
-
-                // Create connection
-                $conn = new mysqli($servername, $username, $password, $dbname);
-                // Check connection
-                if ($conn->connect_error) {
-                  die("Connection failed: " . $conn->connect_error);
-                }
-
+                $conn = connection();
                 $sql = "SELECT `idRutas` FROM `HorariosBus`.`Rutas`";
                 $result = mysqli_query($conn, $sql);
                 ?>
