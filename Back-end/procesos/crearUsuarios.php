@@ -10,7 +10,7 @@ try{
 	$clave = $_POST['password'];
 	$nacionalidad = $_POST['nacionalidad'];
 
-	$query = "INSERT INTO `HorariosBus`.`Usuarios` (`idUsuario`, `nombre`, `apellido2`, `apellido2`, `correo`, `telefono`, `clave`, `nacionalidad`)
+	$query = "INSERT INTO `HorariosBus`.`Usuarios` (`idUsuario`, `nombre`, `apellido1`, `apellido2`, `correo`, `telefono`, `clave`, `nacionalidad`)
 	VALUES('$idUsuario','$nombre','$apellido1','$apellido2','$correo','$telefono','md5($clave'),'$nacionalidad')";
 	if ($mysqli->query($query)) {
 		echo '<script type="text/JavaScript"> 
