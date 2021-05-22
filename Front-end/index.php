@@ -49,13 +49,13 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="index.html">Inicio</a></li>
+          <li class="active"><a href="index.php">Inicio</a></li>
           <li><a href="#about">Nosotros</a></li>
           <li><a href="#services">Rutas</a></li>
           <li><a href="#portfolio">Horarios</a></li>
-          <li><a href="compraTicket.html">Compra de tiquetes</a></li>
-          <li><a href="registrar.html">Registrarse</a></li>
-          <li><a href="login.html">Inicie session</a></li>
+          <li><a href="compraTicket.php">Compra de tiquetes</a></li>
+          <li><a href="registrar.php">Registrarse</a></li>
+          <li><a href="login.php">Inicie session</a></li>
 
 
 
@@ -311,9 +311,9 @@
               <li><i class="bx bx-chevron-right"></i> <a href="#">Nosotros</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Rutas</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Horarios</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="compraTicket.html">Compra de tiquetes</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="registrar.html">Registrarse</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="login.html">Inicie sessión</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="compraTicket.php">Compra de tiquetes</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="registrar.php">Registrarse</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="login.php">Inicie sessión</a></li>
 
             </ul>
           </div>

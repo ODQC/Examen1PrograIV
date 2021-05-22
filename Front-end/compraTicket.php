@@ -14,9 +14,7 @@
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -27,10 +25,10 @@
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <!-- end Vendor CSS Files -->
 
-<!-- Template Main CSS File -->
-<link href="assets/css/style.css" rel="stylesheet">
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
 
-<!-- =======================================================
+  <!-- =======================================================
   * Template Name: Squadfree - v2.3.1
   * Template URL: https://bootstrapmade.com/squadfree-free-bootstrap-template-creative/
   * Author: BootstrapMade.com
@@ -38,12 +36,9 @@
   ======================================================== -->
 
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  <script type="text/javascript"
-    src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>
-  <script type="text/javascript"
-    src="https://cdnjs.cloudflare.com/ajax/libs/jquery.payment/1.2.3/jquery.payment.min.js"></script>
-  <script type="text/javascript"
-    src="https://cdnjs.cloudflare.com/ajax/libs/jquery.payment/1.2.3/jquery.payment.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.payment/1.2.3/jquery.payment.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.payment/1.2.3/jquery.payment.min.js"></script>
   <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500&display=swap" rel="stylesheet">
@@ -67,9 +62,9 @@
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-  
-  
-  
+
+
+
 </head>
 
 <body>
@@ -86,7 +81,7 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li><a href="index.html">Inicio</a></li>
+          <li><a href="index.php">Inicio</a></li>
           <li><a href="#about">Compra tiquetes</a></li>
           <li><a href="#Mistiquetes">Mis tiquetes</a></li>
           <li><a href="#horarios">Horarios</a></li>
@@ -146,7 +141,46 @@
           </thead>
           <tbody>
 
-        </table>
+            <?php
+            $servername = "localhost";
+            $username = "root";
+            $password = "207460988";
+            $dbname = "HorariosBus";
+
+            // Create connection
+            $conn = new mysqli($servername, $username, $password, $dbname);
+            // Check connection
+            if ($conn->connect_error) {
+              die("Connection failed: " . $conn->connect_error);
+            }
+
+            $sql = "SELECT * FROM `HorariosBus`.`Tiquetes`";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+
+              // output data of each row
+              while ($row = $result->fetch_assoc()) {
+                echo "<tr>
+                        <td>" . $row["idTiquetes"] . "</td>
+                        <td>" . $row["idEspacio"] . "</td>
+                        <td>" . $row["idBus"] . "</td>
+                        <td>" . $row["idhorario"] . "</td>
+                        <td>" . $row["idRutas"] . "</td>
+                        <td>" . $row["idUsuario"] . "</td>
+                        <td>" . $row["fechaEmision"] . "</td>
+                        <td>" . $row["fechaSalida"] . "</td>
+                        
+                        </tr>";
+              }
+              echo "</tbody>
+              </table>";
+            } else {
+              echo "0 results";
+            }
+
+            $conn->close();
+            ?>
 
       </div>
     </form>
@@ -170,18 +204,51 @@
             </tr>
           </thead>
           <tbody>
+            <?php
+            $servername = "localhost";
+            $username = "root";
+            $password = "207460988";
+            $dbname = "HorariosBus";
 
-        </table>
+            // Create connection
+            $conn = new mysqli($servername, $username, $password, $dbname);
+            // Check connection
+            if ($conn->connect_error) {
+              die("Connection failed: " . $conn->connect_error);
+            }
 
-        <br> Por favor selecciones el horario y ruta en cuál desea reservar.
-        <div class="form-group">
+            $sql = "SELECT * FROM `HorariosBus`.`Horarios`";
+            $result = $conn->query($sql);
 
-          <select size="1" class="form-control" id="" name="">
-            <option value="">--Estado--</option>
-            <option value=""></option>
-          </select>
-        </div>
-        <div class=""><button type="submit">Seleccionar</button></div>
+            if ($result->num_rows > 0) {
+
+              // output data of each row
+              while ($row = $result->fetch_assoc()) {
+                echo "<tr>
+                        <td>" . $row["Rutas_idRutas"] . "</td>
+                        <td>" . $row["horario"] . "</td>
+                        <td>" . $row["precio"] . "</td>
+                        </tr>";
+              }
+              echo "</tbody>
+              </table>";
+            } else {
+              echo "0 results";
+            }
+
+            $conn->close();
+            ?>
+
+
+            <br> Por favor selecciones el horario y ruta en cuál desea reservar.
+            <div class="form-group">
+
+              <select size="1" class="form-control" id="" name="">
+                <option value="">--Estado--</option>
+                <option value=""></option>
+              </select>
+            </div>
+            <div class=""><button type="submit">Seleccionar</button></div>
 
       </div>
     </form>
@@ -225,8 +292,7 @@
             <div class="row justify-content-center">
               <div class="col-md-10 text-center">
 
-                <input type="text" class="form-control w-25 mx-auto mb-3" id="result" placeholder="Select date"
-                  disabled="">
+                <input type="text" class="form-control w-25 mx-auto mb-3" id="result" placeholder="Select date" disabled="">
                 <form action="#" class="row">
                   <div class="col-md-12">
                     <div id="inline_cal"></div>
@@ -266,34 +332,27 @@
 
                       <div class="form-group">
                         <label for="cc-number" class="control-label mb-1">Nombre de tarjeta</label>
-                        <input id="idTarjetas" name="idTarjetas" type="text"
-                          class="form-control cc-number identified visa" required autocomplete="off">
+                        <input id="idTarjetas" name="idTarjetas" type="text" class="form-control cc-number identified visa" required autocomplete="off">
                         <label for="cc-number" class="control-label mb-1">Número de tarjeta</label>
-                        <input id="cc-number" name="cc-number" type="tel" class="form-control cc-number identified visa"
-                          required autocomplete="off">
+                        <input id="cc-number" name="cc-number" type="tel" class="form-control cc-number identified visa" required autocomplete="off">
                         <span class="invalid-feedback">Enter a valid 12 to 16 digit card number</span>
                       </div>
                       <div class="row">
                         <div class="col-6">
                           <div class="form-group">
                             <label for="cc-exp" class="control-label mb-1">Expiration</label>
-                            <input id="cc-exp" name="cc-exp" type="tel" class="form-control cc-exp" required
-                              placeholder="MM / YY" autocomplete="cc-exp">
+                            <input id="cc-exp" name="cc-exp" type="tel" class="form-control cc-exp" required placeholder="MM / YY" autocomplete="cc-exp">
                             <span class="invalid-feedback">Fecha de expiración</span>
                           </div>
                         </div>
                         <div class="col-6">
                           <label for="x_card_code" class="control-label mb-1">CVV</label>
                           <div class="input-group">
-                            <input id="x_card_code" name="x_card_code" type="tel" class="form-control cc-cvc" required
-                              autocomplete="off">
+                            <input id="x_card_code" name="x_card_code" type="tel" class="form-control cc-cvc" required autocomplete="off">
                             <span class="invalid-feedback order-last">Enter the 3-digit code on back</span>
                             <div class="input-group-append">
                               <div class="input-group-text">
-                                <span class="fa fa-question-circle fa-lg" data-toggle="popover" data-container="body"
-                                  data-html="true" data-title="CVV"
-                                  data-content="<div class='text-center one-card'>The 3 digit code on back of the card..<div class='visa-mc-cvc-preview'></div></div>"
-                                  data-trigger="hover"></span>
+                                <span class="fa fa-question-circle fa-lg" data-toggle="popover" data-container="body" data-html="true" data-title="CVV" data-content="<div class='text-center one-card'>The 3 digit code on back of the card..<div class='visa-mc-cvc-preview'></div></div>" data-trigger="hover"></span>
                               </div>
                             </div>
                           </div>
@@ -368,23 +427,14 @@
           <div class="col-lg-2 col-md-6 footer-links" data-aos="fade-up" data-aos-delay="250">
             <h4>Referencias</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a
-                  href="https://www.bootstrapdash.com/product/free-bootstrap-login/"
-                  target="_blank">www.bootstrapdash.com</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a
-                  href="http://www.prepbootstrap.com/bootstrap-template/credit-card-payment"
-                  target="_blank">http://www.prepbootstrap.com/</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a
-                  href="https://bbbootstrap.com/snippets/bootstrap-ecommerce-checkout-page-payment-options-50848752"
-                  target="_blank">bbbootstrap.com</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://www.bootstrapdash.com/product/free-bootstrap-login/" target="_blank">www.bootstrapdash.com</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="http://www.prepbootstrap.com/bootstrap-template/credit-card-payment" target="_blank">http://www.prepbootstrap.com/</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://bbbootstrap.com/snippets/bootstrap-ecommerce-checkout-page-payment-options-50848752" target="_blank">bbbootstrap.com</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="https://github.com/ODQC" target="_blank">Mi GitHub</a>
               </li>
-              <li><i class="bx bx-chevron-right"></i> <a href="https://github.com/ODQC/Examen1PrograIV.git"
-                  target="_blank">Repositorio Git del proyecto</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a
-                  href="mailto:oscar.quesada.calderon@est.una.ac.cr">oscar.quesada.calderon@est.una.ac.cr</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a
-                  href="mailto:oscaardanielqc@outlook.es">oscaardanielqc@outlook.es</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://github.com/ODQC/Examen1PrograIV.git" target="_blank">Repositorio Git del proyecto</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="mailto:oscar.quesada.calderon@est.una.ac.cr">oscar.quesada.calderon@est.una.ac.cr</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="mailto:oscaardanielqc@outlook.es">oscaardanielqc@outlook.es</a></li>
             </ul>
           </div>
 

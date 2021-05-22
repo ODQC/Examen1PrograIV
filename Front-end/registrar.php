@@ -64,7 +64,7 @@
               <input name="registrar" id="registrar" class="btn btn-block login-btn" type="button" value="Registrar">
             </form>
             
-            <p class="login-wrapper-footer-text"><a href="index.html" class="text-reset">Volver a inicio</a></p>
+            <p class="login-wrapper-footer-text"><a href="index.php" class="text-reset">Volver a inicio</a></p>
           </div>
         </div>
         

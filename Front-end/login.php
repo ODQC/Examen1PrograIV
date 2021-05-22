@@ -33,7 +33,7 @@
             </form>
             
             <p class="login-wrapper-footer-text">No tiene una cuenta? <a href="registrar.html" class="text-reset">Registrese aquí</a></p>
-            <p class="login-wrapper-footer-text"><a href="index.html" class="text-reset">Volver a inicio</a></p>
+            <p class="login-wrapper-footer-text"><a href="index.php" class="text-reset">Volver a inicio</a></p>
           </div>
         </div>
         <div class="col-sm-6 px-0 d-none d-sm-block">
