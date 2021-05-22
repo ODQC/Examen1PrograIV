@@ -269,10 +269,10 @@ $idUsuario = $_SESSION['idUsuario'];
                 $sql = "SELECT `idRutas` FROM `HorariosBus`.`Rutas`";
                 $result = mysqli_query($conn, $sql);
                 ?>
-                <option value="">--Estado--</option>
+                <option value="">--Selecionar--</option>
                 <?php while ($row1 = mysqli_fetch_array($result)) :; ?>
 
-                  <option value="<?php echo $row1['idRutas']; ?>"><?php echo $row1[1]; ?></option>
+                  <option value="<?php echo $row1['idRutas']; ?>"><?php echo $row1['idRutas']; ?></option>
 
                 <?php endwhile; ?>
               </select>
