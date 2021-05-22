@@ -14,11 +14,11 @@ try{
 	VALUES('$idUsuario','$nombre','$apellido1','$apellido2','$correo','$telefono','$clave','$nacionalidad')";
 	if ($mysqli->query($query)) {
 		echo '<script type="text/JavaScript"> 
-			alert("");
+			alert("El usuario se creó correctamente");
 		</script>';
 	} else {
 		echo '<script type="text/JavaScript"> 
-			alert("");
+			alert("No se pudo crea el usuario");
 		</script>';
 	}
 
