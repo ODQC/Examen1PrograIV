@@ -35,8 +35,7 @@ try{
 			alert("No se pudo crear el usuario");
 		</script>';
 	}
-	echo "$idUsuario','$nombre','$apellido1','$apellido2','$correo','$telefono','$clave','$nacionalidad";
-	echo $sql;
+	
 }catch (mysqli_sql_exception $e) {
 	throw $e;
 }catch(Exception $e) {
