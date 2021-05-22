@@ -2,12 +2,12 @@
 try{
 	require_once "../php/connect.php";
 	$idUsuario = $_POST['idUsuario'];
-	$nombre = $_POST['nombre'];
+	$nombre = $_POST['email'];
 	$apellido1 = $_POST['apellido1'];
 	$apellido2 = $_POST['apellido2'];
 	$correo = $_POST['correo'];
 	$telefono = $_POST['telefono'];
-	$clave = $_POST['clave'];
+	$clave = $_POST['password'];
 	$nacionalidad = $_POST['nacionalidad'];
 
 	$query = "INSERT INTO usuario(idUsuario,nombre,apellido1,apellido2,correo,telefono,clave,nacionalidad) 
