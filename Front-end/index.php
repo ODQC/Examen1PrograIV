@@ -14,9 +14,7 @@
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -145,8 +143,41 @@
             </tr>
           </thead>
           <tbody>
+            <?php
+            $servername = "localhost";
+            $username = "root";
+            $password = "207460988";
+            $dbname = "HorariosBus";
 
-        </table>
+            // Create connection
+            $conn = new mysqli($servername, $username, $password, $dbname);
+            // Check connection
+            if ($conn->connect_error) {
+              die("Connection failed: " . $conn->connect_error);
+            }
+
+            $sql = "SELECT * FROM `HorariosBus`.`Rutas`";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+
+              // output data of each row
+              while ($row = $result->fetch_assoc()) {
+                echo "<tr>
+                        <td>" . $row["idRutas"] . "</td>
+                        <td>" . $row["destino"] . "</td>
+                        <td>" . $row["origen"] . "</td>
+                        </tr>";
+              }
+              echo "</tbody>
+              </table>";
+            } else {
+              echo "0 results";
+            }
+
+            $conn->close();
+            ?>
+
 
 
       </div>
@@ -188,8 +219,41 @@
             </tr>
           </thead>
           <tbody>
+            <?php
+            $servername = "localhost";
+            $username = "root";
+            $password = "207460988";
+            $dbname = "HorariosBus";
 
-        </table>
+            // Create connection
+            $conn = new mysqli($servername, $username, $password, $dbname);
+            // Check connection
+            if ($conn->connect_error) {
+              die("Connection failed: " . $conn->connect_error);
+            }
+
+            $sql = "SELECT * FROM `HorariosBus`.`Horarios`";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+
+              // output data of each row
+              while ($row = $result->fetch_assoc()) {
+                echo "<tr>
+                        <td>" . $row["Rutas_idRutas"] . "</td>
+                        <td>" . $row["horario"] . "</td>
+                        <td>" . $row["precio"] . "</td>
+                        </tr>";
+              }
+              echo "</tbody>
+              </table>";
+            } else {
+              echo "0 results";
+            }
+
+            $conn->close();
+            ?>
+        
 
 
 
@@ -199,17 +263,17 @@
     <!-- ======= Cta Section ======= -->
     <section id="cta" class="cta">
       <div class="container" data-aos="zoom-in">
-    
+
         <div class="text-center">
           <h3>Reserve ya su tiquete</h3>
           <p>Compre su tiquete en linea desde aquí con con tan solo unos minutos desde cualquier lugar y sin hacer filas seleccione el lugar y el horario que más de convenga.</p>
           <a class="cta-btn" href="compraTicket.html">Comprar tiquetes</a>
         </div>
-    
+
       </div>
     </section><!-- End Cta Section -->
 
-  
+
 
   </main><!-- End #main -->
 
@@ -250,7 +314,7 @@
               <li><i class="bx bx-chevron-right"></i> <a href="compraTicket.html">Compra de tiquetes</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="registrar.html">Registrarse</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="login.html">Inicie sessión</a></li>
-              
+
             </ul>
           </div>
 
@@ -258,16 +322,16 @@
             <h4>Referencias</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="https://www.bootstrapdash.com/product/free-bootstrap-login/" target="_blank">www.bootstrapdash.com</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="http://www.prepbootstrap.com/bootstrap-template/credit-card-payment"target="_blank">http://www.prepbootstrap.com/</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="http://www.prepbootstrap.com/bootstrap-template/credit-card-payment" target="_blank">http://www.prepbootstrap.com/</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="https://bbbootstrap.com/snippets/bootstrap-ecommerce-checkout-page-payment-options-50848752" target="_blank">bbbootstrap.com</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="https://github.com/ODQC"target="_blank">Mi GitHub</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="https://github.com/ODQC/Examen1PrograIV.git"target="_blank">Repositorio Git del proyecto</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://github.com/ODQC" target="_blank">Mi GitHub</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://github.com/ODQC/Examen1PrograIV.git" target="_blank">Repositorio Git del proyecto</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="mailto:oscar.quesada.calderon@est.una.ac.cr">oscar.quesada.calderon@est.una.ac.cr</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="mailto:oscaardanielqc@outlook.es">oscaardanielqc@outlook.es</a></li>
             </ul>
           </div>
 
-        
+
 
         </div>
       </div>
