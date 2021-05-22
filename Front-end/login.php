@@ -22,7 +22,7 @@
             <h1 class="login-title">Iniciar sesión</h1>
             <h3>Centro Bus.</h3>
             <h6> <br> <br> Bienvenido por favor ingrese sus credenciales.</h6>
-            <form action="#!">
+            <form action="login.php" method="POST">
               <div class="form-group">
                 <label for="email">Correo Electrónico</label>
                 <input type="email" name="email" id="email" class="form-control" placeholder="email@example.com">
