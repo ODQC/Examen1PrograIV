@@ -4,7 +4,7 @@ session_start();
 <?php
 
 try {
-	$email = $_POST['clave'];
+	$email = $_POST['email'];
 	$password = md5($_POST['password']);
 	
 	$query = "SELECT * FROM HorariosBus.Usuarios WHERE correo='$email' AND clave='$password'";
@@ -23,7 +23,7 @@ try {
 		
 	} else {
 		echo '<script type="text/JavaScript"> 
-							alert("La el email o contraseña son incorrectos");
+							alert("El email o contraseña son incorrectos");
 						</script>';
 	}
 } catch (Exception $e) {
