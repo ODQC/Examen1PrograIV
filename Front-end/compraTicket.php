@@ -8,19 +8,20 @@ $usuario = implode(", ", $user);
 $idUsuario = $_SESSION['idUsuario'];
 ?>
 <?php
-   function connection(){
-   $servername = "localhost";
-    $username = "root";
-    $password = "207460988";
-    $dbname = "HorariosBus";
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    // Check connection
-    if ($conn->connect_error) {
-      die("Connection failed: " . $conn->connect_error);
-    }
-    return $conn;
+function connection()
+{
+  $servername = "localhost";
+  $username = "root";
+  $password = "207460988";
+  $dbname = "HorariosBus";
+  // Create connection
+  $conn = new mysqli($servername, $username, $password, $dbname);
+  // Check connection
+  if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
   }
+  return $conn;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -166,7 +167,7 @@ $idUsuario = $_SESSION['idUsuario'];
           <tbody>
 
             <?php
-            
+
             $conn = connection();
 
             $sql = "SELECT * FROM `HorariosBus`.`Tiquetes`";
@@ -280,7 +281,17 @@ $idUsuario = $_SESSION['idUsuario'];
         <div class="form-group">
           <select size="1" class="form-control" id="" name="">
             <option value="">--Estado--</option>
-            <option value=""></option>
+            <?php
+            $conn = connection();
+            $sql = "SELECT `numAsiento`, `idEspacio` FROM `HorariosBus`.`Espacios` WHERE (Buses_idBus=3 AND estado='Disponible');";
+            $result = mysqli_query($conn, $sql);
+            ?>
+            <option value="">--Selecionar--</option>
+            <?php while ($row1 = mysqli_fetch_array($result)) :; ?>
+
+              <option value="<?php echo $row1['idEspacio']; ?>"><?php echo $row1['numAsiento']; ?></option>
+
+            <?php endwhile; ?>
           </select>
         </div>
 
