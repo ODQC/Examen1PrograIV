@@ -1,3 +1,19 @@
+<?php
+function connection()
+{
+  $servername = "localhost";
+  $username = "root";
+  $password = "207460988";
+  $dbname = "HorariosBus";
+  // Create connection
+  $conn = new mysqli($servername, $username, $password, $dbname);
+  // Check connection
+  if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+  }
+  return $conn;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -144,18 +160,8 @@
           </thead>
           <tbody>
             <?php
-            $servername = "localhost";
-            $username = "root";
-            $password = "207460988";
-            $dbname = "HorariosBus";
-
-            // Create connection
-            $conn = new mysqli($servername, $username, $password, $dbname);
-            // Check connection
-            if ($conn->connect_error) {
-              die("Connection failed: " . $conn->connect_error);
-            }
-
+            $conn = connection();
+          
             $sql = "SELECT * FROM `HorariosBus`.`Rutas`";
             $result = $conn->query($sql);
 
@@ -193,7 +199,7 @@
           <h3>Cree su propio usuario</h3>
           <p>Cree su propio usuario con un click y haga sus reservaciones de tiquetes desde cualquier lugar y acceda a
             todos los servicios que le ofrecemos .</p>
-          <a class="cta-btn" href="registrar.html">Registrarse</a>
+          <a class="cta-btn" href="registrar.php">Registrarse</a>
         </div>
 
       </div>
@@ -220,18 +226,7 @@
           </thead>
           <tbody>
             <?php
-            $servername = "localhost";
-            $username = "root";
-            $password = "207460988";
-            $dbname = "HorariosBus";
-
-            // Create connection
-            $conn = new mysqli($servername, $username, $password, $dbname);
-            // Check connection
-            if ($conn->connect_error) {
-              die("Connection failed: " . $conn->connect_error);
-            }
-
+            $conn = connection();
             $sql = "SELECT * FROM `HorariosBus`.`Horarios`";
             $result = $conn->query($sql);
 
@@ -253,7 +248,7 @@
 
             $conn->close();
             ?>
-        
+
 
 
 
@@ -267,7 +262,7 @@
         <div class="text-center">
           <h3>Reserve ya su tiquete</h3>
           <p>Compre su tiquete en linea desde aquí con con tan solo unos minutos desde cualquier lugar y sin hacer filas seleccione el lugar y el horario que más de convenga.</p>
-          <a class="cta-btn" href="compraTicket.html">Comprar tiquetes</a>
+          <a class="cta-btn" href="compraTicket.php">Comprar tiquetes</a>
         </div>
 
       </div>
