@@ -1238,7 +1238,7 @@ section {
 .inner-page .php-email-form button[type="submit"]:hover {
   background: #8ec4dd;
 }
-.cta .php-email-form button[type="submit"] {
+.container .php-email-form button[type="submit"] {
   background: #67b0d1;
   border: 0;
   padding: 10px 24px;
@@ -1246,7 +1246,7 @@ section {
   transition: 0.4s;
 }
 
-.cta .php-email-form button[type="submit"]:hover {
+.container .php-email-form button[type="submit"]:hover {
   background: #8ec4dd;
 }
 .inner-page .php-email-form select {
