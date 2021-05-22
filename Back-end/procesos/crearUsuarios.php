@@ -19,13 +19,13 @@ try{
 	$apellido2 = $_POST['apellido2'];
 	$correo = $_POST['email'];
 	$telefono = $_POST['telefono'];
-	$clave = $_POST['password'];
+	$clave = md5($_POST['password']);
 	$nacionalidad = $_POST['nacionalidad'];
 	
 	
 	
 	$sql = "INSERT INTO `HorariosBus`.`Usuarios` (`idUsuario`, `nombre`, `apellido1`, `apellido2`, `correo`, `telefono`, `clave`, `nacionalidad`)
-	VALUES ('$idUsuario','$nombre','$apellido1','$apellido2','$correo','$telefono',md5('$clave'),'$nacionalidad')";
+	VALUES ('$idUsuario','$nombre','$apellido1','$apellido2','$correo','$telefono','$clave','$nacionalidad')";
 	$result = mysqli_query($conn,$sql);
 	if ($result) {
 		echo '<script type="text/JavaScript"> 
