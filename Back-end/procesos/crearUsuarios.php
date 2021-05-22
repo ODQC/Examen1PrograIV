@@ -25,7 +25,7 @@ try{
 	
 	
 	$sql = "INSERT INTO `HorariosBus`.`Usuarios` (`idUsuario`, `nombre`, `apellido1`, `apellido2`, `correo`, `telefono`, `clave`, `nacionalidad`)
-	VALUES ('$idUsuario','$nombre','$apellido1','$apellido2','$correo','$telefono','$clave','$nacionalidad')";
+	VALUES ('$idUsuario','$nombre','$apellido1','$apellido2','$correo','$telefono',md5('$clave'),'$nacionalidad')";
 	$result = mysqli_query($conn,$sql);
 	if ($result) {
 		echo '<script type="text/JavaScript"> 
