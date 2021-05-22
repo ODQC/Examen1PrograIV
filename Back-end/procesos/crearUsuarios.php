@@ -5,7 +5,7 @@ try{
 	$nombre = $_POST['email'];
 	$apellido1 = $_POST['apellido1'];
 	$apellido2 = $_POST['apellido2'];
-	$correo = $_POST['correo'];
+	$correo = $_POST['email'];
 	$telefono = $_POST['telefono'];
 	$clave = $_POST['password'];
 	$nacionalidad = $_POST['nacionalidad'];
