@@ -9,7 +9,7 @@ $("#payment-button").click(function (e) {
 
     var form = $(this).parents('form');
 
-    var cvv = $('#x_card_code').val();
+    var cvv = $('#cvv').val();
     var regCVV = /^[0-9]{3,4}$/;
     var CardNo = $('#cc-number').val();
     var regCardNo = /^[0-9]{12,16}$/;
@@ -24,22 +24,22 @@ $("#payment-button").click(function (e) {
     else {
         if (!regCardNo.test(CardNo)) {
 
-            $("#cc-number").addClass('required');
-            $("#cc-number").focus();
+            $("#idTarjetas").addClass('required');
+            $("#idTarjetas").focus();
             alert(" Enter a valid 12 to 16 card number");
             return false;
         }
         else if (!regCVV.test(cvv)) {
 
-            $("#x_card_code").addClass('required');
-            $("#x_card_code").focus();
+            $("#cvv").addClass('required');
+            $("#cvv").focus();
             alert(" Enter a valid CVV");
             return false;
         }
         else if (!regMonth.test(date[0]) && !regMonth.test(date[1])) {
 
-            $("#cc_exp").addClass('required');
-            $("#cc_exp").focus();
+            $("#fechaVencimineto").addClass('required');
+            $("#fechaVencimineto").focus();
             alert(" Enter a valid exp date");
             return false;
         }

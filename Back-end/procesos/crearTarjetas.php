@@ -6,7 +6,7 @@ try{
 
 	$idTarjetas = $_POST['idTarjetas'];
 	$tarjeta = $_POST['tarjeta'];
-	$ccv = $_POST['ccv'];
+	$cvv = $_POST['cvv'];
 	$fechaVencimineto = $_POST['fechaVencimineto'];
 	$Usuarios_idUsuario = $_POST['Usuarios_idUsuario'];
 	

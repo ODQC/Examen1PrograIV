@@ -353,7 +353,7 @@ $fechaSalida = 'fechaSalida';
           <input type="button" name="next" class="next btn btn-info" value="Siguiente" />
         </fieldset>
         <fieldset>
-          <h2>Paso 4: Confirmar Compra</h2>
+          <h2>Paso 3: Confirmar Compra</h2>
 
           <table class="table table-hover">
 
@@ -386,10 +386,10 @@ $fechaSalida = 'fechaSalida';
 
             </tbody>
           </table>
-          <h2>Paso 3: Método de pago</h2>
+          <h2>Paso 4: Método de pago</h2>
 
           <div class="form-group">
-            <form action="addCard()" method="post" novalidate="novalidate" class="needs-validation" onclick="">
+            <form method="post" novalidate="novalidate" class="needs-validation" >
 
 
               <div class="form-group">
@@ -410,7 +410,7 @@ $fechaSalida = 'fechaSalida';
                 <div class="col-6">
                   <label for="x_card_code" class="control-label mb-1">CVV</label>
                   <div class="input-group">
-                    <input id="ccv" name="ccv" type="tel" class="form-control cc-cvc" required autocomplete="off">
+                    <input id="cvv" name="cvv" type="tel" class="form-control cc-cvc" required autocomplete="off">
                     <span class="invalid-feedback order-last">Enter the 3-digit code on back</span>
                     <div class="input-group-append">
                       <div class="input-group-text">
