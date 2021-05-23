@@ -1,7 +1,7 @@
 <?php
 
-function connection()
-{
+
+
     $servername = "localhost";
     $username = "root";
     $password = "207460988";
@@ -12,19 +12,19 @@ function connection()
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-    return $conn;
-}
+    
 
 
-$Buses_idBus = $_POST['Buses_idBus'];
-$queryM = "SELECT `numAsiento`, `idEspacio` FROM `HorariosBus`.`Espacios` WHERE (Buses_idBus=$Buses_idBus AND estado='Disponible');";
-$resultadoM = $mysqli->query($queryM);
 
-$html = "<option value='0'>Seleccionar Asiento</option>";
+    $Buses_idBus = $_POST['Buses_idBus'];
+    $queryM = "SELECT `numAsiento`, `idEspacio` FROM `HorariosBus`.`Espacios` WHERE (Buses_idBus=$Buses_idBus AND estado='Disponible');";
+    $resultadoM = $mysqli->query($queryM);
 
-while ($rowM = $resultadoM->fetch_assoc()) {
-    $html .= "<option value='" . $rowM['idEspacio'] . "'>" . $rowM['numAsiento'] . "</option>";
-}
+    $html = "<option value='0'>Seleccionar Asiento</option>";
 
-echo $html;
+    while ($rowM = $resultadoM->fetch_assoc()) {
+        $html .= "<option value='" . $rowM['idEspacio'] . "'>" . $rowM['numAsiento'] . "</option>";
+    }
+
+    echo $html;
 
