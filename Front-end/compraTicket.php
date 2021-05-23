@@ -33,7 +33,6 @@ function connection()
 }
 ?>
 <script type="text/javascript">
-  
   function showHorario(str) {
     if (str == "") {
       document.getElementById("txtHint").innerHTML = "";
@@ -48,8 +47,7 @@ function connection()
       xmlhttp.open("GET", "getuser.php?q=" + str, true);
       xmlhttp.send();
     }
-  } 
-
+  }
 </script>
 <!DOCTYPE html>
 <html lang="en">
@@ -57,7 +55,7 @@ function connection()
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
+  <script src="assets/js/jquery-3.3.1.min.js"></script>
   <title>Comprar tiquetes</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
