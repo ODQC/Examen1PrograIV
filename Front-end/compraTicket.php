@@ -290,7 +290,7 @@ function connection()
 
           <thead>
             <tr>
-              <th>id Rutas</th>
+              <th>id Horario</th>
               <th>Rutas</th>
               <th>Horarios</th>
               <th>Precios</th>
@@ -308,7 +308,7 @@ function connection()
               // output data of each row
               while ($row = $result->fetch_assoc()) {
                 echo "<tr>
-                        <td>" . $row["idHorario"] . "</td>
+                        <td>" . $row["idhorario"] . "</td>
                         <td>" . $row["Rutas_idRutas"] . "</td>
                         <td>" . $row["horario"] . "</td>
                         <td>" . $row["precio"] . "</td>
