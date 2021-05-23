@@ -258,6 +258,12 @@ function genCod()
         <fieldset>
           <h2> Paso 2: Seleccione el Horario</h2>
           <div class="form-group">
+            <h4>Seleccione la fecha:</h4>
+            <label for="fechaSalida">Fecha de salida:</label>
+            <input type="datetime-local" id="fechaSalida" name="fechaSalida">
+
+          </div>
+          <div class="form-group">
             <table class="table table-hover">
 
               <thead>
@@ -297,7 +303,9 @@ function genCod()
 
           </div>
           <div class="form-group">
+            <h4>Seleccione el horario:</h4>
             <select size="1" class="form-control" id="cbx_horario" name="cbx_horario">
+
               <?php
               $conn = connection();
               $sql = "SELECT * FROM `HorariosBus`.`Horarios`";
@@ -312,12 +320,7 @@ function genCod()
               <?php endwhile; ?>
             </select>
           </div>
-          <div>
-            <h3>Seleccione la fecha:</h3>
-            <label for="fechaSalida">Fecha de salida:</label>
-            <input type="datetime-local" id="fechaSalida" name="fechaSalida">
-            
-          </div>
+
 
           <input type="button" name="previous" class="previous btn btn-default" value="Previo" />
           <input type="button" name="next" class="next btn btn-info" value="Siguiente" />
