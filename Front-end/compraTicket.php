@@ -399,7 +399,7 @@ function genCod()
                 <div>
                   <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
                     <i class="fa fa-lock fa-lg"></i>&nbsp;
-                    <span id="payment-button-amount">Pagar </span>
+                    <span id="payment-button-amount">Verificar forma de pago </span>
                     <span id="payment-button-sending" style="display:none;">Sending…</span>
                   </button>
                 </div>
