@@ -33,21 +33,34 @@ function connection()
 }
 ?>
 <script type="text/javascript">
-  function showHorario(str) {
-    if (str == "") {
-      document.getElementById("txtHint").innerHTML = "";
-      return;
-    } else {
-      var xmlhttp = new XMLHttpRequest();
-      xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-          document.getElementById("txtHint").innerHTML = this.responseText;
-        }
-      };
-      xmlhttp.open("GET", "getuser.php?q=" + str, true);
-      xmlhttp.send();
-    }
-  }
+  $(document).ready(function() {
+    $("#cbx_horario").change(function() {
+
+      //$('#cbx_localidad').find('option').remove().end().append('<option value="whatever"></option>').val('whatever');
+
+      $("#cbx_horario option:selected").each(function() {
+        id_estado = $(this).val();
+        $.post("../Back-end/procesos/buscarEspacio.php", {
+          Buses_idBus: Buses_idBus
+        }, function(data) {
+          $("#cbx_Espacio").html(data);
+        });
+      });
+    })
+  });
+
+  $(document).ready(function() {
+    $("#cbx_municipio").change(function() {
+      $("#cbx_municipio option:selected").each(function() {
+        id_municipio = $(this).val();
+        $.post("includes/getLocalidad.php", {
+          id_municipio: id_municipio
+        }, function(data) {
+          $("#cbx_localidad").html(data);
+        });
+      });
+    })
+  });
 </script>
 <!DOCTYPE html>
 <html lang="en">
@@ -277,6 +290,7 @@ function connection()
 
           <thead>
             <tr>
+              <th>id Rutas</th>
               <th>Rutas</th>
               <th>Horarios</th>
               <th>Precios</th>
@@ -294,6 +308,7 @@ function connection()
               // output data of each row
               while ($row = $result->fetch_assoc()) {
                 echo "<tr>
+                        <td>" . $row["idHorario"] . "</td>
                         <td>" . $row["Rutas_idRutas"] . "</td>
                         <td>" . $row["horario"] . "</td>
                         <td>" . $row["precio"] . "</td>
@@ -309,19 +324,19 @@ function connection()
             ?>
 
 
-            <br> Por favor selecciones el horario y ruta en cuál desea reservar.
+            <br> Por favor selecciones el número de horario en cuál desea reservar.
             <div class="form-group">
 
-              <select size="1" class="form-control" id="" name="">
+              <select size="1" class="form-control" id="cbx_horario" name="cbx_horario">
                 <?php
                 $conn = connection();
-                $sql = "SELECT `idRutas` FROM `HorariosBus`.`Rutas`";
+                $sql = "SELECT `idhorario`,`Buses_idBus` FROM `HorariosBus`.`Horario`";
                 $result = mysqli_query($conn, $sql);
                 ?>
                 <option value="">--Selecionar--</option>
                 <?php while ($row1 = mysqli_fetch_array($result)) :; ?>
 
-                  <option value="<?php echo $row1['idRutas']; ?>"><?php echo $row1['idRutas']; ?></option>
+                  <option value="<?php echo $row1['Buses_idBus']; ?>"><?php echo $row1['idhorario']; ?></option>
 
                 <?php endwhile; ?>
               </select>
@@ -343,19 +358,9 @@ function connection()
         <img src="assets/img/espacios-bus.jpeg" alt="Trulli" width="800" height="333">
         <br>Selecione el lugar de su preferencia.
         <div class="form-group">
-          <select size="1" class="form-control" id="" name="">
-            <option value="">--Estado--</option>
-            <?php
-            $conn = connection();
-            $sql = "SELECT `numAsiento`, `idEspacio` FROM `HorariosBus`.`Espacios` WHERE (Buses_idBus=3 AND estado='Disponible');";
-            $result = mysqli_query($conn, $sql);
-            ?>
-            <option value="">--Selecionar--</option>
-            <?php while ($row1 = mysqli_fetch_array($result)) :; ?>
-
-              <option value="<?php echo $row1['idEspacio']; ?>"><?php echo $row1['numAsiento']; ?></option>
-
-            <?php endwhile; ?>
+          <select size="1" class="form-control" id="cbx_Espacio" name="cbx_Espacio">
+            
+          
           </select>
         </div>
 
