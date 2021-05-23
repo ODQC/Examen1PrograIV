@@ -11,12 +11,6 @@ $idUsuario = $_SESSION['idUsuario'];
 include 'Tiquete.php';
 
 $tiquete1 = new Ticket();
-function Hola()
-{
-  echo '<script type="text/JavaScript"> 
-			alert("Hola mundo");
-		</script>';
-}
 
 function connection()
 {
@@ -33,6 +27,12 @@ function connection()
   return $conn;
 }
 ?>
+<script type="text/javascript">
+  function hola() {
+
+    alert("Hello");
+  }
+</script>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -154,7 +154,7 @@ function connection()
   </main><!-- End #main -->
   <!-- ======= Section1 ======= -->
   <section class="inner-page" id="Mistiquetes">
-    <form name="MisTiquetes" id="MisTiquetes" action="<?php Hola(); ?>" method="post" role="form" class="php-email-form">
+    <form name="MisTiquetes" id="MisTiquetes" action="" method="post" role="form" class="php-email-form">
       <div class="container">
         <p>
         <h4>Mis tiquetes</h4>
@@ -217,7 +217,7 @@ function connection()
     <div class="container" data-aos="zoom-in">
 
       <div class="text-center">
-        <form id="Agendar" name="Agendar" action="<?php Hola(); ?>" method="post" role="form" class="php-email-form">
+        <form id="Agendar" name="Agendar" action="" method="post" role="form" class="php-email-form">
           <div class="container">
             <p>
             <h4>Agendar viaje</h4>
@@ -242,7 +242,7 @@ function connection()
 
               </div>
             </div>
-            <div class="fecha_btn"><button type="submit">Seleccionar</button></div>
+            <div class="fecha_btn"><button onclick="hola()" type="submit">Seleccionar</button></div>
 
           </div>
         </form>
@@ -319,7 +319,7 @@ function connection()
 
   <!-- ======= Section2 ======= -->
   <section class="inner-page" id="lugares">
-    <form id="Espacios" name="Espacios" action="<?php Hola(); ?>" method="post" role="form" class="php-email-form">
+    <form id="Espacios" name="Espacios" action="" method="post" role="form" class="php-email-form">
       <div class="container">
         <p>
         <h4>Lugares disponibles</h4>
@@ -528,12 +528,14 @@ function connection()
   <script src="assets/js/pagar.js"></script>
   <script src="assets/js/calendar.js"></script>
 
- <?php
- # if (isset($_POST[''])) {
-  #} else if (isset($_POST[''])) {
-  #} else if (isset($_POST[''])) {
-  #} else if (isset($_POST[''])) {
-  #}
+  <?php
+  if (isset($_POST[''])) {
+  } else if (isset($_POST[''])) {
+  } else if (isset($_POST[''])) {
+  } else if (isset($_POST[''])) {
+  }
+
+
   ?>
 </body>
 
