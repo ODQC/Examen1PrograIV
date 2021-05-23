@@ -306,18 +306,18 @@ $fechaSalida = 'fechaSalida';
           </div>
           <div class="form-group">
             <h4>Seleccione el horario:</h4>
-            <select size="1" class="form-control" id="idhorario" name="idhorario">
+            <select size="1" class="form-control" id="idhorario" name="idhorario" onchange="FetchCity(this.value)" required>
 
               <?php
               $conn = connection();
               $sql = "SELECT * FROM `HorariosBus`.`Horarios`";
               $result = mysqli_query($conn, $sql);
               ?>
-              <option value="">--Selecionar--</option>
+              <option value="0">--Selecionar--</option>
               <?php while ($row1 = mysqli_fetch_array($result)) :; ?>
 
                 <? $option =  $row1["Rutas_idRutas"] ?>
-                <option value="<?php echo $row1['Buses_idBus']; ?>"><?php echo ($row1["Rutas_idRutas"]), ("-"), ($row1["horario"]); ?></option>
+                <option value=" <?php echo $row1['Buses_idBus']; ?>"><?php echo ($row1["Rutas_idRutas"]), ("-"), ($row1["horario"]); ?></option>
 
               <?php endwhile; ?>
             </select>
@@ -333,19 +333,8 @@ $fechaSalida = 'fechaSalida';
             <br>Selecione el lugar de su preferencia.
           </div>
           <div class="form-group">
-            <select size="1" class="form-control" id="idEspacio" name="idEspacio">
-
-              <?php
-              $conn = connection();
-              $sql = "SELECT `numAsiento`, `idEspacio` FROM `HorariosBus`.`Espacios` WHERE (Buses_idBus=$Buses_idBus AND estado='Disponible')";
-              $result = mysqli_query($conn, $sql);
-              ?>
-              <option value="">--Selecionar--</option>
-              <?php while ($row1 = mysqli_fetch_array($result)) :; ?>
-
-                <option value="<?php echo $row1['idEspacio']; ?>"><?php echo $row1['numAsiento']; ?></option>
-
-              <?php endwhile; ?>
+            <select size="1" class="form-control" id="idEspacio" name="idEspacio" onchange="FetchCity(this.value)" required>
+              <option>--Espacio--</option>
             </select>
           </div>
 
@@ -544,9 +533,20 @@ $fechaSalida = 'fechaSalida';
 </body>
 
 </html>
-<script>
-  document.getElementById
-</script>
 <script type="text/javascript">
+  function FetchState(id) {
+    $('#idEspacio').html('');
+    // $('#city').html('<option>Select City</option>');
+    $.ajax({
+      type: 'post',
+      url: '../Back-end/procesos/buscarEspacio.php',
+      data: {
+        idhorario: id
+      },
+      success: function(data) {
+        $('#idEspacio').html(data);
+      }
 
+    })
+  }
 </script>

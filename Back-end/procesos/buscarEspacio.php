@@ -16,15 +16,19 @@
 
 
 
-    $Buses_idBus = $_POST['Buses_idBus'];
-    $queryM = "SELECT `numAsiento`, `idEspacio` FROM `HorariosBus`.`Espacios` WHERE (Buses_idBus=$Buses_idBus AND estado='Disponible');";
-    $resultadoM = $mysqli->query($queryM);
+    if (isset($_POST['Buses_idBus'])) {
+        $conn = connection();
+        $sql = "SELECT `numAsiento`, `idEspacio` FROM `HorariosBus`.`Espacios` WHERE (Buses_idBus=$Buses_idBus AND estado='Disponible')";
+        $result = mysqli_query($conn, $sql);
+      ?>
+        <option value="">--Selecionar--</option>
 
-    $html = "<option value='0'>Seleccionar Asiento</option>";
+            <?php while ($row1 = mysqli_fetch_array($result)) :; ?>
 
-    while ($rowM = $resultadoM->fetch_assoc()) {
-        $html .= "<option value='" . $rowM['idEspacio'] . "'>" . $rowM['numAsiento'] . "</option>";
-    }
+                <option value=" <?php echo $row1['idEspacio']; ?>"><?php echo $row1['numAsiento']; ?></option>
 
-    echo $html;
+            <?php endwhile;?>
+        }
+    } 
+
 
