@@ -389,7 +389,7 @@ $fechaSalida = 'fechaSalida';
               </div>
 
               <div>
-                <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
+                <button id="payment-button" name="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
                   <i class="fa fa-lock fa-lg"></i>&nbsp;
                   <span id="payment-button-amount">Verificar método de pago </span>
                   <span id="payment-button-sending" style="display:none;">Sending…</span>
@@ -576,5 +576,9 @@ $fechaSalida = 'fechaSalida';
         .css("width", percent + "%")
         .html(percent + "%");
     }
+    $(".payment-button").click(function() {
+      alert("holi");
+    });
+
   });
 </script>
