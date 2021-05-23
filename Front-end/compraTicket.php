@@ -356,7 +356,7 @@ $fechaSalida = 'fechaSalida';
           <h2>Paso 3: Método de pago</h2>
 
           <div class="form-group">
-            <form action="../Back-end/procesos/crearTarjetas.php" method="post" novalidate="novalidate" class="needs-validation">
+            <form action="addCard()" method="post" novalidate="novalidate" class="needs-validation">
 
 
               <div class="form-group">
@@ -549,34 +549,8 @@ $fechaSalida = 'fechaSalida';
 
 </html>
 <script type="text/javascript">
-  $(document).ready(function() {
-        var current = 1,
-          current_step, next_step, steps;
-        steps = $("fieldset").length;
-        $(".next").click(function() {
-          current_step = $(this).parent();
-          next_step = $(this).parent().next();
-          next_step.show();
-          current_step.hide();
-          setProgressBar(++current);
-        });
-        $(".previous").click(function() {
-          current_step = $(this).parent();
-          next_step = $(this).parent().prev();
-          next_step.show();
-          current_step.hide();
-          setProgressBar(--current);
-        });
-        setProgressBar(current);
-        // Change progress bar action
-        function setProgressBar(curStep) {
-          var percent = parseFloat(100 / steps) * curStep;
-          percent = percent.toFixed();
-          $(".progress-bar")
-            .css("width", percent + "%")
-            .html(percent + "%");
-        }
-        $(".payment-button").click(function() {
+  function addCard() {
+    $(".payment-button").click(function() {
           $.ajax({
             type: 'POST',
             url: '../Back-end/procesos/crearTarjetas.php',
@@ -586,6 +560,34 @@ $fechaSalida = 'fechaSalida';
 
             }
           });
+        }
+        $(document).ready(function() {
+          var current = 1,
+            current_step, next_step, steps;
+          steps = $("fieldset").length;
+          $(".next").click(function() {
+            current_step = $(this).parent();
+            next_step = $(this).parent().next();
+            next_step.show();
+            current_step.hide();
+            setProgressBar(++current);
+          });
+          $(".previous").click(function() {
+            current_step = $(this).parent();
+            next_step = $(this).parent().prev();
+            next_step.show();
+            current_step.hide();
+            setProgressBar(--current);
+          });
+          setProgressBar(current);
+          // Change progress bar action
+          function setProgressBar(curStep) {
+            var percent = parseFloat(100 / steps) * curStep;
+            percent = percent.toFixed();
+            $(".progress-bar")
+              .css("width", percent + "%")
+              .html(percent + "%");
+          }
 
         });
 </script>
