@@ -305,12 +305,19 @@ function genCod()
               ?>
               <option value="">--Selecionar--</option>
               <?php while ($row1 = mysqli_fetch_array($result)) :; ?>
-                
+
                 <? $option =  $row1["Rutas_idRutas"] ?>
-                <option value="<?php echo $row1['Buses_idBus']; ?>"><?php echo ($row1["Rutas_idRutas"]) ,("-"), ($row1["horario"]); ?></option>
+                <option value="<?php echo $row1['Buses_idBus']; ?>"><?php echo ($row1["Rutas_idRutas"]), ("-"), ($row1["horario"]); ?></option>
 
               <?php endwhile; ?>
             </select>
+          </div>
+          <div>
+            <h1>Seleccione la fecha</h1>
+            <label for="fechaSalida">Fecha de salida:</label>
+            <input type="datetime-local" id="fechaSalida" name="fechaSalida">
+            <input type="submit">
+
           </div>
 
           <input type="button" name="previous" class="previous btn btn-default" value="Previo" />
@@ -344,7 +351,7 @@ function genCod()
         </fieldset>
         <fieldset>
           <h2>Paso 4: Método de pago</h2>
-          
+
           <div class="form-group">
             <form action="" method="post" novalidate="novalidate" class="needs-validation">
 
