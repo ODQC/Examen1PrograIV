@@ -291,7 +291,7 @@ function genCod()
               </form>
             </div>
             
-            <input type="button" name="data[password]" class="next btn btn-info" value="Siguiente" />
+            
           </fieldset>
           <!-- ================================PASO2=========================================== -->
           <fieldset>
