@@ -260,33 +260,36 @@ function genCod()
           <fieldset>
             <h2>Paso 1: Seleccione la fecha</h2>
             <div class="form-group">
-              
-                <div class="container">
-                  <p>
-                  <h4>Agendar viaje</h4>
-                  <br>Seleccione la fecha en la que quiere viajar.
-                  </p>
 
-                  <div class="content">
+              <div class="container">
+                <p>
+                <h4>Agendar viaje</h4>
+                <br>Seleccione la fecha en la que quiere viajar.
+                </p>
 
-                    <div class="container text-left">
+                <div class="content">
 
-                      <div class="row justify-content-center">
-                        <div class="col-md-10 text-center">
+                  <div class="container text-left">
 
-                          <input type="text" class="form-control w-25 mx-auto mb-3" id="result" placeholder="Select date" disabled="">
-                          <form action="#" class="row">
-                            <div class="col-md-12">
-                              <div id="inline_cal"></div>
-                            </div>
-                          </form>
-                        </div>
+                    <div class="row justify-content-center">
+                      <div class="col-md-10 text-center">
+
+                        <input type="text" class="form-control w-25 mx-auto mb-3" id="result" placeholder="Select date" disabled="">
+                        <form action="#" class="row">
+                          <div class="col-md-12">
+                            <div id="inline_cal"></div>
+                          </div>
+                        </form>
                       </div>
-
                     </div>
+
                   </div>
                 </div>
-              
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" class="form-control" id="password" placeholder="Password">
             </div>
             <input type="button" name="data[password]" class="next btn btn-info" value="Siguiente" />
           </fieldset>
@@ -432,9 +435,6 @@ function genCod()
           </fieldset>
         </form>
       </div>
-
-
-
 
     </div>
   </section>
