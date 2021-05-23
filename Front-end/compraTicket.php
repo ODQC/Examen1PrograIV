@@ -6,6 +6,8 @@ if (!$_SESSION['verificar']) {
 $user = $_SESSION['user'];
 $usuario = implode(", ", $user);
 $idUsuario = $_SESSION['idUsuario'];
+echo $idUsuario
+
 ?>
 <?php
 include 'Tiquete.php';
@@ -32,6 +34,12 @@ function connection()
   return $conn;
 }
 ?>
+<script type="text/JavaScript">
+  
+}
+
+
+</script>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -324,9 +332,7 @@ function connection()
                 <option value="">--Selecionar--</option>
                 <?php while ($row1 = mysqli_fetch_array($result)) :; ?>
 
-                  <option value="<?php echo $row1['Buses_idBus']; ?>" 
-                  <?php if ($rowE['idhorario'] == $estado) {echo 'selected';} ?>>
-                  <?php echo $row1['idhorario']; ?></option>
+                  <option value="<?php echo $row1['Buses_idBus']; ?>"><?php echo $row1['idhorario']; ?></option>
 
                 <?php endwhile; ?>
               </select>
@@ -350,7 +356,17 @@ function connection()
         <div class="form-group">
           <select size="1" class="form-control" id="cbx_Espacio" name="cbx_Espacio">
 
+            <?php
+            $conn = connection();
+            $sql = "SELECT `numAsiento`, `idEspacio` FROM `HorariosBus`.`Espacios` WHERE (Buses_idBus=$Buses_idBus AND estado='Disponible')";
+            $result = mysqli_query($conn, $sql);
+            ?>
+            <option value="">--Selecionar--</option>
+            <?php while ($row1 = mysqli_fetch_array($result)) :; ?>
 
+              <option value="<?php echo $row1['idEspacio']; ?>"><?php echo $row1['numAsiento']; ?></option>
+
+            <?php endwhile; ?>
           </select>
         </div>
 
