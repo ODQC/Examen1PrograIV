@@ -1,6 +1,6 @@
 
 jQuery(document).ready(function () {
-    jQuery(".mark-as-read").click(function () {
+    jQuery(".payment-button").click(function () {
         console.log('The function is hooked up');
         jQuery.ajax({
             type: "POST",
