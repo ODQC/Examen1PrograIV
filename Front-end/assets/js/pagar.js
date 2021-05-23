@@ -7,13 +7,13 @@ $(function () {
 $("#payment-button").click(function (e) {
 
 
-    var form = $(this).parents('form');
+    var form = document.getElementById("metodoPago");
 
     var cvv = $('#cvv').val();
     var regCVV = /^[0-9]{3,4}$/;
-    var CardNo = $('#cc-number').val();
+    var CardNo = $('#idTarjetas').val();
     var regCardNo = /^[0-9]{12,16}$/;
-    var date = $('#cc-exp').val().split('/');
+    var date = $('#fechaVencimineto').val().split('/');
     var regMonth = /^01|02|03|04|05|06|07|08|09|10|11|12$/;
     var regYear = /^20|21|22|23|24|25|26|27|28|29|30|31$/;
 

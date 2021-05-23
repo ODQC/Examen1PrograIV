@@ -389,7 +389,7 @@ $fechaSalida = 'fechaSalida';
           <h2>Paso 4: Método de pago</h2>
 
           <div class="form-group">
-            <form method="post" novalidate="novalidate" class="needs-validation" >
+            <form id="metodoPago" method="post" novalidate="novalidate" class="needs-validation" >
 
 
               <div class="form-group">
