@@ -205,7 +205,7 @@ function connection()
 
             $conn = connection();
 
-            $sql = "SELECT * FROM `HorariosBus`.`Tiquetes` WHERE ('Usuarios_idUsuario'='$idUsuario')";
+            $sql = "SELECT * FROM `HorariosBus`.`Tiquetes` WHERE (`Usuarios_idUsuario`='$idUsuario')";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
