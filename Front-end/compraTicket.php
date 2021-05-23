@@ -260,7 +260,7 @@ function genCod()
           <fieldset>
             <h2>Paso 1: Seleccione la fecha</h2>
             <div class="form-group">
-              <form id="Agendar" name="Agendar" action="" method="post" role="form" class="php-email-form">
+              
                 <div class="container">
                   <p>
                   <h4>Agendar viaje</h4>
@@ -285,12 +285,9 @@ function genCod()
 
                     </div>
                   </div>
-                  
-
                 </div>
-              </form>
+              
             </div>
-            
             <input type="button" name="data[password]" class="next btn btn-info" value="Siguiente" />
           </fieldset>
           <!-- ================================PASO2=========================================== -->
