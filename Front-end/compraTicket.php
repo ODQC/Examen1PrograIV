@@ -32,36 +32,6 @@ function connection()
   return $conn;
 }
 ?>
-<script type="text/javascript">
-  $(document).ready(function() {
-    $("#cbx_horario").change(function() {
-
-      //$('#cbx_localidad').find('option').remove().end().append('<option value="whatever"></option>').val('whatever');
-
-      $("#cbx_horario option:selected").each(function() {
-        Buses_idBus = $(this).val();
-        $.post("../Back-end/procesos/buscarEspacio.php", {
-          Buses_idBus: Buses_idBus
-        }, function(data) {
-          $("#cbx_Espacio").html(data);
-        });
-      });
-    })
-  });
-
-  $(document).ready(function() {
-    $("#cbx_municipio").change(function() {
-      $("#cbx_municipio option:selected").each(function() {
-        id_municipio = $(this).val();
-        $.post("includes/getLocalidad.php", {
-          id_municipio: id_municipio
-        }, function(data) {
-          $("#cbx_localidad").html(data);
-        });
-      });
-    })
-  });
-</script>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -91,6 +61,25 @@ function connection()
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $("#cbx_horario").change(function() {
+
+        //$('#cbx_localidad').find('option').remove().end().append('<option value="whatever"></option>').val('whatever');
+
+        $("#cbx_horario option:selected").each(function() {
+          Buses_idBus = $(this).val();
+          $.post("../Back-end/procesos/buscarEspacio.php", {
+            Buses_idBus: Buses_idBus
+          }, function(data) {
+            $("#cbx_Espacio").html(data);
+          });
+        });
+      })
+    });
+
+    
+  </script>
 
   <!-- =======================================================
   * Template Name: Squadfree - v2.3.1
