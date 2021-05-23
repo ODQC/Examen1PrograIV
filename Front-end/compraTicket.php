@@ -227,7 +227,7 @@ function connection()
               echo "</tbody>
               </table>";
             } else {
-              echo "0 results";
+              echo "El cliente aún no tiene tiquetes comprados.";
             }
 
             $conn->close();
