@@ -39,7 +39,7 @@ function connection()
       //$('#cbx_localidad').find('option').remove().end().append('<option value="whatever"></option>').val('whatever');
 
       $("#cbx_horario option:selected").each(function() {
-        id_estado = $(this).val();
+        Buses_idBus = $(this).val();
         $.post("../Back-end/procesos/buscarEspacio.php", {
           Buses_idBus: Buses_idBus
         }, function(data) {
@@ -359,8 +359,8 @@ function connection()
         <br>Selecione el lugar de su preferencia.
         <div class="form-group">
           <select size="1" class="form-control" id="cbx_Espacio" name="cbx_Espacio">
-            
-          
+
+
           </select>
         </div>
 
