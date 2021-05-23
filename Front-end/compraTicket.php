@@ -223,7 +223,7 @@ function connection()
     <div class="container" data-aos="zoom-in">
 
       <div class="text-center">
-        <form id="Agendar" name="Agendar" action="" method="post" role="form" class="php-email-form">
+        <form id="Agendar" name="Agendar" action="<?php Hey() ?>" method="post" role="form" class="php-email-form">
           <div class="container">
             <p>
             <h4>Agendar viaje</h4>
@@ -248,7 +248,7 @@ function connection()
 
               </div>
             </div>
-            <div class="fecha_btn"><button onclick="<?php Hey() ?>" type="submit">Seleccionar</button></div>
+            <div class="fecha_btn"><button onclick="" type="submit">Seleccionar</button></div>
 
           </div>
         </form>
