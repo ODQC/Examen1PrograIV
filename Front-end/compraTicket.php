@@ -300,13 +300,13 @@ function genCod()
             <select size="1" class="form-control" id="cbx_horario" name="cbx_horario">
               <?php
               $conn = connection();
-              $sql = "SELECT `idhorario`,`Buses_idBus` FROM `HorariosBus`.`Horarios`";
+              $sql = "SELECT * FROM `HorariosBus`.`Horarios`";
               $result = mysqli_query($conn, $sql);
               ?>
               <option value="">--Selecionar--</option>
               <?php while ($row1 = mysqli_fetch_array($result)) :; ?>
                 
-                <? $idRuta = $row1['Rutas_idRutas'] . $row1['horario'] ?>
+                <? $idRuta =  $row1['Rutas_idRutas'] . $row1['horario']; ?>
                 <option value="<?php echo $row1['Buses_idBus']; ?>"><?php echo $idRuta ; ?></option>
 
               <?php endwhile; ?>
