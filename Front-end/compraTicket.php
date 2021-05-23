@@ -335,14 +335,26 @@ function genCod()
           <fieldset>
 
 
-            <h2> Paso 2: Seleccione el Espacio</h2>
+            <h2> Paso 3: Seleccione el Espacio</h2>
             <div class="form-group">
-              <label for="fName">Nombres</label>
-              <input type="text" class="form-control" name="data[fName]" id="fName" placeholder="Nombres">
+              <img src="assets/img/espacios-bus.jpeg" alt="Trulli" width="800" height="333">
+              <br>Selecione el lugar de su preferencia.
             </div>
             <div class="form-group">
-              <label for="lName">Apellidos</label>
-              <input type="text" class="form-control" name="data[lName]" id="lName" placeholder="Apellidos">
+              <select size="1" class="form-control" id="cbx_Espacio" name="cbx_Espacio">
+
+                <?php
+                $conn = connection();
+                $sql = "SELECT `numAsiento`, `idEspacio` FROM `HorariosBus`.`Espacios` WHERE (Buses_idBus=$Buses_idBus AND estado='Disponible')";
+                $result = mysqli_query($conn, $sql);
+                ?>
+                <option value="">--Selecionar--</option>
+                <?php while ($row1 = mysqli_fetch_array($result)) :; ?>
+
+                  <option value="<?php echo $row1['idEspacio']; ?>"><?php echo $row1['numAsiento']; ?></option>
+
+                <?php endwhile; ?>
+              </select>
             </div>
             <input type="button" name="previous" class="previous btn btn-default" value="Previo" />
             <input type="button" name="next" class="next btn btn-info" value="Siguiente" />
