@@ -33,6 +33,13 @@ function genCod()
 
   return bin2hex(random_bytes(10));
 }
+$idTiquetes = genCod();                    
+$Espacios_idEspacio = "";
+$Espacios_Buses_idBus = "";
+$Horarios_idhorario = "";
+$Horarios_Rutas_idRutas = "";
+$fechaEmision = date('Y-m-d H:i:s');
+$fechaSalida = 'fechaSalida';
 ?>
 
 <!DOCTYPE html>
@@ -299,7 +306,7 @@ function genCod()
           </div>
           <div class="form-group">
             <h4>Seleccione el horario:</h4>
-            <select size="1" class="form-control" id="cbx_horario" name="cbx_horario">
+            <select size="1" class="form-control" id="idhorario" name="idhorario">
 
               <?php
               $conn = connection();
@@ -318,7 +325,7 @@ function genCod()
 
           <input type="button" name="data[password]" class="next btn btn-info" value="Siguiente" />
         </fieldset>
-        
+
         <fieldset>
           <h2> Paso 2: Seleccione el Espacio</h2>
           <div class="form-group">
@@ -326,7 +333,7 @@ function genCod()
             <br>Selecione el lugar de su preferencia.
           </div>
           <div class="form-group">
-            <select size="1" class="form-control" id="cbx_Espacio" name="cbx_Espacio">
+            <select size="1" class="form-control" id="idEspacio" name="idEspacio">
 
               <?php
               $conn = connection();
@@ -390,6 +397,44 @@ function genCod()
               </div>
             </form>
           </div>
+          <input type="button" name="previous" class="previous btn btn-default" value="Previo" />
+          <input type="button" name="next" class="next btn btn-info" value="Siguiente" />
+        </fieldset>
+        <fieldset>
+          <h2>Paso 4: Confirmar Compra</h2>
+
+          <table class="table table-hover">
+
+            <thead>
+              <tr>
+                <th>Id Tiquete</th>
+                <th>Num. Espacio</th>
+                <th>Num. Bus</th>
+                <th>Horario</th>
+                <th>Ruta</th>
+                <th>Cédula</th>
+                <th>Emitido</th>
+                <th>Fecha Salida</th>
+
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+
+                <td><?php echo $idTiquetes?></td>
+                <td><?php echo $Espacios_idEspacio?></td>
+                <td><?php echo$Espacios_Buses_idBus?></td>
+                <td><?php echo$Horarios_idhorario?></td>
+                <td><?php echo$Horarios_Rutas_idRutas?></td>
+                <td><?php echo $idUsuario?></td>
+                <td><?php echo $fechaEmision?></td>
+                <td><?php echo$fechaSalida?></td>
+              </tr>
+
+            </tbody>
+          </table>
+
 
           <input type="button" name="previous" class="previous btn btn-default" value="Previo" />
           <input type="submit" name="submit" class="submit btn btn-success" value="Enviar" id="submit_data" />
