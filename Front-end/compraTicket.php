@@ -330,7 +330,7 @@ function connection()
               <select size="1" class="form-control" id="cbx_horario" name="cbx_horario">
                 <?php
                 $conn = connection();
-                $sql = "SELECT `idhorario`,`Buses_idBus` FROM `HorariosBus`.`Horario`";
+                $sql = "SELECT `idhorario`,`Buses_idBus` FROM `HorariosBus`.`Horarios`";
                 $result = mysqli_query($conn, $sql);
                 ?>
                 <option value="">--Selecionar--</option>
