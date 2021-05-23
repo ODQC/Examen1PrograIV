@@ -13,12 +13,7 @@ $idUsuario = $_SESSION['idUsuario'];
 include 'Tiquete.php';
 
 $tiquete1 = new Ticket();
-function Hey()
-{
-  echo '<script type="text/JavaScript"> 
-			alert("No hemos encotrado ningun registro");
-		</script>';
-}
+
 function connection()
 {
   $servername = "localhost";
@@ -33,13 +28,13 @@ function connection()
   }
   return $conn;
 }
+function genCod()
+{
+
+  return bin2hex(random_bytes(10));
+}
 ?>
-<script type="text/JavaScript">
 
-  }
-
-
-</script>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -179,7 +174,7 @@ function connection()
   </main><!-- End #main -->
   <!-- ======= Section1 ======= -->
   <section class="inner-page" id="Mistiquetes">
-    <form name="MisTiquetes" id="MisTiquetes" action="<?php echo Hey() ?>" method="post" role="form" class="php-email-form">
+    <form name="MisTiquetes" id="MisTiquetes" action="" method="post" role="form" class="php-email-form">
       <div class="container">
         <p>
         <h4>Mis tiquetes</h4>
@@ -237,222 +232,69 @@ function connection()
     </form>
   </section>
   <!-- End  Section1 -->
-  <!-- ======= Cta Section ======= -->
-  <section id="cta" class="cta">
-    <div class="container" data-aos="zoom-in">
 
-      <div class="text-center">
-        <form id="Agendar" name="Agendar" action="<?php echo Hey() ?>" method="post" role="form" class="php-email-form">
-          <div class="container">
-            <p>
-            <h4>Agendar viaje</h4>
-            <br>Seleccione la fecha en la que quiere viajar.
-            </p>
 
-            <div class="content">
 
-              <div class="container text-left">
+  <section class="inner-page">
+    <div class="container">
+      <p>
+        Example inner page template
+      </p>
 
-                <div class="row justify-content-center">
-                  <div class="col-md-10 text-center">
+      <div class="container">
+        <h1>Registro de usuarios paso a paso</h1>
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
 
-                    <input type="text" class="form-control w-25 mx-auto mb-3" id="result" placeholder="Select date" disabled="">
-                    <form action="#" class="row">
-                      <div class="col-md-12">
-                        <div id="inline_cal"></div>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-
-              </div>
+        <form id="regiration_form" novalidate action="action.php" method="post">
+          <fieldset>
+            <h2>Paso 1: Crear su cuenta</h2>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email" name="data[email]" placeholder="Email">
             </div>
-            <div class="fecha_btn"><button onclick="" type="submit">Seleccionar</button></div>
-
-          </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" class="form-control" id="password" placeholder="Password">
+            </div>
+            <input type="button" name="data[password]" class="next btn btn-info" value="Siguiente" />
+          </fieldset>
+          <fieldset>
+            <h2> Paso 2: Agregar detalles personales</h2>
+            <div class="form-group">
+              <label for="fName">Nombres</label>
+              <input type="text" class="form-control" name="data[fName]" id="fName" placeholder="Nombres">
+            </div>
+            <div class="form-group">
+              <label for="lName">Apellidos</label>
+              <input type="text" class="form-control" name="data[lName]" id="lName" placeholder="Apellidos">
+            </div>
+            <input type="button" name="previous" class="previous btn btn-default" value="Previo" />
+            <input type="button" name="next" class="next btn btn-info" value="Siguiente" />
+          </fieldset>
+          <fieldset>
+            <h2>Paso 3: Información de contacto</h2>
+            <div class="form-group">
+              <label for="mob">Numero Celular</label>
+              <input type="text" class="form-control" id="mob" name="data[mob]" placeholder="Numero Celular">
+            </div>
+            <div class="form-group">
+              <label for="address">Direccion</label>
+              <textarea class="form-control" name="data[address]" placeholder="Direccion"></textarea>
+            </div>
+            <input type="button" name="previous" class="previous btn btn-default" value="Previo" />
+            <input type="submit" name="submit" class="submit btn btn-success" value="Enviar" id="submit_data" />
+          </fieldset>
         </form>
       </div>
 
-    </div>
-  </section><!-- End Cta Section -->
-  <!-- ======= Section1 ======= -->
-  <section id="horarios" class="inner-page">
-    <form name="Horarios" id="Horarios" action="<?php echo Hey() ?>" method="post" role="form" class="php-email-form">
-      <div class="container">
-        <p>
-        <h4>Horarios disponibles</h4>
-
-        <table class="table table-hover">
-
-          <thead>
-            <tr>
-              <th>id Horario</th>
-              <th>Rutas</th>
-              <th>Horarios</th>
-              <th>Precios</th>
-
-            </tr>
-          </thead>
-          <tbody>
-            <?php
-            $conn = connection();
-            $sql = "SELECT * FROM `HorariosBus`.`Horarios`";
-            $result = $conn->query($sql);
-
-            if ($result->num_rows > 0) {
-
-              // output data of each row
-              while ($row = $result->fetch_assoc()) {
-                echo "<tr>
-                        <td>" . $row["idhorario"] . "</td>
-                        <td>" . $row["Rutas_idRutas"] . "</td>
-                        <td>" . $row["horario"] . "</td>
-                        <td>" . $row["precio"] . "</td>
-                        </tr>";
-              }
-              echo "</tbody>
-              </table>";
-            } else {
-              echo "0 results";
-            }
-
-            $conn->close();
-            ?>
 
 
-            <br> Por favor selecciones el número de horario en cuál desea reservar.
-            <div class="form-group">
-
-              <select size="1" class="form-control" id="cbx_horario" name="cbx_horario">
-                <?php
-                $conn = connection();
-                $sql = "SELECT `idhorario`,`Buses_idBus` FROM `HorariosBus`.`Horarios`";
-                $result = mysqli_query($conn, $sql);
-                ?>
-                <option value="">--Selecionar--</option>
-                <?php while ($row1 = mysqli_fetch_array($result)) :; ?>
-
-                  <option value="<?php echo $row1['Buses_idBus']; ?>"><?php echo $row1['idhorario']; ?></option>
-
-                <?php endwhile; ?>
-              </select>
-            </div>
-            <div class=""><button type="submit">Seleccionar</button></div>
-
-      </div>
-    </form>
-  </section>
-  <!-- End  Section1 -->
-
-  <!-- ======= Section2 ======= -->
-  <section class="inner-page" id="lugares">
-    <form id="Espacios" name="Espacios" action="" method="post" role="form" class="php-email-form">
-      <div class="container">
-        <p>
-        <h4>Lugares disponibles</h4>
-        </p>
-        <img src="assets/img/espacios-bus.jpeg" alt="Trulli" width="800" height="333">
-        <br>Selecione el lugar de su preferencia.
-        <div class="form-group">
-          <select size="1" class="form-control" id="cbx_Espacio" name="cbx_Espacio">
-
-            <?php
-            $conn = connection();
-            $sql = "SELECT `numAsiento`, `idEspacio` FROM `HorariosBus`.`Espacios` WHERE (Buses_idBus=$Buses_idBus AND estado='Disponible')";
-            $result = mysqli_query($conn, $sql);
-            ?>
-            <option value="">--Selecionar--</option>
-            <?php while ($row1 = mysqli_fetch_array($result)) :; ?>
-
-              <option value="<?php echo $row1['idEspacio']; ?>"><?php echo $row1['numAsiento']; ?></option>
-
-            <?php endwhile; ?>
-          </select>
-        </div>
-
-        <div class=""><button type="submit">Seleccionar</button></div>
-
-      </div>
-    </form>
-  </section>
-  <!-- ======= Section2 ======= -->
-  <section class="inner-page">
-
-  </section>
-
-  <!-- ======= Cta Section ======= -->
-  <section id="cta" class="cta">
-    <div class="container" data-aos="zoom-in">
-
-      <div class="text-center">
-        <div class="container">
-          <p>
-          <h4>Forma de pago</h4>
-          <br>Ingrese el método de pago.
-
-          <div class="container-fluid py-3">
-
-            <div class="row">
-              <div class="col-12 col-sm-8 col-md-6 col-lg-4 mx-auto">
-                <div id="pay-invoice" class="card">
-                  <div class="card-body">
-
-                    <hr>
-                    <form action="" method="post" novalidate="novalidate" class="needs-validation">
-
-
-                      <div class="form-group">
-                        <label for="cc-number" class="control-label mb-1">Nombre de tarjeta</label>
-                        <input id="idTarjetas" name="idTarjetas" type="text" class="form-control cc-number identified visa" required autocomplete="off">
-                        <label for="cc-number" class="control-label mb-1">Número de tarjeta</label>
-                        <input id="cc-number" name="cc-number" type="tel" class="form-control cc-number identified visa" required autocomplete="off">
-                        <span class="invalid-feedback">Enter a valid 12 to 16 digit card number</span>
-                      </div>
-                      <div class="row">
-                        <div class="col-6">
-                          <div class="form-group">
-                            <label for="cc-exp" class="control-label mb-1">Expiration</label>
-                            <input id="cc-exp" name="cc-exp" type="tel" class="form-control cc-exp" required placeholder="MM / YY" autocomplete="cc-exp">
-                            <span class="invalid-feedback">Fecha de expiración</span>
-                          </div>
-                        </div>
-                        <div class="col-6">
-                          <label for="x_card_code" class="control-label mb-1">CVV</label>
-                          <div class="input-group">
-                            <input id="x_card_code" name="x_card_code" type="tel" class="form-control cc-cvc" required autocomplete="off">
-                            <span class="invalid-feedback order-last">Enter the 3-digit code on back</span>
-                            <div class="input-group-append">
-                              <div class="input-group-text">
-                                <span class="fa fa-question-circle fa-lg" data-toggle="popover" data-container="body" data-html="true" data-title="CVV" data-content="<div class='text-center one-card'>The 3 digit code on back of the card..<div class='visa-mc-cvc-preview'></div></div>" data-trigger="hover"></span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div>
-                        <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
-                          <i class="fa fa-lock fa-lg"></i>&nbsp;
-                          <span id="payment-button-amount">Pagar </span>
-                          <span id="payment-button-sending" style="display:none;">Sending…</span>
-                        </button>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          </p>
-        </div>
-      </div>
 
     </div>
-  </section><!-- End Cta Section -->
+  </section>
 
-  <!-- ======= Contact Section ======= -->
-  <!-- ======= Section ======= -->
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
@@ -555,15 +397,36 @@ function connection()
   <script src="assets/js/pagar.js"></script>
   <script src="assets/js/calendar.js"></script>
 
-  <?php
-  if (isset($_POST[''])) {
-  } else if (isset($_POST[''])) {
-  } else if (isset($_POST[''])) {
-  } else if (isset($_POST[''])) {
-  }
-
-
-  ?>
 </body>
 
 </html>
+<script type="text/javascript">
+  $(document).ready(function() {
+    var current = 1,
+      current_step, next_step, steps;
+    steps = $("fieldset").length;
+    $(".next").click(function() {
+      current_step = $(this).parent();
+      next_step = $(this).parent().next();
+      next_step.show();
+      current_step.hide();
+      setProgressBar(++current);
+    });
+    $(".previous").click(function() {
+      current_step = $(this).parent();
+      next_step = $(this).parent().prev();
+      next_step.show();
+      current_step.hide();
+      setProgressBar(--current);
+    });
+    setProgressBar(current);
+    // Change progress bar action
+    function setProgressBar(curStep) {
+      var percent = parseFloat(100 / steps) * curStep;
+      percent = percent.toFixed();
+      $(".progress-bar")
+        .css("width", percent + "%")
+        .html(percent + "%");
+    }
+  });
+</script>
