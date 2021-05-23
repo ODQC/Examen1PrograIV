@@ -389,7 +389,7 @@ $fechaSalida = 'fechaSalida';
           <h2>Paso 4: Método de pago</h2>
 
           <div class="form-group">
-            <form id="metodoPago" method="post" novalidate="novalidate" class="needs-validation" >
+            <form id="metodoPago" method="post" novalidate="novalidate" class="needs-validation">
 
 
               <div class="form-group">
@@ -433,7 +433,7 @@ $fechaSalida = 'fechaSalida';
           <input type="button" name="previous" class="previous btn btn-default" value="Previo" />
           <input type="submit" name="submit" class="submit btn btn-success" value="Enviar" id="submit_data" />
         </fieldset>
-       
+
       </form>
     </div>
   </section>
@@ -539,7 +539,7 @@ $fechaSalida = 'fechaSalida';
   <script src="assets/js/main.js"></script>
   <script src="assets/js/pagar.js"></script>
   <script src="assets/js/calendar.js"></script>
-  <script src="ticketController.js"></script>
+  <script src="assets/js/ticketController.js"></script>
 
 </body>
 
@@ -548,5 +548,5 @@ $fechaSalida = 'fechaSalida';
   document.getElementById
 </script>
 <script type="text/javascript">
-  
+
 </script>
