@@ -251,12 +251,7 @@ function genCod()
 
       <form id="regiration_form" novalidate action="action.php" method="post">
         <fieldset>
-
-
-          <input type="button" name="data[password]" class="next btn btn-info" value="Siguiente" />
-        </fieldset>
-        <fieldset>
-          <h2> Paso 2: Seleccione el Horario</h2>
+          <h2> Paso 1: Seleccione el Horario</h2>
           <div class="form-group">
             <h4>Seleccione la fecha:</h4>
             <label for="fechaSalida">Fecha de salida:</label>
@@ -321,12 +316,11 @@ function genCod()
             </select>
           </div>
 
-
-          <input type="button" name="previous" class="previous btn btn-default" value="Previo" />
-          <input type="button" name="next" class="next btn btn-info" value="Siguiente" />
+          <input type="button" name="data[password]" class="next btn btn-info" value="Siguiente" />
         </fieldset>
+        
         <fieldset>
-          <h2> Paso 3: Seleccione el Espacio</h2>
+          <h2> Paso 2: Seleccione el Espacio</h2>
           <div class="form-group">
             <img src="assets/img/espacios-bus.jpeg" alt="Trulli" width="800" height="333">
             <br>Selecione el lugar de su preferencia.
@@ -352,7 +346,7 @@ function genCod()
           <input type="button" name="next" class="next btn btn-info" value="Siguiente" />
         </fieldset>
         <fieldset>
-          <h2>Paso 4: Método de pago</h2>
+          <h2>Paso 3: Método de pago</h2>
 
           <div class="form-group">
             <form action="" method="post" novalidate="novalidate" class="needs-validation">
