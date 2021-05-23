@@ -251,52 +251,141 @@ function genCod()
 
       <form id="regiration_form" novalidate action="action.php" method="post">
         <fieldset>
-          <h2>Paso 1: Seleccione la fecha</h2>
-          <div class="form-group">
 
-            <div class="container">
-              <p>
-              <h4>Agendar viaje</h4>
-              <br>Seleccione la fecha en la que quiere viajar.
-              </p>
-
-              <div class="content">
-
-                <div class="container text-left">
-
-                  <div class="row justify-content-center">
-                    <div class="col-md-10 text-center">
-
-                      <input type="text" class="form-control w-25 mx-auto mb-3" id="result" placeholder="Select date" disabled="">
-                      <form action="#" class="row">
-                        <div class="col-md-12">
-                          <div id="inline_cal"></div>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-          </div>
 
           <input type="button" name="data[password]" class="next btn btn-info" value="Siguiente" />
         </fieldset>
         <fieldset>
-          <h2> Paso 2: Agregar detalles personales</h2>
+          <h2> Paso 2: Seleccione el Horario</h2>
+          <div class="form-group">
+            <table class="table table-hover">
+
+              <thead>
+                <tr>
+                  <th>id Horario</th>
+                  <th>Rutas</th>
+                  <th>Horarios</th>
+                  <th>Precios</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <?php
+                $conn = connection();
+                $sql = "SELECT * FROM `HorariosBus`.`Horarios`";
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+
+                  // output data of each row
+                  while ($row = $result->fetch_assoc()) {
+                    echo "<tr>
+                        <td>" . $row["idhorario"] . "</td>
+                        <td>" . $row["Rutas_idRutas"] . "</td>
+                        <td>" . $row["horario"] . "</td>
+                        <td>" . $row["precio"] . "</td>
+                        </tr>";
+                  }
+                  echo "</tbody>
+              </table>";
+                } else {
+                  echo "0 results";
+                }
+
+                $conn->close();
+                ?>
+
+          </div>
+          <div class="form-group">
+            <select size="1" class="form-control" id="cbx_horario" name="cbx_horario">
+              <?php
+              $conn = connection();
+              $sql = "SELECT `idhorario`,`Buses_idBus` FROM `HorariosBus`.`Horarios`";
+              $result = mysqli_query($conn, $sql);
+              ?>
+              <option value="">--Selecionar--</option>
+              <?php while ($row1 = mysqli_fetch_array($result)) :; ?>
+
+                <option value="<?php echo $row1['Buses_idBus']; ?>"><?php echo $row1['idhorario']; ?></option>
+
+              <?php endwhile; ?>
+            </select>
+          </div>
 
           <input type="button" name="previous" class="previous btn btn-default" value="Previo" />
           <input type="button" name="next" class="next btn btn-info" value="Siguiente" />
         </fieldset>
         <fieldset>
-          <h2> Paso 3: Agregar detalles personales</h2>
+          <h2> Paso 3: Seleccione el Espacio</h2>
+          <div class="form-group">
+            <img src="assets/img/espacios-bus.jpeg" alt="Trulli" width="800" height="333">
+            <br>Selecione el lugar de su preferencia.
+          </div>
+          <div class="form-group">
+            <select size="1" class="form-control" id="cbx_Espacio" name="cbx_Espacio">
+
+              <?php
+              $conn = connection();
+              $sql = "SELECT `numAsiento`, `idEspacio` FROM `HorariosBus`.`Espacios` WHERE (Buses_idBus=$Buses_idBus AND estado='Disponible')";
+              $result = mysqli_query($conn, $sql);
+              ?>
+              <option value="">--Selecionar--</option>
+              <?php while ($row1 = mysqli_fetch_array($result)) :; ?>
+
+                <option value="<?php echo $row1['idEspacio']; ?>"><?php echo $row1['numAsiento']; ?></option>
+
+              <?php endwhile; ?>
+            </select>
+          </div>
 
           <input type="button" name="previous" class="previous btn btn-default" value="Previo" />
           <input type="button" name="next" class="next btn btn-info" value="Siguiente" />
         </fieldset>
         <fieldset>
-          <h2>Paso 4: Información de contacto</h2>
+          <h2>Paso 4: Método de pago</h2>
+          
+          <div class="form-group">
+            <form action="" method="post" novalidate="novalidate" class="needs-validation">
+
+
+              <div class="form-group">
+                <label for="cc-number" class="control-label mb-1">Nombre de tarjeta</label>
+                <input id="idTarjetas" name="idTarjetas" type="text" class="form-control cc-number identified visa" required autocomplete="off">
+                <label for="cc-number" class="control-label mb-1">Número de tarjeta</label>
+                <input id="cc-number" name="cc-number" type="tel" class="form-control cc-number identified visa" required autocomplete="off">
+                <span class="invalid-feedback">Enter a valid 12 to 16 digit card number</span>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <div class="form-group">
+                    <label for="cc-exp" class="control-label mb-1">Expiration</label>
+                    <input id="cc-exp" name="cc-exp" type="tel" class="form-control cc-exp" required placeholder="MM / YY" autocomplete="cc-exp">
+                    <span class="invalid-feedback">Fecha de expiración</span>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <label for="x_card_code" class="control-label mb-1">CVV</label>
+                  <div class="input-group">
+                    <input id="x_card_code" name="x_card_code" type="tel" class="form-control cc-cvc" required autocomplete="off">
+                    <span class="invalid-feedback order-last">Enter the 3-digit code on back</span>
+                    <div class="input-group-append">
+                      <div class="input-group-text">
+                        <span class="fa fa-question-circle fa-lg" data-toggle="popover" data-container="body" data-html="true" data-title="CVV" data-content="<div class='text-center one-card'>The 3 digit code on back of the card..<div class='visa-mc-cvc-preview'></div></div>" data-trigger="hover"></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
+                  <i class="fa fa-lock fa-lg"></i>&nbsp;
+                  <span id="payment-button-amount">Verificar método de pago </span>
+                  <span id="payment-button-sending" style="display:none;">Sending…</span>
+                </button>
+              </div>
+            </form>
+          </div>
 
           <input type="button" name="previous" class="previous btn btn-default" value="Previo" />
           <input type="submit" name="submit" class="submit btn btn-success" value="Enviar" id="submit_data" />
