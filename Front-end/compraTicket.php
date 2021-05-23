@@ -364,13 +364,48 @@ function genCod()
 
             <h2>Paso 3: Información de contacto</h2>
             <div class="form-group">
-              <label for="mob">Numero Celular</label>
-              <input type="text" class="form-control" id="mob" name="data[mob]" placeholder="Numero Celular">
+              <form action="" method="post" novalidate="novalidate" class="needs-validation">
+
+
+                <div class="form-group">
+                  <label for="cc-number" class="control-label mb-1">Nombre de tarjeta</label>
+                  <input id="idTarjetas" name="idTarjetas" type="text" class="form-control cc-number identified visa" required autocomplete="off">
+                  <label for="cc-number" class="control-label mb-1">Número de tarjeta</label>
+                  <input id="cc-number" name="cc-number" type="tel" class="form-control cc-number identified visa" required autocomplete="off">
+                  <span class="invalid-feedback">Enter a valid 12 to 16 digit card number</span>
+                </div>
+                <div class="row">
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label for="cc-exp" class="control-label mb-1">Expiration</label>
+                      <input id="cc-exp" name="cc-exp" type="tel" class="form-control cc-exp" required placeholder="MM / YY" autocomplete="cc-exp">
+                      <span class="invalid-feedback">Fecha de expiración</span>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <label for="x_card_code" class="control-label mb-1">CVV</label>
+                    <div class="input-group">
+                      <input id="x_card_code" name="x_card_code" type="tel" class="form-control cc-cvc" required autocomplete="off">
+                      <span class="invalid-feedback order-last">Enter the 3-digit code on back</span>
+                      <div class="input-group-append">
+                        <div class="input-group-text">
+                          <span class="fa fa-question-circle fa-lg" data-toggle="popover" data-container="body" data-html="true" data-title="CVV" data-content="<div class='text-center one-card'>The 3 digit code on back of the card..<div class='visa-mc-cvc-preview'></div></div>" data-trigger="hover"></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
+                    <i class="fa fa-lock fa-lg"></i>&nbsp;
+                    <span id="payment-button-amount">Pagar </span>
+                    <span id="payment-button-sending" style="display:none;">Sending…</span>
+                  </button>
+                </div>
+              </form>
             </div>
-            <div class="form-group">
-              <label for="address">Direccion</label>
-              <textarea class="form-control" name="data[address]" placeholder="Direccion"></textarea>
-            </div>
+
             <input type="button" name="previous" class="previous btn btn-default" value="Previo" />
             <input type="submit" name="submit" class="submit btn btn-success" value="Enviar" id="submit_data" />
           </fieldset>
