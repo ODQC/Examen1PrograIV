@@ -305,8 +305,9 @@ function genCod()
               ?>
               <option value="">--Selecionar--</option>
               <?php while ($row1 = mysqli_fetch_array($result)) :; ?>
-
-                <option value="<?php echo $row1['Buses_idBus']; ?>"><?php echo $row1['Rutas_idRutas'];echo $row1['horario']; ?></option>
+                
+                <? $idRuta = $row1['Rutas_idRutas'] . $row1['horario'] ?>
+                <option value="<?php echo $row1['Buses_idBus']; ?>"><?php echo $idRuta ; ?></option>
 
               <?php endwhile; ?>
             </select>
