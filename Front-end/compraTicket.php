@@ -275,12 +275,58 @@ function genCod()
 
             <h2> Paso 2: Seleccione el Horario</h2>
             <div class="form-group">
-              <label for="fName">Nombres</label>
-              <input type="text" class="form-control" name="data[fName]" id="fName" placeholder="Nombres">
+              <table class="table table-hover">
+
+                <thead>
+                  <tr>
+                    <th>id Horario</th>
+                    <th>Rutas</th>
+                    <th>Horarios</th>
+                    <th>Precios</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php
+                  $conn = connection();
+                  $sql = "SELECT * FROM `HorariosBus`.`Horarios`";
+                  $result = $conn->query($sql);
+
+                  if ($result->num_rows > 0) {
+
+                    // output data of each row
+                    while ($row = $result->fetch_assoc()) {
+                      echo "<tr>
+                        <td>" . $row["idhorario"] . "</td>
+                        <td>" . $row["Rutas_idRutas"] . "</td>
+                        <td>" . $row["horario"] . "</td>
+                        <td>" . $row["precio"] . "</td>
+                        </tr>";
+                    }
+                    echo "</tbody>
+              </table>";
+                  } else {
+                    echo "0 results";
+                  }
+
+                  $conn->close();
+                  ?>
+
             </div>
             <div class="form-group">
-              <label for="lName">Apellidos</label>
-              <input type="text" class="form-control" name="data[lName]" id="lName" placeholder="Apellidos">
+              <select size="1" class="form-control" id="cbx_horario" name="cbx_horario">
+                <?php
+                $conn = connection();
+                $sql = "SELECT `idhorario`,`Buses_idBus` FROM `HorariosBus`.`Horarios`";
+                $result = mysqli_query($conn, $sql);
+                ?>
+                <option value="">--Selecionar--</option>
+                <?php while ($row1 = mysqli_fetch_array($result)) :; ?>
+
+                  <option value="<?php echo $row1['Buses_idBus']; ?>"><?php echo $row1['idhorario']; ?></option>
+
+                <?php endwhile; ?>
+              </select>
             </div>
             <input type="button" name="previous" class="previous btn btn-default" value="Previo" />
             <input type="button" name="next" class="next btn btn-info" value="Siguiente" />
