@@ -35,8 +35,8 @@ function connection()
 }
 ?>
 <script type="text/JavaScript">
-  
-}
+
+  }
 
 
 </script>
@@ -179,7 +179,7 @@ function connection()
   </main><!-- End #main -->
   <!-- ======= Section1 ======= -->
   <section class="inner-page" id="Mistiquetes">
-    <form name="MisTiquetes" id="MisTiquetes" action="" method="post" role="form" class="php-email-form">
+    <form name="MisTiquetes" id="MisTiquetes" action="<?php echo Hey() ?>" method="post" role="form" class="php-email-form">
       <div class="container">
         <p>
         <h4>Mis tiquetes</h4>
@@ -242,7 +242,7 @@ function connection()
     <div class="container" data-aos="zoom-in">
 
       <div class="text-center">
-        <form id="Agendar" name="Agendar" action="" method="post" role="form" class="php-email-form">
+        <form id="Agendar" name="Agendar" action="<?php echo Hey() ?>" method="post" role="form" class="php-email-form">
           <div class="container">
             <p>
             <h4>Agendar viaje</h4>
@@ -277,7 +277,7 @@ function connection()
   </section><!-- End Cta Section -->
   <!-- ======= Section1 ======= -->
   <section id="horarios" class="inner-page">
-    <form name="Horarios" id="Horarios" action="" method="post" role="form" class="php-email-form">
+    <form name="Horarios" id="Horarios" action="<?php echo Hey() ?>" method="post" role="form" class="php-email-form">
       <div class="container">
         <p>
         <h4>Horarios disponibles</h4>
