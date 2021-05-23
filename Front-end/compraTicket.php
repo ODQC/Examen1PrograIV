@@ -33,11 +33,23 @@ function connection()
 }
 ?>
 <script type="text/javascript">
-  function hola() {
+  
+  function showHorario(str) {
+    if (str == "") {
+      document.getElementById("txtHint").innerHTML = "";
+      return;
+    } else {
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("txtHint").innerHTML = this.responseText;
+        }
+      };
+      xmlhttp.open("GET", "getuser.php?q=" + str, true);
+      xmlhttp.send();
+    }
+  } 
 
-
-
-  }
 </script>
 <!DOCTYPE html>
 <html lang="en">
@@ -160,7 +172,7 @@ function connection()
   </main><!-- End #main -->
   <!-- ======= Section1 ======= -->
   <section class="inner-page" id="Mistiquetes">
-    <form name="MisTiquetes" id="MisTiquetes" action="<?php Hey() ?>" method="post" role="form" class="php-email-form">
+    <form name="MisTiquetes" id="MisTiquetes" action="" method="post" role="form" class="php-email-form">
       <div class="container">
         <p>
         <h4>Mis tiquetes</h4>
@@ -223,7 +235,7 @@ function connection()
     <div class="container" data-aos="zoom-in">
 
       <div class="text-center">
-        <form id="Agendar" name="Agendar" action="<?php Hey() ?>" method="post" role="form" class="php-email-form">
+        <form id="Agendar" name="Agendar" action="" method="post" role="form" class="php-email-form">
           <div class="container">
             <p>
             <h4>Agendar viaje</h4>
