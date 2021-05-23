@@ -8,6 +8,16 @@ $usuario = implode(", ", $user);
 $idUsuario = $_SESSION['idUsuario'];
 ?>
 <?php
+include 'Tiquete.php';
+
+$tiquete1 = new Ticket();
+function Hola()
+{
+  echo '<script type="text/JavaScript"> 
+			alert("Hola mundo");
+		</script>';
+}
+
 function connection()
 {
   $servername = "localhost";
@@ -144,7 +154,7 @@ function connection()
   </main><!-- End #main -->
   <!-- ======= Section1 ======= -->
   <section class="inner-page" id="Mistiquetes">
-    <form action="" method="post" role="form" class="php-email-form">
+    <form name="MisTiquetes" id="MisTiquetes" action="<?php Hola(); ?>" method="post" role="form" class="php-email-form">
       <div class="container">
         <p>
         <h4>Mis tiquetes</h4>
@@ -207,7 +217,7 @@ function connection()
     <div class="container" data-aos="zoom-in">
 
       <div class="text-center">
-        <form action="" method="post" role="form" class="php-email-form">
+        <form id="Agendar" name="Agendar" action="<?php Hola(); ?>" method="post" role="form" class="php-email-form">
           <div class="container">
             <p>
             <h4>Agendar viaje</h4>
@@ -242,7 +252,7 @@ function connection()
   </section><!-- End Cta Section -->
   <!-- ======= Section1 ======= -->
   <section id="horarios" class="inner-page">
-    <form action="" method="post" role="form" class="php-email-form">
+    <form name="Horarios" id="Horarios" action="" method="post" role="form" class="php-email-form">
       <div class="container">
         <p>
         <h4>Horarios disponibles</h4>
@@ -309,7 +319,7 @@ function connection()
 
   <!-- ======= Section2 ======= -->
   <section class="inner-page" id="lugares">
-    <form action="" method="post" role="form" class="php-email-form">
+    <form id="Espacios" name="Espacios" action="<?php Hola(); ?>" method="post" role="form" class="php-email-form">
       <div class="container">
         <p>
         <h4>Lugares disponibles</h4>
@@ -518,7 +528,13 @@ function connection()
   <script src="assets/js/pagar.js"></script>
   <script src="assets/js/calendar.js"></script>
 
-
+ <?php
+ # if (isset($_POST[''])) {
+  #} else if (isset($_POST[''])) {
+  #} else if (isset($_POST[''])) {
+  #} else if (isset($_POST[''])) {
+  #}
+  ?>
 </body>
 
 </html>
