@@ -33,7 +33,7 @@ function genCod()
 
   return bin2hex(random_bytes(10));
 }
-$idTiquetes = genCod();                    
+$idTiquetes = genCod();
 $Espacios_idEspacio = "";
 $Espacios_Buses_idBus = "";
 $Horarios_idhorario = "";
@@ -251,7 +251,7 @@ $fechaSalida = 'fechaSalida';
 
   <section class="inner-page">
     <div class="container">
-      <h1>Registro de usuarios paso a paso</h1>
+      <h1>Compra de tiquetes en linea</h1>
       <div class="progress">
         <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
       </div>
@@ -356,28 +356,28 @@ $fechaSalida = 'fechaSalida';
           <h2>Paso 3: Método de pago</h2>
 
           <div class="form-group">
-            <form action="" method="post" novalidate="novalidate" class="needs-validation">
+            <form action="../Back-end/procesos/crearTarjetas.php" method="post" novalidate="novalidate" class="needs-validation">
 
 
               <div class="form-group">
                 <label for="cc-number" class="control-label mb-1">Nombre de tarjeta</label>
-                <input id="idTarjetas" name="idTarjetas" type="text" class="form-control cc-number identified visa" required autocomplete="off">
+                <input id="tarjeta" name="tarjeta" type="text" class="form-control cc-number identified visa" required autocomplete="off">
                 <label for="cc-number" class="control-label mb-1">Número de tarjeta</label>
-                <input id="cc-number" name="cc-number" type="tel" class="form-control cc-number identified visa" required autocomplete="off">
+                <input id="idTarjetas" name="idTarjetas" type="tel" class="form-control cc-number identified visa" required autocomplete="off">
                 <span class="invalid-feedback">Enter a valid 12 to 16 digit card number</span>
               </div>
               <div class="row">
                 <div class="col-6">
                   <div class="form-group">
                     <label for="cc-exp" class="control-label mb-1">Expiration</label>
-                    <input id="cc-exp" name="cc-exp" type="tel" class="form-control cc-exp" required placeholder="MM / YY" autocomplete="cc-exp">
+                    <input id="fechaVencimineto" name="fechaVencimineto" type="tel" class="form-control cc-exp" required placeholder="MM / YY" autocomplete="cc-exp">
                     <span class="invalid-feedback">Fecha de expiración</span>
                   </div>
                 </div>
                 <div class="col-6">
                   <label for="x_card_code" class="control-label mb-1">CVV</label>
                   <div class="input-group">
-                    <input id="x_card_code" name="x_card_code" type="tel" class="form-control cc-cvc" required autocomplete="off">
+                    <input id="ccv" name="ccv" type="tel" class="form-control cc-cvc" required autocomplete="off">
                     <span class="invalid-feedback order-last">Enter the 3-digit code on back</span>
                     <div class="input-group-append">
                       <div class="input-group-text">
@@ -422,14 +422,14 @@ $fechaSalida = 'fechaSalida';
             <tbody>
               <tr>
 
-                <td><?php echo $idTiquetes?></td>
-                <td><?php echo $Espacios_idEspacio?></td>
-                <td><?php echo$Espacios_Buses_idBus?></td>
-                <td><?php echo$Horarios_idhorario?></td>
-                <td><?php echo$Horarios_Rutas_idRutas?></td>
-                <td><?php echo $idUsuario?></td>
-                <td><?php echo $fechaEmision?></td>
-                <td><?php echo$fechaSalida?></td>
+                <td><?php echo $idTiquetes ?></td>
+                <td><?php echo $Espacios_idEspacio ?></td>
+                <td><?php echo $Espacios_Buses_idBus ?></td>
+                <td><?php echo $Horarios_idhorario ?></td>
+                <td><?php echo $Horarios_Rutas_idRutas ?></td>
+                <td><?php echo $idUsuario ?></td>
+                <td><?php echo $fechaEmision ?></td>
+                <td><?php echo $fechaSalida ?></td>
               </tr>
 
             </tbody>

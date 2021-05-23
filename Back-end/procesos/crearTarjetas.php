@@ -11,6 +11,7 @@ try{
 	$Usuarios_idUsuario = $_POST['Usuarios_idUsuario'];
 	
 	$query = "INSERT INTO `HorariosBus`.`Tarjetas`(idTarjetas,tarjeta,ccv,Usuarios_idUsuario) VALUES('$idTarjetas','$tarjeta','$ccv','$fechaVencimineto','$Usuarios_idUsuario')";
+	echo $query;
 	if ($mysqli->query($query)) {
 		echo '<script type="text/JavaScript"> 
 			alert("");
