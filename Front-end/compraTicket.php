@@ -30,7 +30,13 @@ function connection()
 <script type="text/javascript">
   function hola() {
 
-    alert("Hello");
+    
+    <?php
+    echo '<script type="text/JavaScript"> 
+			alert("holi");
+		</script>';
+    
+    ?>
   }
 </script>
 <!DOCTYPE html>
