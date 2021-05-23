@@ -11,7 +11,11 @@ $idUsuario = $_SESSION['idUsuario'];
 include 'Tiquete.php';
 
 $tiquete1 = new Ticket();
-
+function Hey(){
+  echo '<script type="text/JavaScript"> 
+			alert("No hemos encotrado ningun registro");
+		</script>';  
+}
 function connection()
 {
   $servername = "localhost";
@@ -31,12 +35,7 @@ function connection()
   function hola() {
 
     
-    <?php
-    echo '<script type="text/JavaScript"> 
-			alert("holi");
-		</script>';
     
-    ?>
   }
 </script>
 <!DOCTYPE html>
@@ -248,7 +247,7 @@ function connection()
 
               </div>
             </div>
-            <div class="fecha_btn"><button onclick="hola()" type="submit">Seleccionar</button></div>
+            <div class="fecha_btn"><button onclick="Hey()" type="submit">Seleccionar</button></div>
 
           </div>
         </form>
@@ -377,7 +376,7 @@ function connection()
                   <div class="card-body">
 
                     <hr>
-                    <form action="/echo" method="post" novalidate="novalidate" class="needs-validation">
+                    <form action="" method="post" novalidate="novalidate" class="needs-validation">
 
 
                       <div class="form-group">
