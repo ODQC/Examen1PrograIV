@@ -6,7 +6,7 @@ if (!$_SESSION['verificar']) {
 $user = $_SESSION['user'];
 $usuario = implode(", ", $user);
 $idUsuario = $_SESSION['idUsuario'];
-echo $idUsuario
+
 
 ?>
 <?php
@@ -205,7 +205,7 @@ function connection()
 
             $conn = connection();
 
-            $sql = "SELECT * FROM `HorariosBus`.`Tiquetes`";
+            $sql = "SELECT * FROM `HorariosBus`.`Tiquetes` WHERE ('Usuarios_idUsuario'='$idUsuario')";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
