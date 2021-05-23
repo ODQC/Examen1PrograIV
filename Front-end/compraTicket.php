@@ -11,10 +11,11 @@ $idUsuario = $_SESSION['idUsuario'];
 include 'Tiquete.php';
 
 $tiquete1 = new Ticket();
-function Hey(){
+function Hey()
+{
   echo '<script type="text/JavaScript"> 
 			alert("No hemos encotrado ningun registro");
-		</script>';  
+		</script>';
 }
 function connection()
 {
@@ -34,8 +35,8 @@ function connection()
 <script type="text/javascript">
   function hola() {
 
-    
-    
+
+
   }
 </script>
 <!DOCTYPE html>
@@ -159,7 +160,7 @@ function connection()
   </main><!-- End #main -->
   <!-- ======= Section1 ======= -->
   <section class="inner-page" id="Mistiquetes">
-    <form name="MisTiquetes" id="MisTiquetes" action="" method="post" role="form" class="php-email-form">
+    <form name="MisTiquetes" id="MisTiquetes" action="<?php Hey() ?>" method="post" role="form" class="php-email-form">
       <div class="container">
         <p>
         <h4>Mis tiquetes</h4>
@@ -247,7 +248,7 @@ function connection()
 
               </div>
             </div>
-            <div class="fecha_btn"><button onclick="Hey()" type="submit">Seleccionar</button></div>
+            <div class="fecha_btn"><button onclick="<?php Hey() ?>" type="submit">Seleccionar</button></div>
 
           </div>
         </form>
