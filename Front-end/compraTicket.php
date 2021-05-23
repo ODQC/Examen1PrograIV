@@ -313,11 +313,10 @@ function genCod()
             </select>
           </div>
           <div>
-            <h1>Seleccione la fecha</h1>
+            <h3>Seleccione la fecha:</h3>
             <label for="fechaSalida">Fecha de salida:</label>
             <input type="datetime-local" id="fechaSalida" name="fechaSalida">
-            <input type="submit">
-
+            
           </div>
 
           <input type="button" name="previous" class="previous btn btn-default" value="Previo" />
