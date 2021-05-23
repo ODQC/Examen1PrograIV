@@ -1,10 +1,18 @@
 
-function addCard() {
-    $.ajax({
-        url: "../Back-end/procesos/crearTarjetas.php", //the page containing php script
-        type: "POST", //request type
-        success: function (result) {
-            alert(result);
-        }
+jQuery(document).ready(function () {
+    jQuery(".mark-as-read").click(function () {
+        console.log('The function is hooked up');
+        jQuery.ajax({
+            type: "POST",
+            url: "../Back-end/procesos/crearTarjetas.php",
+            data: {
+                action: 'mark_message_as_read',
+                // add your parameters here
+                message_id: $('.your-selector').val()
+            },
+            success: function (output) {
+                console.log(output);
+            }
+        });
     });
-}
+});
