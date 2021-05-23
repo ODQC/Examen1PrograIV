@@ -252,18 +252,24 @@ function genCod()
       <form id="regiration_form" novalidate action="action.php" method="post">
         <fieldset>
           <h2>Paso 1: Crear su cuenta</h2>
-          
+
           <input type="button" name="data[password]" class="next btn btn-info" value="Siguiente" />
         </fieldset>
         <fieldset>
           <h2> Paso 2: Agregar detalles personales</h2>
-          
+
           <input type="button" name="previous" class="previous btn btn-default" value="Previo" />
           <input type="button" name="next" class="next btn btn-info" value="Siguiente" />
         </fieldset>
         <fieldset>
-          <h2>Paso 3: Información de contacto</h2>
-          
+          <h2> Paso 3: Agregar detalles personales</h2>
+
+          <input type="button" name="previous" class="previous btn btn-default" value="Previo" />
+          <input type="button" name="next" class="next btn btn-info" value="Siguiente" />
+        </fieldset>
+        <fieldset>
+          <h2>Paso 4: Información de contacto</h2>
+
           <input type="button" name="previous" class="previous btn btn-default" value="Previo" />
           <input type="submit" name="submit" class="submit btn btn-success" value="Enviar" id="submit_data" />
         </fieldset>
