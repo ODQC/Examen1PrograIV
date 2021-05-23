@@ -285,13 +285,13 @@ function genCod()
 
                     </div>
                   </div>
-                  <div class="fecha_btn"><button onclick="" type="submit">Seleccionar</button></div>
+                  
 
                 </div>
               </form>
             </div>
             
-            
+            <input type="button" name="data[password]" class="next btn btn-info" value="Siguiente" />
           </fieldset>
           <!-- ================================PASO2=========================================== -->
           <fieldset>
