@@ -17,16 +17,14 @@ function connection()
 
 
 $Buses_idBus = $_POST['Buses_idBus'];
+$queryM = "SELECT `numAsiento`, `idEspacio` FROM `HorariosBus`.`Espacios` WHERE (Buses_idBus=$Buses_idBus AND estado='Disponible');";
+$resultadoM = $mysqli->query($queryM);
 
+$html = "<option value='0'>Seleccionar Asiento</option>";
 
+while ($rowM = $resultadoM->fetch_assoc()) {
+    $html .= "<option value='" . $rowM['idEspacio'] . "'>" . $rowM['numAsiento'] . "</option>";
+}
 
-$conn = connection();
-$sql = "SELECT `numAsiento`, `idEspacio` FROM `HorariosBus`.`Espacios` WHERE (Buses_idBus=$Buses_idBus AND estado='Disponible');";
-$result = mysqli_query($conn, $sql);
-?>
-<option value="0">--Selecionar--</option>
-<?php while ($row1 = mysqli_fetch_array($result)) :; ?>
+echo $html;
 
-    <option value="<?php echo $row1['idEspacio']; ?>"><?php echo $row1['numAsiento']; ?></option>
-
-<?php endwhile; ?>
