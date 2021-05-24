@@ -26,14 +26,14 @@ $destino = "";
 $precio =  "";
 $conn = connection();
 
-$sql = "SELECT * FROM HorariosBus.Usuarios WHERE correo=".$_SESSION['correo'];
+$sql = "SELECT idUsuario FROM HorariosBus.Usuarios WHERE (correo='$correo')";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
 		$fila = $consulta2->fetch_array(MYSQLI_ASSOC);
 		session_start();
 	
-		$_SESSION['idUsuario'] = $fila['idUsuario'];
+		$idUsuario = $fila['idUsuario'];
 		
 		
 	} else {
