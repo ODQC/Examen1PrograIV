@@ -267,7 +267,7 @@ $fechaSalida = 'fechaSalida';
         <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
       </div>
 
-      <form id="regiration_form" novalidate action="../Back-end/procesos/crearTiquetes.php" method="post">
+      <form id="regiration_form" novalidate action="factura.php" method="post">
         <fieldset>
           <h2> Paso 1: Seleccione el Horario</h2>
           <div class="form-group">
@@ -303,6 +303,8 @@ $fechaSalida = 'fechaSalida';
                         <td>" . $row["Rutas_idRutas"] . "</td>
                         <td>" . $row["horario"] . "</td>
                         <td>" . $row["precio"] . "</td>
+                        
+						            
                         </tr>";
                   }
                   echo "</tbody>
@@ -328,7 +330,7 @@ $fechaSalida = 'fechaSalida';
               <?php while ($row1 = mysqli_fetch_array($result)) :; ?>
                 
 
-                <option value=" <?php echo ($row1['Buses_idBus']); ?>"><?php echo ($row1["Rutas_idRutas"]), ("-"), ($row1["horario"]), ("-"), ($row1['Buses_idBus']); ?></option>
+                <option value=" <?php echo ($row1['Buses_idBus']); ?>"><?php echo ($row1["Rutas_idRutas"]), ("-"), ($row1["horario"]); ?></option>
 
               <?php endwhile; ?>
             </select>
@@ -549,7 +551,7 @@ $fechaSalida = 'fechaSalida';
     $('#idEspacio').html('');
     // $('#city').html('<option>Select City</option>');
     var horario = document.getElementById("idEspacio").value;
-    alert(horario);
+    alert(horario.data);
 
 
   }

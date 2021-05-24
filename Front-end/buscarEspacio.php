@@ -16,7 +16,7 @@
        
 
 
-    if (isset($_POST['Buses_idBus'])) {
+    if (isset($_GET['Buses_idBus'])) {
         $conn = connection();
         $Buses_idBus = $_POST['Buses_idBus'];
                 
