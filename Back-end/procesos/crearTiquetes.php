@@ -28,4 +28,4 @@ try{
 	}catch(Exception $e) {
 		echo 'Message: ' .$e->getMessage();
 	}
-	require_once "./Front-end/factura.php";
+	require_once "../Front-end/factura.php";
