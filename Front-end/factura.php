@@ -1,4 +1,21 @@
 <?php
+session_start();
+if (!$_SESSION['verificar']) {
+    header("Location: login.php");
+}
+$user = $_SESSION['user'];
+$usuario = implode(", ", $user);
+$idUsuario = "207460988";
+$correo = $_SESSION['correo'];
+$telefono = $_SESSION['telefono'];
+$apellido1 = $_SESSION['apellido1'];
+$paellido2 = $_SESSION['apellido2'];
+$conn = connection();
+
+
+
+?>
+<?php
 function connection()
 {
     $servername = "localhost";
@@ -178,18 +195,6 @@ function connection()
     }
 </script>
 <?php
-session_start();
-if (!$_SESSION['verificar']) {
-    header("Location: login.php");
-}
-$user = $_SESSION['user'];
-$usuario = implode(", ", $user);
-$idUsuario = "207460988";
-$correo = $_SESSION['correo'];
-$telefono = $_SESSION['telefono'];
-$apellido1 = $_SESSION['apellido1'];
-$paellido2 = $_SESSION['apellido2'];
-$conn = connection();
 
 try {
 
