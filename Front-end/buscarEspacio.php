@@ -19,6 +19,7 @@
     if (isset($_POST['Buses_idBus'])) {
         $conn = connection();
         $Buses_idBus = $_POST['Buses_idBus'];
+        
         $sql = "SELECT `numAsiento`, `idEspacio` FROM `HorariosBus`.`Espacios` WHERE (Buses_idBus=$Buses_idBus AND estado='Disponible')";
         $result = mysqli_query($conn, $sql);
       ?>
@@ -28,7 +29,7 @@
 
                 <option value=" <?php echo $row1['idEspacio']; ?>"><?php echo $row1['numAsiento']; ?></option>
 
-            <?php endwhile;?>
+            <?php endwhile;
         }
-    } 
+    ?>} 
 
