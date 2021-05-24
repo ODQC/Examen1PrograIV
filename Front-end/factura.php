@@ -5,7 +5,7 @@ if (!$_SESSION['verificar']) {
 }
 $user = $_SESSION['user'];
 $usuario = implode(", ", $user);
-$idUsuario = '207460988';
+$idUsuario = "207460988";
 $correo = $_SESSION['correo'];
 $telefono = $_SESSION['telefono'];
 $apellido1 = $_SESSION['apellido1'];
@@ -28,7 +28,7 @@ $conn = connection();
 try {
 
 
-    $sql = "SELECT * FROM `HorariosBus`.`Tiquetes` WHERE (`Usuarios_idUsuario`='$idUsuario')";
+    $sql = "SELECT * FROM `HorariosBus`.`Tiquetes` WHERE (Usuarios_idUsuario='$idUsuario')";
     $result = mysqli_query($conn, $sql);
     $row1 = mysqli_fetch_array($result);
     $idTiquetes = $row["idTiquetes"];
