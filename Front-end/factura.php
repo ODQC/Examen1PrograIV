@@ -1,4 +1,3 @@
-
 <?php
 function connection()
 {
@@ -15,72 +14,7 @@ function connection()
     return $conn;
 }
 ?>
-<?php
-session_start();
-if (!$_SESSION['verificar']) {
-    header("Location: login.php");
-}
-$user = $_SESSION['user'];
-$usuario = implode(", ", $user);
-$idUsuario = "207460988";
-$correo = $_SESSION['correo'];
-$telefono = $_SESSION['telefono'];
-$apellido1 = $_SESSION['apellido1'];
-$paellido2 = $_SESSION['apellido2'];
-$conn = connection();
 
-try {
-
-
-    $sql = "SELECT * FROM HorariosBus.Tiquetes WHERE (Usuarios_idUsuario='207460988')";
-    echo $sql;
-    $result = mysqli_query($conn, $sql);
-    $row1 = mysqli_fetch_array($result);
-    $idTiquetes = $row["idTiquetes"];
-    $idEspacio = $row["Espacios_idEspacio"];
-    $idBus = $row["Espacios_Buses_idBus"];
-    $idhorario = $row["Horarios_idhorario"];
-    $idRutas = $row["Horarios_Rutas_idRutas"];
-    $idUsuario = $row["Usuarios_idUsuario"];
-    $fechaEmision = $row["fechaEmision"];
-    $fechaSalida = $row["fechaSalida"];
-    echo $row;
-} catch (mysqli_sql_exception $e) {
-    throw $e;
-} catch (Exception $e) {
-    echo 'Message: ' . $e->getMessage();
-}
-try {
-    $conn = connection();
-
-    $sql = "SELECT * FROM `HorariosBus`.`Rutas`WHERE (idRutas=$idRutas)";
-    $result = mysqli_query($conn, $sql);
-    echo $sql;
-    $row1 = mysqli_fetch_array($result);
-    $origen = $row["destino"];
-    $destino = $row["origen"];
-
-    $conn->close();
-} catch (mysqli_sql_exception $e) {
-    throw $e;
-} catch (Exception $e) {
-    echo 'Message: ' . $e->getMessage();
-}
-try {
-
-    $sql = "SELECT `precio` FROM `HorariosBus`.`Horarios` WHERE (idhorario=$idhorario)";
-    $result = mysqli_query($conn, $sql);
-    echo $sql;
-    $row1 = mysqli_fetch_array($result);
-    $precio =  $row["precio"];
-    $conn->close();
-} catch (mysqli_sql_exception $e) {
-    throw $e;
-} catch (Exception $e) {
-    echo 'Message: ' . $e->getMessage();
-}
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -135,7 +69,7 @@ try {
                                     </strong>
                                     <span>NO.CEDULA</span>
                                     <strong>
-                                        <?php echo $idhorario?>
+                                        <?php echo $idhorario ?>
                                     </strong>
                                 </div>
 
@@ -243,5 +177,71 @@ try {
         window.print();
     }
 </script>
+<?php
+session_start();
+if (!$_SESSION['verificar']) {
+    header("Location: login.php");
+}
+$user = $_SESSION['user'];
+$usuario = implode(", ", $user);
+$idUsuario = "207460988";
+$correo = $_SESSION['correo'];
+$telefono = $_SESSION['telefono'];
+$apellido1 = $_SESSION['apellido1'];
+$paellido2 = $_SESSION['apellido2'];
+$conn = connection();
+
+try {
+
+
+    $sql = "SELECT * FROM HorariosBus.Tiquetes WHERE (Usuarios_idUsuario='207460988')";
+    echo $sql;
+    $result = mysqli_query($conn, $sql);
+    $row1 = mysqli_fetch_array($result);
+    $idTiquetes = $row["idTiquetes"];
+    $idEspacio = $row["Espacios_idEspacio"];
+    $idBus = $row["Espacios_Buses_idBus"];
+    $idhorario = $row["Horarios_idhorario"];
+    $idRutas = $row["Horarios_Rutas_idRutas"];
+    $idUsuario = $row["Usuarios_idUsuario"];
+    $fechaEmision = $row["fechaEmision"];
+    $fechaSalida = $row["fechaSalida"];
+    echo $row;
+} catch (mysqli_sql_exception $e) {
+    throw $e;
+} catch (Exception $e) {
+    echo 'Message: ' . $e->getMessage();
+}
+try {
+    $conn = connection();
+
+    $sql = "SELECT * FROM `HorariosBus`.`Rutas`WHERE (idRutas=$idRutas)";
+    $result = mysqli_query($conn, $sql);
+    echo $sql;
+    $row1 = mysqli_fetch_array($result);
+    $origen = $row["destino"];
+    $destino = $row["origen"];
+
+    $conn->close();
+} catch (mysqli_sql_exception $e) {
+    throw $e;
+} catch (Exception $e) {
+    echo 'Message: ' . $e->getMessage();
+}
+try {
+
+    $sql = "SELECT `precio` FROM `HorariosBus`.`Horarios` WHERE (idhorario=$idhorario)";
+    $result = mysqli_query($conn, $sql);
+    echo $sql;
+    $row1 = mysqli_fetch_array($result);
+    $precio =  $row["precio"];
+    $conn->close();
+} catch (mysqli_sql_exception $e) {
+    throw $e;
+} catch (Exception $e) {
+    echo 'Message: ' . $e->getMessage();
+}
+
+?>
 
 </html>
