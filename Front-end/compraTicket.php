@@ -557,7 +557,8 @@ $fechaSalida = 'fechaSalida';
       success: function(data) {
         $('#idEspacio').html(data);
       }
-
+        
     })
+    alert("jajajajaja");
   }
 </script>
