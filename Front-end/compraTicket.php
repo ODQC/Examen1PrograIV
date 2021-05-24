@@ -548,13 +548,9 @@ $fechaSalida = 'fechaSalida';
   function getEspacios(id) {
     $('#idEspacio').html('');
     // $('#city').html('<option>Select City</option>');
-    <?php
-
-    echo '<script type="text/JavaScript"> 
-			alert("No hemos encotrado ningun registro");
-		</script>';
-    
-    ?>
+  
+			alert("holi me ejecute");
+		
     
   }
 </script>
