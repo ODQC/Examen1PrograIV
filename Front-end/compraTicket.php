@@ -326,9 +326,9 @@ $fechaSalida = 'fechaSalida';
               ?>
               <option value="0">--Selecionar--</option>
               <?php while ($row1 = mysqli_fetch_array($result)) :; ?>
+                
 
-
-                <option value=" <?php echo $row1['Buses_idBus']; ?>"><?php echo ($row1["Rutas_idRutas"]), ("-"), ($row1["horario"]); ?></option>
+                <option value=" <?php echo ($row1['Buses_idBus']); ?>"><?php echo ($row1["Rutas_idRutas"]), ("-"), ($row1["horario"]); ?></option>
 
               <?php endwhile; ?>
             </select>
@@ -549,8 +549,8 @@ $fechaSalida = 'fechaSalida';
     $('#idEspacio').html('');
     // $('#city').html('<option>Select City</option>');
     var horario = document.getElementById("idEspacio").value;
-			alert(horario);
-		
-    
+    alert(horario);
+
+
   }
 </script>
