@@ -47,7 +47,7 @@ try {
 try {
     $conn = connection();
 
-    $sql = "SELECT * FROM `HorariosBus`.`Rutas`WHERE (idhorario=$idhorario)";
+    $sql = "SELECT * FROM `HorariosBus`.`Rutas`WHERE (idRutas=$idRutas)";
     $result = mysqli_query($conn, $sql);
 
     $row1 = mysqli_fetch_array($result);
@@ -62,7 +62,7 @@ try {
 }
 try {
 
-    $sql = "SELECT `precio` FROM `HorariosBus`.`Horarios` WHERE (Rutas_idRutas=$idRutas)";
+    $sql = "SELECT `precio` FROM `HorariosBus`.`Horarios` WHERE (idhorario=$idhorario)";
     $result = mysqli_query($conn, $sql);
     $row1 = mysqli_fetch_array($result);
     $precio =  $row["precio"];
