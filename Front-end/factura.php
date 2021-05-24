@@ -32,7 +32,7 @@ $conn = connection();
 try {
 
 
-    $sql = "SELECT * FROM `HorariosBus`.`Tiquetes` WHERE (Usuarios_idUsuario='$idUsuario')";
+    $sql = "SELECT * FROM HorariosBus.Tiquetes WHERE (Usuarios_idUsuario='207460988')";
     echo $sql;
     $result = mysqli_query($conn, $sql);
     $row1 = mysqli_fetch_array($result);
