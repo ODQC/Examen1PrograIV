@@ -73,7 +73,7 @@ $fechaSalida = 'fechaSalida';
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-  <script src="assets/js/jquery-3.3.1.min.js"></script>
+  <script src="assets/js/jquery-3.6.0.min.js"></script>
   <script type="text/javascript">
     $(document).ready(function() {
       $("#cbx_horario").change(function() {
@@ -551,7 +551,7 @@ $fechaSalida = 'fechaSalida';
     $('#idEspacio').html('');
     // $('#city').html('<option>Select City</option>');
     var horario = document.getElementById("idEspacio").value;
-    alert(horario.data);
+    alert(horario);
 
 
   }
