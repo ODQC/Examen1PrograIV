@@ -44,6 +44,7 @@ try {
     $idUsuario = $row["Usuarios_idUsuario"];
     $fechaEmision = $row["fechaEmision"];
     $fechaSalida = $row["fechaSalida"];
+    echo $row;
 } catch (mysqli_sql_exception $e) {
     throw $e;
 } catch (Exception $e) {
