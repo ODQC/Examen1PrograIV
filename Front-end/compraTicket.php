@@ -67,6 +67,8 @@ $fechaSalida = 'fechaSalida';
   <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
   <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <!-- end Vendor CSS Files -->
 
   <!-- Template Main CSS File -->
@@ -250,7 +252,7 @@ $fechaSalida = 'fechaSalida';
     <div class="container" data-aos="zoom-in">
 
       <div class="text-center">
-        <h3>Reserve su tiquete en linea</h3>        
+        <h3>Reserve su tiquete en linea</h3>
       </div>
 
     </div>
