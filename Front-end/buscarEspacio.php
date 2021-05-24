@@ -13,16 +13,14 @@
         die("Connection failed: " . $conn->connect_error);
     }
 
-        echo '<script type="text/JavaScript"> 
-                    alert("No hemos encotrado ningun registro");
-                </script>';
+       
 
 
     if (isset($_POST['Buses_idBus'])) {
         $conn = connection();
         $Buses_idBus = $_POST['Buses_idBus'];
-        
-        $sql = "SELECT `numAsiento`, `idEspacio` FROM `HorariosBus`.`Espacios` WHERE (Buses_idBus=$Buses_idBus AND estado='Disponible')";
+                echo $Buses_idBus;
+        $sql = "SELECT * FROM `HorariosBus`.`Espacios` WHERE (Buses_idBus=$Buses_idBus AND estado='Disponible')";
         $result = mysqli_query($conn, $sql);
       ?>
         <option value="">--Selecionar--</option>
