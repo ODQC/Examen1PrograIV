@@ -15,7 +15,10 @@ try {
 		session_start();
 		$_SESSION['user'] = $fila['nombre'];
 		$_SESSION['idUsuario'] = $fila['idUsuario'];
-		$_SESSION['tipoUsuario'] = $fila['tipoUsuario'];
+		$_SESSION['correo'] = $fila['correo'];
+		$_SESSION['telefono'] = $fila['telefono'];
+		$_SESSION['apellido1'] = $fila['apellido1'];
+		$_SESSION['apellido2'] = $fila['apellido2'];
 		$_SESSION['verificar'] = true;
 		$_SESSION['start'] = time();
 		$_SESSION['expire'] = $_SESSION['start'] + (15 * 60);
