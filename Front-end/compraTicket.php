@@ -327,7 +327,7 @@ $fechaSalida = 'fechaSalida';
               <option value="0">--Selecionar--</option>
               <?php while ($row1 = mysqli_fetch_array($result)) :; ?>
 
-                <? $option =  $row1["Rutas_idRutas"] ?>
+
                 <option value=" <?php echo $row1['Buses_idBus']; ?>"><?php echo ($row1["Rutas_idRutas"]), ("-"), ($row1["horario"]); ?></option>
 
               <?php endwhile; ?>
@@ -552,7 +552,7 @@ $fechaSalida = 'fechaSalida';
       type: 'post',
       url: 'buscarEspacio.php',
       data: {
-        idhorario: id
+        Buses_idBus: id
       },
       success: function(data) {
         $('#idEspacio').html(data);
