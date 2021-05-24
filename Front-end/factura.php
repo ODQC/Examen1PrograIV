@@ -5,7 +5,7 @@ if (!$_SESSION['verificar']) {
 }
 $user = $_SESSION['user'];
 $usuario = implode(", ", $user);
-$idUsuario = $_SESSION['idUsuario'];
+$idUsuario = '207460988';
 $correo = $_SESSION['correo'];
 $telefono = $_SESSION['telefono'];
 $apellido1 = $_SESSION['apellido1'];
