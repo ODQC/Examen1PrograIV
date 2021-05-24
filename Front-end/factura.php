@@ -26,23 +26,21 @@ $destino = "";
 $precio =  "";
 $conn = connection();
 
-$sql = "SELECT idUsuario FROM HorariosBus.Usuarios WHERE (correo='$correo')";
+$sql = "SELECT * FROM HorariosBus.Usuarios WHERE correo='$correo'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-		$fila = $consulta2->fetch_array(MYSQLI_ASSOC);
-		session_start();
-	
-		$idUsuario = $fila['idUsuario'];
-		
-		
-	} else {
-		echo '<script type="text/JavaScript"> 
-							alert("El email o contraseña son incorrectos");
-						</script>';
-	}
+    
+    while ($row = $result->fetch_assoc()) {
+       $idUsuario = $row['idUsuario'];
+    }
+} else {
+    echo "0 results";
+}
 
-$sql = "SELECT * FROM HorariosBus.Tiquetes WHERE correo=".$_SESSION['correo'];
+$conn->close();
+
+$sql = "SELECT * FROM HorariosBus.Tiquetes WHERE (Usuarios_idUsuario=$idUsuario)";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
