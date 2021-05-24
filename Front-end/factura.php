@@ -25,28 +25,22 @@ function connection()
     }
     return $conn;
 }
+$conn = connection();
 try {
-    $conn = connection();
+   
 
     $sql = "SELECT * FROM `HorariosBus`.`Tiquetes` WHERE (`Usuarios_idUsuario`='$idUsuario')";
-    $result = $conn->query($sql);
+    $result = mysqli_query($conn, $sql);
+    $row1 = mysqli_fetch_array($result);
+    $idTiquetes = $row["idTiquetes"];
+    $idEspacio = $row["Espacios_idEspacio"];
+    $idBus = $row["Espacios_Buses_idBus"];
+    $idhorario = $row["Horarios_idhorario"];
+    $idRutas = $row["Horarios_Rutas_idRutas"];
+    $idUsuario = $row["Usuarios_idUsuario"];
+    $fechaEmision = $row["fechaEmision"] ;
+    $fechaSalida = $row["fechaSalida"];
 
-    if ($result->num_rows > 0) {
-
-        $idTiquetes = $row["idTiquetes"];
-        $idEspacio = $row["Espacios_idEspacio"];
-        $idBus = $row["Espacios_Buses_idBus"];
-        $idhorario = $row["Horarios_idhorario"];
-        $idRutas = $row["Horarios_Rutas_idRutas"];
-        $idUsuario = $row["Usuarios_idUsuario"];
-        $fechaEmision = $row["fechaEmision"] ;
-        $fechaSalida = $row["fechaSalida"];
-
-    } else {
-        echo '<script type="text/JavaScript"> 
-			alert("No hemos encotrado ningun registro");
-		</script>';
-    }
 } catch (mysqli_sql_exception $e) {
     throw $e;
 } catch (Exception $e) {
@@ -56,19 +50,11 @@ try{
     $conn = connection();
 
     $sql = "SELECT * FROM `HorariosBus`.`Rutas`WHERE (idhorario=$idhorario)";
-    $result = $conn->query($sql);
+    $result = mysqli_query($conn, $sql);
 
-    if ($result->num_rows > 0) {
-
-        // output data of each row
-        $row = $result->fetch_assoc();
-
-
-        $origen = $row["destino"];
-        $destino = $row["origen"];
-    } else {
-        echo "0 results";
-    }
+    $row1 = mysqli_fetch_array($result);
+    $origen = $row["destino"];
+    $destino = $row["origen"];
 
     $conn->close();
 
@@ -78,20 +64,12 @@ try{
     echo 'Message: ' . $e->getMessage();
 }
 try{
-            $conn = connection();
-            $sql = "SELECT `precio` FROM `HorariosBus`.`Horarios` WHERE (Rutas_idRutas=$idRutas)";
-            $result = $conn->query($sql);
-
-            if ($result->num_rows > 0) {
-
-                $row = $result->fetch_assoc();                        
-                $precio =  $row["precio"];     
-             
-            } else {
-              echo "0 results";
-            }
-
-            $conn->close();
+          
+    $sql = "SELECT `precio` FROM `HorariosBus`.`Horarios` WHERE (Rutas_idRutas=$idRutas)";
+    $result = mysqli_query($conn, $sql);
+    $row1 = mysqli_fetch_array($result);                     
+    $precio =  $row["precio"];     
+    $conn->close();
 } catch (mysqli_sql_exception $e) {
     throw $e;
 } catch (Exception $e) {
