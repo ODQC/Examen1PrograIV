@@ -1,15 +1,5 @@
+
 <?php
-session_start();
-if (!$_SESSION['verificar']) {
-    header("Location: login.php");
-}
-$user = $_SESSION['user'];
-$usuario = implode(", ", $user);
-$idUsuario = "207460988";
-$correo = $_SESSION['correo'];
-$telefono = $_SESSION['telefono'];
-$apellido1 = $_SESSION['apellido1'];
-$paellido2 = $_SESSION['apellido2'];
 function connection()
 {
     $servername = "localhost";
@@ -24,11 +14,26 @@ function connection()
     }
     return $conn;
 }
+?>
+<?php
+session_start();
+if (!$_SESSION['verificar']) {
+    header("Location: login.php");
+}
+$user = $_SESSION['user'];
+$usuario = implode(", ", $user);
+$idUsuario = "207460988";
+$correo = $_SESSION['correo'];
+$telefono = $_SESSION['telefono'];
+$apellido1 = $_SESSION['apellido1'];
+$paellido2 = $_SESSION['apellido2'];
 $conn = connection();
+
 try {
 
 
     $sql = "SELECT * FROM `HorariosBus`.`Tiquetes` WHERE (Usuarios_idUsuario='$idUsuario')";
+    echo $sql;
     $result = mysqli_query($conn, $sql);
     $row1 = mysqli_fetch_array($result);
     $idTiquetes = $row["idTiquetes"];
@@ -49,7 +54,7 @@ try {
 
     $sql = "SELECT * FROM `HorariosBus`.`Rutas`WHERE (idRutas=$idRutas)";
     $result = mysqli_query($conn, $sql);
-
+    echo $sql;
     $row1 = mysqli_fetch_array($result);
     $origen = $row["destino"];
     $destino = $row["origen"];
@@ -64,6 +69,7 @@ try {
 
     $sql = "SELECT `precio` FROM `HorariosBus`.`Horarios` WHERE (idhorario=$idhorario)";
     $result = mysqli_query($conn, $sql);
+    echo $sql;
     $row1 = mysqli_fetch_array($result);
     $precio =  $row["precio"];
     $conn->close();
