@@ -62,9 +62,9 @@ if ($result->num_rows > 0) {
 $conn->close();
 
 $conn = connection();
-$sql = "SELECT * FROM `HorariosBus`.`Rutas`WHERE (idRutas = '$idRutas')";
+$sql = "SELECT * FROM `HorariosBus`.`Rutas` WHERE (idRutas = '$idRutas')";
 $result = $conn->query($sql);
-echo $sql;
+
 if ($result->num_rows > 0) {
     // output data of each row
     while ($row = $result->fetch_assoc()) {
@@ -203,24 +203,7 @@ function connection()
                                     </div>
 
                                 </div>
-                                <div class="row item">
-                                    <div class="col-xs-5 amount text-right">
-                                        DESTINO:
-                                    </div>
-                                    <div class="col-xs-4 desc">
-                                        <?php echo $destino ?>
-                                    </div>
-
-                                </div>
-                                <div class="row item">
-                                    <div class="col-xs-5 amount text-right">
-                                        ORIGEN:
-                                    </div>
-                                    <div class="col-xs-4 desc">
-                                        <?php echo $origen ?>
-                                    </div>
-
-                                </div>
+                                
                                 <div class="row item">
                                     <div class="col-xs-5 amount text-right">
                                         NO. BUS:
