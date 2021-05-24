@@ -39,7 +39,7 @@ if ($result->num_rows > 0) {
 }
 
 $conn->close();
-
+$conn = connection();
 $sql = "SELECT * FROM HorariosBus.Tiquetes WHERE (Usuarios_idUsuario=$idUsuario)";
 $result = $conn->query($sql);
 
@@ -77,7 +77,7 @@ if ($result->num_rows > 0) {
 
 $conn->close();
 
-
+$conn = connection();
 $sql = "SELECT * FROM `HorariosBus`.`Horarios` WHERE (idhorario=$idhorario)";
 $result = $conn->query($sql);
 
