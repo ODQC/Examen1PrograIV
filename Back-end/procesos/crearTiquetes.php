@@ -1,5 +1,7 @@
 <?php
-
+echo '<script type="text/JavaScript"> 
+	alert("holi si me ejecuté");
+</script>';
 	
 try{
 	require_once "../php/connect.php";
