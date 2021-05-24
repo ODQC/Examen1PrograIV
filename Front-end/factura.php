@@ -5,7 +5,7 @@ if (!$_SESSION['verificar']) {
 }
 $user = $_SESSION['user'];
 $usuario = implode(", ", $user);
-$idUsuario = "207460988";
+$idUsuario = $_SESSION['idUsuario'];
 $correo = $_SESSION['correo'];
 $telefono = $_SESSION['telefono'];
 $apellido1 = $_SESSION['apellido1'];
@@ -152,7 +152,7 @@ function connection()
                                     </strong>
                                     <span>NO.CEDULA</span>
                                     <strong>
-                                        <?php echo $idhorario ?>
+                                        <?php echo $idUsuario ?>
                                     </strong>
                                 </div>
 
