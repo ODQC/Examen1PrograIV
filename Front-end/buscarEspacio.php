@@ -20,7 +20,7 @@
         $conn = connection();
         $Buses_idBus = $_POST['Buses_idBus'];
                 
-        $sql = "SELECT * FROM `HorariosBus`.`Espacios` WHERE (Buses_idBus=$Buses_idBus AND estado='Disponible')";
+        $sql = "SELECT * FROM `HorariosBus`.`Espacios` WHERE estado='Disponible' AND Buses_idBus= ".$_POST['Buses_idBus'] ;
         $result = mysqli_query($conn, $sql);
 
     echo '<script type="text/JavaScript"> 
