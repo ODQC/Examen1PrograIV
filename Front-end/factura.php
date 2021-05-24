@@ -62,7 +62,7 @@ if ($result->num_rows > 0) {
 $conn->close();
 
 $conn = connection();
-$sql = "SELECT * FROM `HorariosBus`.`Rutas`WHERE (idRutas=$idRutas)";
+$sql = "SELECT * FROM `HorariosBus`.`Rutas`WHERE (idRutas = '$idRutas')";
 $result = $conn->query($sql);
 echo $sql;
 if ($result->num_rows > 0) {
