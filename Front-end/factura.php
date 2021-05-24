@@ -11,7 +11,20 @@ $correo=$_SESSION['correo'];
 $telefono=$_SESSION['telefono'];
 $apellido1=$_SESSION['apellido1'];
 $paellido2=$_SESSION['apellido2'];
-
+function connection()
+{
+    $servername = "localhost";
+    $username = "root";
+    $password = "207460988";
+    $dbname = "HorariosBus";
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+    return $conn;
+}
 try {
     $conn = connection();
 
