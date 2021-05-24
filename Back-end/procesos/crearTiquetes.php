@@ -1,7 +1,5 @@
 <?php
-echo '<script type="text/JavaScript"> 
-	alert("holi si me ejecuté");
-</script>';
+
 	
 try{
 	require_once "../php/connect.php";
@@ -17,13 +15,13 @@ try{
 	$query = "INSERT INTO usuario(idTiquetes,Espacios_idEspacio,Espacios_Buses_idBus,Horarios_idhorario,Horarios_Rutas_idRutas,Usuarios_idUsuario,fechaEmision,fechaSalida)
 	 VALUES('$idTiquetes','$Espacios_idEspacio','$Espacios_Buses_idBus','$Horarios_idhorario','$Horarios_Rutas_idRutas','$Usuarios_idUsuario','$fechaEmision','$fechaSalida')";
 	if ($mysqli->query($query)) {
-		echo '<script type="text/JavaScript"> 
-	alert("");
-</script>';
+				echo '<script type="text/JavaScript"> 
+			alert("Se ejecutó la compra exitosamente ");
+		</script>';
 	} else {
-		echo '<script type="text/JavaScript"> 
-	alert("");
-</script>';
+				echo '<script type="text/JavaScript"> 
+			alert("No se pudo realizar la compra");
+		</script>';
 	}
 	}catch (mysqli_sql_exception $e) {
 		throw $e;
