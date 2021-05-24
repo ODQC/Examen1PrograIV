@@ -26,7 +26,7 @@ $destino = "";
 $precio =  "";
 $conn = connection();
 
-$sql = "SELECT * FROM HorariosBus.Tiquetes WHERE (Usuarios_idUsuario=$idUsuario)";
+$sql = "SELECT * FROM HorariosBus.Tiquetes WHERE (correo=$correo)";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
