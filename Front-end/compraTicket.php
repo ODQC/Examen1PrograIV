@@ -548,8 +548,8 @@ $fechaSalida = 'fechaSalida';
   function getEspacios(id) {
     $('#idEspacio').html('');
     // $('#city').html('<option>Select City</option>');
-  
-			alert("holi me ejecute");
+    var horario = document.getElementById("idEspacio").value;
+			alert(horario);
 		
     
   }
