@@ -246,6 +246,15 @@ $fechaSalida = 'fechaSalida';
     </form>
   </section>
   <!-- End  Section1 -->
+  <section id="cta" class="cta">
+    <div class="container" data-aos="zoom-in">
+
+      <div class="text-center">
+        <h3>Reserve su tiquete en linea</h3>        
+      </div>
+
+    </div>
+  </section><!-- End Cta Section -->
 
 
 
