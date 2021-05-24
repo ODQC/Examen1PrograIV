@@ -64,7 +64,7 @@ if ($result->num_rows > 0) {
 $conn->close();
 
 
-$sql = "SELECT `precio` FROM `HorariosBus`.`Horarios` WHERE (idhorario=$idhorario)";
+$sql = "SELECT * FROM `HorariosBus`.`Horarios` WHERE (idhorario=$idhorario)";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
