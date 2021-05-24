@@ -28,4 +28,3 @@ try{
 	}catch(Exception $e) {
 		echo 'Message: ' .$e->getMessage();
 	}
-header('Location: ../Front-end/factura.php');

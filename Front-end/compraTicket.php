@@ -548,17 +548,13 @@ $fechaSalida = 'fechaSalida';
   function getEspacios(id) {
     $('#idEspacio').html('');
     // $('#city').html('<option>Select City</option>');
-    $.ajax({
-      type: 'post',
-      url: 'buscarEspacio.php',
-      data: {
-        Buses_idBus: id
-      },
-      success: function(data) {
-        $('#idEspacio').html(data);
-      }
-        
-    })
+    <?php
+
+    echo '<script type="text/JavaScript"> 
+			alert("No hemos encotrado ningun registro");
+		</script>';
+    
+    ?>
     
   }
 </script>
