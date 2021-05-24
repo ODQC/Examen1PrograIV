@@ -6,6 +6,7 @@ if (!$_SESSION['verificar']) {
 $user = $_SESSION['user'];
 $usuario = implode(", ", $user);
 $idUsuario = $_SESSION['idUsuario'];
+$idBus ="";
 
 
 ?>
@@ -551,7 +552,9 @@ $fechaSalida = 'fechaSalida';
     $('#idEspacio').html('');
     // $('#city').html('<option>Select City</option>');
     var horario = document.getElementById("idEspacio").value;
+    horario
     alert(horario);
+    
 
 
   }
