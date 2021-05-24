@@ -539,7 +539,7 @@ $fechaSalida = 'fechaSalida';
     // $('#city').html('<option>Select City</option>');
     $.ajax({
       type: 'post',
-      url: '../Back-end/procesos/buscarEspacio.php',
+      url: 'buscarEspacio.php',
       data: {
         idhorario: id
       },
