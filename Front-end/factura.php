@@ -3,14 +3,13 @@ session_start();
 if (!$_SESSION['verificar']) {
     header("Location: login.php");
 }
-$user = $_SESSION['user'] ;
-$usuario = implode(", ", $user) ;
-$idUsuario = $_SESSION['idUsuario'] ;
-
-$correo=$_SESSION['correo'];
-$telefono=$_SESSION['telefono'];
-$apellido1=$_SESSION['apellido1'];
-$paellido2=$_SESSION['apellido2'];
+$user = $_SESSION['user'];
+$usuario = implode(", ", $user);
+$idUsuario = $_SESSION['idUsuario'];
+$correo = $_SESSION['correo'];
+$telefono = $_SESSION['telefono'];
+$apellido1 = $_SESSION['apellido1'];
+$paellido2 = $_SESSION['apellido2'];
 function connection()
 {
     $servername = "localhost";
@@ -27,7 +26,7 @@ function connection()
 }
 $conn = connection();
 try {
-   
+
 
     $sql = "SELECT * FROM `HorariosBus`.`Tiquetes` WHERE (`Usuarios_idUsuario`='$idUsuario')";
     $result = mysqli_query($conn, $sql);
@@ -38,15 +37,14 @@ try {
     $idhorario = $row["Horarios_idhorario"];
     $idRutas = $row["Horarios_Rutas_idRutas"];
     $idUsuario = $row["Usuarios_idUsuario"];
-    $fechaEmision = $row["fechaEmision"] ;
+    $fechaEmision = $row["fechaEmision"];
     $fechaSalida = $row["fechaSalida"];
-
 } catch (mysqli_sql_exception $e) {
     throw $e;
 } catch (Exception $e) {
     echo 'Message: ' . $e->getMessage();
 }
-try{
+try {
     $conn = connection();
 
     $sql = "SELECT * FROM `HorariosBus`.`Rutas`WHERE (idhorario=$idhorario)";
@@ -57,18 +55,17 @@ try{
     $destino = $row["origen"];
 
     $conn->close();
-
 } catch (mysqli_sql_exception $e) {
     throw $e;
 } catch (Exception $e) {
     echo 'Message: ' . $e->getMessage();
 }
-try{
-          
+try {
+
     $sql = "SELECT `precio` FROM `HorariosBus`.`Horarios` WHERE (Rutas_idRutas=$idRutas)";
     $result = mysqli_query($conn, $sql);
-    $row1 = mysqli_fetch_array($result);                     
-    $precio =  $row["precio"];     
+    $row1 = mysqli_fetch_array($result);
+    $precio =  $row["precio"];
     $conn->close();
 } catch (mysqli_sql_exception $e) {
     throw $e;
@@ -105,11 +102,11 @@ try{
                             <div class="row">
                                 <div class="col-sm-6">
                                     <span>No. TIQUETE</span>
-                                    <strong>434334343</strong>
+                                    <strong><?php echo $idTiquetes ?></strong>
                                 </div>
                                 <div class="col-sm-6 text-right">
                                     <span>FECHA DE EMICIÓN</span>
-                                    <strong>Jul 09, 2014 - 12:20 pm</strong>
+                                    <strong><?php echo $fechaEmision ?></strong>
                                 </div>
                             </div>
                         </div>
@@ -123,83 +120,86 @@ try{
                                     </strong>
                                     <span>CORREO ELECTRONICO</span>
                                     <strong>
-                                        <?php echo $correo?>
+                                        <?php echo $correo ?>
                                     </strong>
                                     <span>NO. TELEFONO</span>
                                     <strong>
-                                        <?php echo $telefono?>
+                                        <?php echo $telefono ?>
                                     </strong>
-
+                                    <span>NO.CEDULA</span>
+                                    <strong>
+                                        <?php echo $idhorario?>
+                                    </strong>
                                 </div>
-                                
+
                             </div>
                         </div>
 
                         <div class="line-items">
-                            
+
                             <div class="items">
                                 <div class="row item">
                                     <div class="col-xs-4 desc">
-                                       NO. RUTA:
+                                        NO. RUTA:
                                     </div>
                                     <div class="col-xs-3 qty">
                                         <?php echo $idRutas ?>
                                     </div>
-                                    
+
                                 </div>
                                 <div class="row item">
                                     <div class="col-xs-4 desc">
                                         FECHA DE SALIDA:
                                     </div>
                                     <div class="col-xs-3 qty">
-                                        <?php echo $fechaSalida?>
+                                        <?php echo $fechaSalida ?>
                                     </div>
-                                
+
                                 </div>
                                 <div class="row item">
                                     <div class="col-xs-5 amount text-right">
                                         HORARIO:
                                     </div>
                                     <div class="col-xs-4 desc">
-                                        <?php echo $fechaEmision?>
+                                        <?php echo $fechaEmision ?>
                                     </div>
-  
+
                                 </div>
                                 <div class="row item">
                                     <div class="col-xs-5 amount text-right">
                                         DESTINO:
                                     </div>
                                     <div class="col-xs-4 desc">
-                                        <?php echo $destino?>
+                                        <?php echo $destino ?>
                                     </div>
-                                
+
                                 </div>
                                 <div class="row item">
                                     <div class="col-xs-5 amount text-right">
                                         ORIGEN:
                                     </div>
                                     <div class="col-xs-4 desc">
-                                        <?php echo $origen?>
+                                        <?php echo $origen ?>
                                     </div>
-                                
+
                                 </div>
                                 <div class="row item">
                                     <div class="col-xs-5 amount text-right">
                                         NO. BUS:
                                     </div>
                                     <div class="col-xs-4 desc">
-                                        <?php echo $idBus?>
+                                        <?php echo $idBus ?>
                                     </div>
-                                
+
                                 </div>
                                 <div class="row item">
                                     <div class="col-xs-5 amount text-right">
                                         NO. ASIENTO:
                                     </div>
                                     <div class="col-xs-4 desc">
-                                        <?php echo $idEspacio?>
+                                        <?php echo $idEspacio ?>
                                     </div>
-                                
+
                                 </div>
                             </div>
                             <div class="row item">
@@ -207,18 +207,18 @@ try{
                                     PRECIO:
                                 </div>
                                 <div class="col-xs-4 desc">
-                                    <?php echo $precio?>
+                                    <?php echo $precio ?>
                                 </div>
-                            
+
                             </div>
-                           
+
                             <div class="print">
-                                
-                                    
-                                    
-                                    <button class="fa fa-print" onclick="display()">IMPRIMIR RECIBO</button>
-                                    
-                              
+
+
+
+                                <button class="fa fa-print" onclick="display()">IMPRIMIR RECIBO</button>
+
+
                             </div>
                         </div>
                     </div>
@@ -236,4 +236,5 @@ try{
         window.print();
     }
 </script>
+
 </html>
