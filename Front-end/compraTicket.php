@@ -317,7 +317,7 @@ $fechaSalida = 'fechaSalida';
           </div>
           <div class="form-group">
             <h4>Seleccione el horario:</h4>
-            <select size="1" class="form-control" id="idhorario" name="idhorario" onchange="FetchCity(this.value)" required>
+            <select size="1" class="form-control" id="idhorario" name="idhorario" onchange="getEspacios(this.value)" required>
 
               <?php
               $conn = connection();
@@ -344,7 +344,7 @@ $fechaSalida = 'fechaSalida';
             <br>Selecione el lugar de su preferencia.
           </div>
           <div class="form-group">
-            <select size="1" class="form-control" id="idEspacio" name="idEspacio" onchange="FetchCity(this.value)" required>
+            <select size="1" class="form-control" id="idEspacio" name="idEspacio">
               <option>--Espacio--</option>
             </select>
           </div>
@@ -545,7 +545,7 @@ $fechaSalida = 'fechaSalida';
 
 </html>
 <script type="text/javascript">
-  function FetchState(id) {
+  function getEspacios(id) {
     $('#idEspacio').html('');
     // $('#city').html('<option>Select City</option>');
     $.ajax({
