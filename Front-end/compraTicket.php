@@ -552,8 +552,8 @@ $fechaSalida = 'fechaSalida';
     $('#idEspacio').html('');
     // $('#city').html('<option>Select City</option>');
     var horario = document.getElementById("idEspacio").value;
-    horario
-    alert(horario);
+  
+    alert(Number(horario));
     
 
 
