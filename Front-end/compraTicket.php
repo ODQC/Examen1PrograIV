@@ -572,7 +572,7 @@ $fechaSalida = 'fechaSalida';
 
    
     alert(idbus);
-    if (idbus == "") {
+    if (idbus == 0) {
       document.getElementById("idEspacio").innerHTML = "";
       return;
     }
