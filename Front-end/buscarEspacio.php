@@ -34,7 +34,7 @@
 
 
     while ($row = mysqli_fetch_array($result)) {?>
-    <option value=" <?php echo $row1['idEspacio']; ?>"><?php echo $row1['numAsiento']; ?>1</option>';
+    <option value=" <?php echo $row1['idEspacio']; ?>"><?php echo ($row1["numAsiento"]), ($row1['idEspacio']); ?></option>';
     <?php }
 
      mysqli_close($con);?>
