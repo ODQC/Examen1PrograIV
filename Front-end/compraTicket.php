@@ -387,7 +387,7 @@ $fechaSalida = 'fechaSalida';
 
             </tbody>
           </table>
-          <input type="button" name="btnCargar" class="previous btn btn-default" value="Cargar" />
+          <input type="button" name="btnCargar" class="previous btn btn-default" value="Cargar" onclick="CargarTicket()" />
           <h2>Paso 4: Método de pago</h2>
 
           <div class="form-group">
@@ -549,33 +549,34 @@ $fechaSalida = 'fechaSalida';
 </html>
 <script type="text/javascript">
   function CargarTicket() {
-    var idTiquete = <?php echo $idTiquetes?>;
+    var idTiquete = <?php echo $idTiquetes ?>;
     var espacio = document.getElementById();
     var bus = document.getElementById();
     var horario = document.getElementById();
     var ruta = document.getElementById();
     var salida = document.getElementById();
-    var cedula = <?php echo $idUsuario?>;
-    var = emision = <?php echo $fechaEmision?>;
-    nuevoTicket(idTiquete,espacio,bus,horario,ruta,cedula,emision,salida);
-    
+    var cedula = <?php echo $idUsuario ?>;
+    var = emision = <?php echo $fechaEmision ?>;
+    nuevoTicket(idTiquete, espacio, bus, horario, ruta, cedula, emision, salida);
+
   }
+  </script> 
+  <script type = "text/javascript" >
+    function showIdBus(idbus) {
 
-  function showIdBus(idbus) {
 
-
-    alert(idbus);
-    if (idbus == 0) {
-      document.getElementById("idEspacio").innerHTML = "";
-      return;
-    }
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("idEspacio").innerHTML = this.responseText;
+      alert(idbus);
+      if (idbus == 0) {
+        document.getElementById("idEspacio").innerHTML = "";
+        return;
       }
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("idEspacio").innerHTML = this.responseText;
+        }
+      }
+      xmlhttp.open("GET", "buscarEspacio.php?q=" + idbus, true);
+      xmlhttp.send();
     }
-    xmlhttp.open("GET", "buscarEspacio.php?q=" + idbus, true);
-    xmlhttp.send();
-  }
 </script>
