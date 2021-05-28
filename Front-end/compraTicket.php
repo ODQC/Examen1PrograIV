@@ -328,12 +328,12 @@ $fechaSalida = 'fechaSalida';
               $result = mysqli_query($conn, $sql);
               ?>
               <option value="0">--Selecionar--</option>
-              
-              
+
+
               <?php while ($row1 = mysqli_fetch_array($result)) :; ?>
 
-            <option value = "<?php echo $row1['Buses_idBus'] ?>" > <?php echo ($row1["Rutas_idRutas"]), ("-"), ($row1["horario"]), ("-"), $row1['Buses_idBus']; ?> </option>
-              
+                <option value="<?php echo $row1['Buses_idBus'] ?>"> <?php echo ($row1["Rutas_idRutas"]), ("-"), ($row1["horario"]); ?> </option>
+
               <?php endwhile; ?>
             </select>
           </div>
@@ -555,7 +555,17 @@ $fechaSalida = 'fechaSalida';
     var horario = document.getElementById("idhorario").value;
 
     alert(Number(horario));
+    $.ajax({
+      type: 'post',
+      url: 'buscarEspacio.php',
+      data: {
+        country_id: Number(horario)
+      },
+      success: function(data) {
+        $('#state').html(data);
+      }
 
+    })
 
 
   }
