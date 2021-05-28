@@ -11,9 +11,6 @@ $idBus = "";
 
 ?>
 <?php
-include 'Tiquete.php';
-
-$tiquete1 = new Ticket();
 
 function connection()
 {
@@ -390,6 +387,7 @@ $fechaSalida = 'fechaSalida';
 
             </tbody>
           </table>
+          <input type="button" name="btnCargar" class="previous btn btn-default" value="Cargar" />
           <h2>Paso 4: Método de pago</h2>
 
           <div class="form-group">
@@ -544,33 +542,28 @@ $fechaSalida = 'fechaSalida';
   <script src="assets/js/pagar.js"></script>
   <script src="assets/js/calendar.js"></script>
   <script src="assets/js/ticketController.js"></script>
+  <script src="assets/js/Tiquete.js"></script>
 
 </body>
 
 </html>
 <script type="text/javascript">
-  function getEspacios(id) {
-    $('#idEspacio').html('');
-    // $('#city').html('<option>Select City</option>');
-    var horario = document.getElementById("idhorario").value;
-
-    alert(Number(horario));
-    $.ajax({
-      type: 'post',
-      url: 'buscarEspacio.php',
-      data: {
-        country_id: Number(horario)
-      },
-      success: function(data) {
-        $('#state').html(data);
-      }
-
-    })
+  function CargarTicket() {
+    var idTiquete = <?php echo $idTiquetes?>;
+    var espacio = document.getElementById();
+    var bus = document.getElementById();
+    var horario = document.getElementById();
+    var ruta = document.getElementById();
+    var salida = document.getElementById();
+    var cedula = <?php echo $idUsuario?>;
+    var = emision = <?php echo $fechaEmision?>;
+    nuevoTicket(idTiquete,espacio,bus,horario,ruta,cedula,emision,salida);
+    
   }
 
   function showIdBus(idbus) {
 
-   
+
     alert(idbus);
     if (idbus == 0) {
       document.getElementById("idEspacio").innerHTML = "";
