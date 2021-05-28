@@ -320,7 +320,7 @@ $fechaSalida = 'fechaSalida';
           </div>
           <div class="form-group">
             <h4>Seleccione el horario:</h4>
-            <select size="1" class="form-control" id="idhorario" name="idhorario" onchange="getEspacios(this.value)" required>
+            <select size="1" class="form-control" id="idhorario" name="idhorario" onchange="showIdBus(this.value)" required>
 
               <?php
               $conn = connection();
@@ -549,5 +549,37 @@ $fechaSalida = 'fechaSalida';
 
 </html>
 <script type="text/javascript">
-  
+  function getEspacios(id) {
+    $('#idEspacio').html('');
+    // $('#city').html('<option>Select City</option>');
+    var horario = document.getElementById("idhorario").value;
+
+    alert(Number(horario));
+    $.ajax({
+      type: 'post',
+      url: 'buscarEspacio.php',
+      data: {
+        country_id: Number(horario)
+      },
+      success: function(data) {
+        $('#state').html(data);
+      }
+
+    })
+  }
+
+  function showIdBus(str) {
+    if (str == "") {
+      document.getElementById("txtHint").innerHTML = "";
+      return;
+    }
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("idhorario").innerHTML = this.responseText;
+      }
+    }
+    xmlhttp.open("GET", "buscarEspacio.php?q=" + str, true);
+    xmlhttp.send();
+  }
 </script>
