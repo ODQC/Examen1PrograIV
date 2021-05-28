@@ -18,7 +18,15 @@
 
 
     $q = intval($_GET['q']);
+    echo '
+    
+    <script type="text/javascript">
 
+    alert("llegué")
+
+    </script>
+    
+    ';
 
     mysqli_select_db($conn, "ajax_demo");
     $sql = "SELECT * FROM `HorariosBus`.`Espacios` WHERE estado='Disponible' AND Buses_idBus= '".$q."'";
@@ -27,10 +35,6 @@
 
     while ($row = mysqli_fetch_array($result)) {?>
     <option value=" <?php echo $row1['idEspacio']; ?>"><?php echo $row1['numAsiento']; ?></option>';
-    }
+    <?php }
 
-    <?php mysqli_close($con);
-
-
-
-   ?>
+     mysqli_close($con);?>
