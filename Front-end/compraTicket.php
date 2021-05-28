@@ -387,7 +387,7 @@ $fechaSalida = 'fechaSalida';
 
             </tbody>
           </table>
-          <input type="button" name="btnCargar" class="previous btn btn-default" value="Cargar" onclick="CargarTicket()" />
+          <input type="button" name="btnCargar" class="" value="Cargar" onclick="CargarTicket()" />
           <h2>Paso 4: Método de pago</h2>
 
           <div class="form-group">
