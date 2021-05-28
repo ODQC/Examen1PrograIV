@@ -570,9 +570,9 @@ $fechaSalida = 'fechaSalida';
 
   function showIdBus(idbus) {
 
-    var str = Number(idbus)
-    alert(str.toString());
-    if (str.toString() == "") {
+   
+    alert(idbus);
+    if (idbus == "") {
       document.getElementById("idEspacio").innerHTML = "";
       return;
     }
@@ -582,7 +582,7 @@ $fechaSalida = 'fechaSalida';
         document.getElementById("idEspacio").innerHTML = this.responseText;
       }
     }
-    xmlhttp.open("GET", "buscarEspacio.php?q=" + str, true);
+    xmlhttp.open("GET", "buscarEspacio.php?q=" + idbus, true);
     xmlhttp.send();
   }
 </script>
