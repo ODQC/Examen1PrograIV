@@ -328,15 +328,12 @@ $fechaSalida = 'fechaSalida';
               $result = mysqli_query($conn, $sql);
               ?>
               <option value="0">--Selecionar--</option>
-              <script type="text/javascript">
-
-              </script>
+              
+              
               <?php while ($row1 = mysqli_fetch_array($result)) :; ?>
 
-                <script type="text/javascript">
-                 
-                  option value = "<?php echo $row1['Buses_idBus'] ?>" > <?php echo ($row1["Rutas_idRutas"]), ("-"), ($row1["horario"]); ?> < /option>
-                </script>
+              option value = "<?php echo $row1['Buses_idBus'] ?>" > <?php echo ($row1["Rutas_idRutas"]), ("-"), ($row1["horario"]); ?> < /option>
+              
               <?php endwhile; ?>
             </select>
           </div>
