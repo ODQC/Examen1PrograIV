@@ -549,24 +549,5 @@ $fechaSalida = 'fechaSalida';
 
 </html>
 <script type="text/javascript">
-  function getEspacios(id) {
-    $('#idEspacio').html('');
-    // $('#city').html('<option>Select City</option>');
-    var horario = document.getElementById("idhorario").value;
-
-    alert(Number(horario));
-    $.ajax({
-      type: 'post',
-      url: 'buscarEspacio.php',
-      data: {
-        country_id: Number(horario)
-      },
-      success: function(data) {
-        $('#state').html(data);
-      }
-
-    })
-
-
-  }
+  
 </script>
