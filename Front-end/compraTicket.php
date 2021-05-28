@@ -568,15 +568,18 @@ $fechaSalida = 'fechaSalida';
     })
   }
 
-  function showIdBus(str) {
-    if (str == "") {
-      document.getElementById("txtHint").innerHTML = "";
+  function showIdBus(idbus) {
+
+    var str = Number(idbus)
+    alert(str.toString());
+    if (str.toString() == "") {
+      document.getElementById("idEspacio").innerHTML = "";
       return;
     }
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("idhorario").innerHTML = this.responseText;
+        document.getElementById("idEspacio").innerHTML = this.responseText;
       }
     }
     xmlhttp.open("GET", "buscarEspacio.php?q=" + str, true);
