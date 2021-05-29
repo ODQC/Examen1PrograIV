@@ -19,7 +19,7 @@ $sql = "SELECT * FROM `HorariosBus`.`Horarios` WHERE idhorario ='" . $q . "'";
 $result = mysqli_query($conn, $sql);
 
 
-    $row = $result->fetch_assoc();
+    $row = $row1 = mysqli_fetch_array($result);
     $idBus = $row["Buses_idBus"];
 
 
