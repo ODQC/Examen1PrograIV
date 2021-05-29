@@ -1,13 +1,41 @@
 <?php
-
-
-
+function connection()
+{
     $servername = "localhost";
     $username = "root";
     $password = "207460988";
     $dbname = "HorariosBus";
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+    return $conn;
+}
+function buscar($idHorario){
+    $conn = connection();
+    $sql = "SELECT * FROM `HorariosBus`.`Horarios`";
+    $result = $conn->query($sql);
+    
+
+
+
+
+}
+
+
+
+?>
+
+
+<?php
+
+
+
+   
+    // Create connection
+    $conn = connection();
     // Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
