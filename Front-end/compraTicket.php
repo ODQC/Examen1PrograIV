@@ -548,9 +548,10 @@ $fechaEmision = date('Y-m-d H:i:s');
 
 
     try {
-      var ced = <?php echo $idUsuario?>;
-      var idTicket =<?php echo $idTiquetes?>;
-      //var emision =<?php # echo $fechaEmision ?>;
+      var ced = <?php echo $idUsuario ?>;
+      var idTicket = Math.random().toString(36).substring(7);;
+      //var emision =<?php # echo $fechaEmision 
+                      ?>;
       var espacio = document.getElementById("idEspacio").value;
       var bus = document.getElementById("idhorario").value;
       var horario = document.getElementById("");
@@ -558,7 +559,7 @@ $fechaEmision = date('Y-m-d H:i:s');
       var salida = document.getElementById("fechaSalida").value;
 
       alert(ced);
-      alert(idTicket.toString());
+      alert(idTicket);
       //alert(emision);
     } catch (error) {
       alert(error);
