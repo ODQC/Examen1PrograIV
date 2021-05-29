@@ -552,7 +552,7 @@ $fechaSalida = 'fechaSalida';
 
 
     try {
-
+      var ced = <?php echo $idUsuario?>;
       var espacio = document.getElementById("idEspacio").value;
       var bus = document.getElementById("idhorario").value;
       var horario = document.getElementById("");
@@ -569,7 +569,7 @@ $fechaSalida = 'fechaSalida';
 
       };
 
-      alert(JSON.stringify(ticket));
+      alert(ced);
     } catch (error) {
       alert(error);
       // expected output: ReferenceError: nonExistentFunction is not defined
@@ -582,8 +582,6 @@ $fechaSalida = 'fechaSalida';
 <script type="text/javascript">
   function showIdBus(idbus) {
 
-
-    alert(idbus);
     if (idbus == 0) {
       document.getElementById("idEspacio").innerHTML = "";
       return;
