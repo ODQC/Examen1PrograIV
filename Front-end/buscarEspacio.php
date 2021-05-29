@@ -15,7 +15,7 @@ if ($conn->connect_error) {
 $q = intval($_GET['q']);
 
 $conn = connection();
-$sql = "SELECT Buses_idBus FROM `HorariosBus`.`Horarios` WHERE Buses_idBus ='" . $q . "'";
+$sql = "SELECT Buses_idBus FROM `HorariosBus`.`Horarios` WHERE idhorario ='" . $q . "'";
 $result1 = mysqli_query($conn, $sql);
 
 if ($result->num_rows > 0) {
