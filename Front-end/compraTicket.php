@@ -528,9 +528,9 @@ $fechaEmision = date('Y-m-d H:i:s');
       var salida = document.getElementById("fechaSalida").value;
       var xmlhttp = new XMLHttpRequest();
       xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
+        
           document.getElementById("tbl_ticket").innerHTML = this.responseText;
-        }
+        
       }
       xmlhttp.open("GET", "Tiquete.php?q=" + ced + idTicket + emision + espacio + bus + horario + ruta + salida, true);
       xmlhttp.send();
