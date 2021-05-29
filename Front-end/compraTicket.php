@@ -570,7 +570,7 @@ $fechaSalida = 'fechaSalida';
       salida: salida
 
     };
-    alert(ticket);
+    alert(ticket.idbus);
 
   }
 </script>
