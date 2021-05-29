@@ -549,6 +549,7 @@ $fechaSalida = 'fechaSalida';
 </html>
 <script type="text/javascript">
   function CargarTicket() {
+
     var idTiquete = <?php echo $idTiquetes ?>;
     var espacio = document.getElementById();
     var bus = document.getElementById();
@@ -557,26 +558,38 @@ $fechaSalida = 'fechaSalida';
     var salida = document.getElementById();
     var cedula = <?php echo $idUsuario ?>;
     var = emision = <?php echo $fechaEmision ?>;
-    nuevoTicket(idTiquete, espacio, bus, horario, ruta, cedula, emision, salida);
+    var ticket = {
+
+      idtiquete: idTiquete,
+      espacio: espacio,
+      bus: bus,
+      horario: horario,
+      ruta: ruta,
+      cedula: cedula,
+      emision: emision,
+      salida: salida
+
+    };
+    alert(ticket);
 
   }
-  </script> 
-  <script type = "text/javascript" >
-    function showIdBus(idbus) {
+</script>
+<script type="text/javascript">
+  function showIdBus(idbus) {
 
 
-      alert(idbus);
-      if (idbus == 0) {
-        document.getElementById("idEspacio").innerHTML = "";
-        return;
-      }
-      var xmlhttp = new XMLHttpRequest();
-      xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-          document.getElementById("idEspacio").innerHTML = this.responseText;
-        }
-      }
-      xmlhttp.open("GET", "buscarEspacio.php?q=" + idbus, true);
-      xmlhttp.send();
+    alert(idbus);
+    if (idbus == 0) {
+      document.getElementById("idEspacio").innerHTML = "";
+      return;
     }
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("idEspacio").innerHTML = this.responseText;
+      }
+    }
+    xmlhttp.open("GET", "buscarEspacio.php?q=" + idbus, true);
+    xmlhttp.send();
+  }
 </script>
