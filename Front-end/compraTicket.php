@@ -352,7 +352,7 @@ $fechaEmision = date('Y-m-d H:i:s');
         <fieldset>
           <h2>Paso 3: Confirmar Compra</h2>
 
-          <table class="table table-hover">
+          <table class="table table-hover" id="tbl_ticket">
 
             <thead>
               <tr>
@@ -369,17 +369,7 @@ $fechaEmision = date('Y-m-d H:i:s');
             </thead>
 
             <tbody>
-              <tr>
 
-                <td><?php echo $idTiquetes ?></td>
-                <td><?php echo $Espacios_idEspacio ?></td>
-                <td><?php echo $Espacios_Buses_idBus ?></td>
-                <td><?php echo $Horarios_idhorario ?></td>
-                <td><?php echo $Horarios_Rutas_idRutas ?></td>
-                <td><?php echo $idUsuario ?></td>
-                <td><?php echo $fechaEmision ?></td>
-                <td><?php echo $fechaSalida ?></td>
-              </tr>
 
             </tbody>
           </table>
@@ -556,10 +546,15 @@ $fechaEmision = date('Y-m-d H:i:s');
       var horario = document.getElementById("");
       var ruta = document.getElementById("");
       var salida = document.getElementById("fechaSalida").value;
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("tbl_ticket").innerHTML = this.responseText;
+        }
+      }
+      xmlhttp.open("GET", "Tiquete.php?q=" + ced + idTicket + emision + espacio + bus + horario + ruta + salida, true);
+      xmlhttp.send();
 
-      alert(ced);
-      alert(idTicket);
-      alert(emision);
     } catch (error) {
       alert(error);
       // expected output: ReferenceError: nonExistentFunction is not defined
