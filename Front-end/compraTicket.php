@@ -36,6 +36,7 @@ $fechaEmision = date('Y-m-d H:i:s');
 
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -351,6 +352,9 @@ $fechaEmision = date('Y-m-d H:i:s');
         </fieldset>
         <fieldset>
           <h2>Paso 3: Confirmar Compra</h2>
+          <script type="text/javascript">
+            idTicker
+          </script>
           <table class="table table-hover" id="tbl_ticket">
 
             <thead>
@@ -369,15 +373,14 @@ $fechaEmision = date('Y-m-d H:i:s');
 
             <tbody>
               <tr>
-                <td>
-                  <$idTicker< /td>
-                <td>espacio</td>
-                <td>bus</td>
-                <td>horario</td>
-                <td>ruta</td>
-                <td>ced </td>
-                <td>emision</td>
-                <td>salida</td>
+                <td id="1"></td>
+                <td id="2"></td>
+                <td id="3"></td>
+                <td id="4"></td>
+                <td id="5"></td>
+                <td id="6"> </td>
+                <td id="7"></td>
+                <td id="8"></td>
               </tr>
 
             </tbody>
@@ -545,32 +548,29 @@ $fechaEmision = date('Y-m-d H:i:s');
 
 </html>
 <script type="text/javascript">
+  
+
   function CargarTicket() {
 
 
-    try {
-      var ced = <?php echo $idUsuario ?>;
-      var idTicket = 2021 + Math.random().toString(36).substring(7);;
-      var emision = new Date().toISOString().slice(0, 19).replace('T', ' ');
-      var espacio = document.getElementById("idEspacio").value;
-      var bus = document.getElementById("idhorario").value;
-      var horario = document.getElementById("");
-      var ruta = document.getElementById("");
-      var salida = document.getElementById("fechaSalida").value;
-      var xmlhttp = new XMLHttpRequest();
-      xmlhttp.onreadystatechange = function() {
-
-        document.getElementById("tbl_ticket").innerHTML = this.responseText;
-
-      }
-      xmlhttp.open("GET", "Tiquete.php?q=" + ced + idTicket + emision + espacio + bus + horario + ruta + salida, true);
-      xmlhttp.send();
-
-    } catch (error) {
-      alert(error);
-      // expected output: ReferenceError: nonExistentFunction is not defined
-      // Note - error messages will vary depending on browser
-    }
+    var ced = <?php echo $idUsuario ?>;
+    var idTicket = 2021 + Math.random().toString(36).substring(7);;
+    var emision = new Date().toISOString().slice(0, 19).replace('T', ' ');
+    var espacio = document.getElementById("idEspacio").value;
+    var bus = document.getElementById("idhorario").value;
+    var horario = document.getElementById("1");
+    var ruta = document.getElementById("1");
+    var salida = document.getElementById("fechaSalida").value;
+    var xmlhttp = new XMLHttpRequest();
+    document.getElementById("1").innerHTML = idTicket;
+    document.getElementById("2").innerHTML = espacio;
+    document.getElementById("3").innerHTML = bus;
+    document.getElementById("4").innerHTML = horario;
+    document.getElementById("5").innerHTML = ruta;
+    document.getElementById("6").innerHTML = ced;
+    document.getElementById("7").innerHTML = emision;
+    document.getElementById("8").innerHTML = salida;
+    
 
 
   }
