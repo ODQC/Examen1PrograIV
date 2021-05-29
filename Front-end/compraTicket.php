@@ -549,8 +549,8 @@ $fechaEmision = date('Y-m-d H:i:s');
 
     try {
       var ced = <?php echo $idUsuario?>;
-      var idTicket =<?php echo $idTiquetes?>;
-      var emision =<?php echo $fechaEmision ?>;
+      //var idTicket =<?php #echo $idTiquetes?>;
+      //var emision =<?php #echo $fechaEmision ?>;
       var espacio = document.getElementById("idEspacio").value;
       var bus = document.getElementById("idhorario").value;
       var horario = document.getElementById("");
