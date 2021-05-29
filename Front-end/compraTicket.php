@@ -552,28 +552,24 @@ $fechaSalida = 'fechaSalida';
 
 
     try {
-      var idTiquete = <?php echo $idTiquetes?>;
+      
       var espacio = document.getElementById("idEspacio");
       var bus = document.getElementById("");
       var horario = document.getElementById("");
       var ruta = document.getElementById("");
       var salida = document.getElementById("fechaSalida");
-      var cedula = <?php echo $idUsuario?>;
-      var = emision = <?php echo $fechaEmision?>;
+     
       var ticket = {
-
-        idtiquete: idTiquete,
+ 
         espacio: espacio,
         bus: bus,
         horario: horario,
         ruta: ruta,
-        cedula: cedula,
-        emision: emision,
         salida: salida
 
       };
 
-      console.log(ticket);
+      alert(ticket);
     } catch (error) {
       alert(error);
       // expected output: ReferenceError: nonExistentFunction is not defined
