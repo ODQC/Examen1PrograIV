@@ -34,14 +34,14 @@ $salida = intval($_GET['salida']);
           </table>';
 echo "<tr>
 
-    <td><?php echo $idTicker ?></td>
-    <td><?php echo $espacio ?></td>
-    <td><?php echo $bus ?></td>
-    <td><?php echo $horario ?></td>
-    <td><?php echo $ruta ?></td>
-    <td><?php echo $ced ?></td>
-    <td><?php echo $emision ?></td>
-    <td><?php echo $salida ?></td>
+    <td><$idTicker </td>
+    <td><$espacio</td>
+    <td><$bus</td>
+    <td>$horario</td>
+    <td>$ruta</td>
+    <td>$ced </td>
+    <td>$emision</td>
+    <td>$salida</td>
         </tr>';
 ?>
 
