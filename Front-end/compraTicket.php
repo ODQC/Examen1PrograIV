@@ -552,7 +552,7 @@ $fechaSalida = 'fechaSalida';
 
 
     try {
-      //var idTiquete = <?php #echo $idTiquetes 
+      var idTiquete = <?php #echo $idTiquetes 
                         ?>;
       var espacio = document.getElementById("idEspacio");
       var bus = document.getElementById("");
