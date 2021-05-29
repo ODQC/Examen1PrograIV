@@ -549,9 +549,8 @@ $fechaEmision = date('Y-m-d H:i:s');
 
     try {
       var ced = <?php echo $idUsuario ?>;
-      var idTicket = 2021+Math.random().toString(36).substring(7);;
-      //var emision =<?php # echo $fechaEmision 
-                      ?>;
+      var idTicket = 2021 + Math.random().toString(36).substring(7);;
+      var emision = new Date().toISOString().slice(0, 19).replace('T', ' ');
       var espacio = document.getElementById("idEspacio").value;
       var bus = document.getElementById("idhorario").value;
       var horario = document.getElementById("");
@@ -560,7 +559,7 @@ $fechaEmision = date('Y-m-d H:i:s');
 
       alert(ced);
       alert(idTicket);
-      //alert(emision);
+      alert(emision);
     } catch (error) {
       alert(error);
       // expected output: ReferenceError: nonExistentFunction is not defined
