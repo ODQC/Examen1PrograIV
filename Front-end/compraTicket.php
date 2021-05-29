@@ -552,26 +552,23 @@ $fechaSalida = 'fechaSalida';
 
 
     try {
-      var idTiquete = <?php echo $idTiquetes 
-                        ?>;
+      var idTiquete = <?php echo $idTiquetes?>;
       var espacio = document.getElementById("idEspacio");
       var bus = document.getElementById("");
       var horario = document.getElementById("");
       var ruta = document.getElementById("");
       var salida = document.getElementById("fechaSalida");
-      //var cedula = <?php #echo $idUsuario 
-                      ?>;
-      // var = emision = <?php #echo $fechaEmision 
-                          ?>;
+      var cedula = <?php echo $idUsuario?>;
+      var = emision = <?php echo $fechaEmision?>;
       var ticket = {
 
-        idtiquete: idTiquete,
+        idtiquete: idTiquete.toString(),
         espacio: espacio,
         bus: bus,
         horario: horario,
         ruta: ruta,
-        cedula: cedula,
-        emision: emision,
+        cedula: cedula.toString(),
+        emision: emision.toString(),
         salida: salida
 
       };
