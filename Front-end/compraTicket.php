@@ -384,7 +384,7 @@ $fechaEmision = date('Y-m-d H:i:s');
               </tr>
 
             </tbody>
-          </table>';
+          </table>
 
 
           <input type="button" name="btnCargar" class="" value="Cargar" onclick="CargarTicket()" />
