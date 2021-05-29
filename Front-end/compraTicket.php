@@ -329,7 +329,7 @@ $fechaSalida = 'fechaSalida';
 
               <?php while ($row1 = mysqli_fetch_array($result)) :; ?>
 
-                <option value="<?php echo $row1['idhorario'] ?>"> <?php echo ($row1["Rutas_idRutas"]), ("-"), ($row1["horario"]); ?> </option>
+                <option value="<?php echo $row1['Buses_idBus'] ?>"> <?php echo ($row1["Rutas_idRutas"]), ("-"), ($row1["horario"]); ?> </option>
 
               <?php endwhile; ?>
             </select>
