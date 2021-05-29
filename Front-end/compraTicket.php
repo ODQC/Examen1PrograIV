@@ -557,9 +557,9 @@ $fechaEmision = date('Y-m-d H:i:s');
       var ruta = document.getElementById("");
       var salida = document.getElementById("fechaSalida").value;
 
-      //alert(ced);
+      alert(ced);
       //alert(idTicket);
-      alert(emision);
+      //alert(emision);
     } catch (error) {
       alert(error);
       // expected output: ReferenceError: nonExistentFunction is not defined
