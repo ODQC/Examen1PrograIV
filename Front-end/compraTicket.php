@@ -570,7 +570,8 @@ $fechaSalida = 'fechaSalida';
       salida: salida
 
     };
-    alert(JSON.parse(ticket));
+    var tiquete = ticket.idtiquete
+    alert(tiquete);
 
   }
 </script>
