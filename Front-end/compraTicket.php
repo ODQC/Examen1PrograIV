@@ -351,28 +351,8 @@ $fechaEmision = date('Y-m-d H:i:s');
         </fieldset>
         <fieldset>
           <h2>Paso 3: Confirmar Compra</h2>
+          <div id="tbl_ticket"><b>Presione el botón para ver el ticket.</b></div>
 
-          <table class="table table-hover" id="tbl_ticket">
-
-            <thead>
-              <tr>
-                <th>Id Tiquete</th>
-                <th>Num. Espacio</th>
-                <th>Num. Bus</th>
-                <th>Horario</th>
-                <th>Ruta</th>
-                <th>Cédula</th>
-                <th>Emitido</th>
-                <th>Fecha Salida</th>
-
-              </tr>
-            </thead>
-
-            <tbody>
-
-
-            </tbody>
-          </table>
           <input type="button" name="btnCargar" class="" value="Cargar" onclick="CargarTicket()" />
           <h2>Paso 4: Método de pago</h2>
 
