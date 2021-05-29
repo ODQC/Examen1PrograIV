@@ -550,27 +550,8 @@ $fechaSalida = 'fechaSalida';
 <script type="text/javascript">
   function CargarTicket() {
 
-    var idTiquete = <?php echo $idTiquetes ?>;
-    var espacio = document.getElementById();
-    var bus = document.getElementById();
-    var horario = document.getElementById();
-    var ruta = document.getElementById();
-    var salida = document.getElementById();
-    var cedula = <?php echo $idUsuario ?>;
-    var = emision = <?php echo $fechaEmision ?>;
-    var ticket = {
-
-      idtiquete: idTiquete,
-      espacio: espacio,
-      bus: bus,
-      horario: horario,
-      ruta: ruta,
-      cedula: cedula,
-      emision: emision,
-      salida: salida
-
-    };
-    alert(ticket.idbus);
+    
+    alert("hola");
 
   }
 </script>
