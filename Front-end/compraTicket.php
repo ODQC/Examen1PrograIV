@@ -575,7 +575,7 @@ $fechaSalida = 'fechaSalida';
       var tiquete = ticket.idtiquete
       alert(tiquete);
     } catch (error) {
-      console.error(error);
+      alert(error);
       // expected output: ReferenceError: nonExistentFunction is not defined
       // Note - error messages will vary depending on browser
     }
