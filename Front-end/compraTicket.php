@@ -562,13 +562,13 @@ $fechaSalida = 'fechaSalida';
       var = emision = <?php echo $fechaEmision?>;
       var ticket = {
 
-        idtiquete: idTiquete.toString(),
+        idtiquete: idTiquete,
         espacio: espacio,
         bus: bus,
         horario: horario,
         ruta: ruta,
-        cedula: cedula.toString(),
-        emision: emision.toString(),
+        cedula: cedula,
+        emision: emision,
         salida: salida
 
       };
