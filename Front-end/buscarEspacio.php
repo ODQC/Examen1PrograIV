@@ -2,31 +2,39 @@
 
 
 
-    $servername = "localhost";
-    $username = "root";
-    $password = "207460988";
-    $dbname = "HorariosBus";
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+$servername = "localhost";
+$username = "root";
+$password = "207460988";
+$dbname = "HorariosBus";
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+$q = intval($_GET['q']);
+
+$conn = connection();
+$sql = "SELECT Buses_idBus FROM `HorariosBus`.`Horarios` WHERE Buses_idBus ='" . $q . "'";
+$result1 = mysqli_query($conn, $sql);
+
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $idBus = $row["Buses_idBus"];
+
+}
+
+mysqli_select_db($conn, "ajax_demo");
+$sql = "SELECT * FROM `HorariosBus`.`Espacios` WHERE estado='Disponible' AND Buses_idBus= $idBus" ;
+$result = mysqli_query($conn, $sql);
+?>
+<option value="0">--Selecionar--</option>
 
 
+<?php
 
-
-
-    $q = intval($_GET['q']);
-   
-
-    mysqli_select_db($conn, "ajax_demo");
-    $sql = "SELECT * FROM `HorariosBus`.`Espacios` WHERE estado='Disponible' AND Buses_idBus= '".$q."'";
-    $result = mysqli_query($conn, $sql);
-
-
-    while ($row = mysqli_fetch_array($result)) {?>
+while ($row = mysqli_fetch_array($result)) { ?>
     <option value=" <?php echo $row["idEspacio"]; ?>"><?php echo ($row["numAsiento"]); ?></option>';
-    <?php }
+<?php }
 
-     mysqli_close($con);?>
+mysqli_close($con); ?>

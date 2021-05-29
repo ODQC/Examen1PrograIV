@@ -329,7 +329,7 @@ $fechaSalida = 'fechaSalida';
 
               <?php while ($row1 = mysqli_fetch_array($result)) :; ?>
 
-                <option value="<?php echo $row1['Buses_idBus'] ?>"> <?php echo ($row1["Rutas_idRutas"]), ("-"), ($row1["horario"]); ?> </option>
+                <option value="<?php echo $row1['idhorario'] ?>"> <?php echo ($row1["Rutas_idRutas"]), ("-"), ($row1["horario"]); ?> </option>
 
               <?php endwhile; ?>
             </select>
@@ -552,14 +552,17 @@ $fechaSalida = 'fechaSalida';
 
 
     try {
-      //var idTiquete = <?php #echo $idTiquetes ?>;
-      var espacio = document.getElementById();
-      var bus = document.getElementById();
-      var horario = document.getElementById();
-      var ruta = document.getElementById();
-      var salida = document.getElementById();
-      //var cedula = <?php #echo $idUsuario ?>;
-     // var = emision = <?php #echo $fechaEmision ?>;
+      //var idTiquete = <?php #echo $idTiquetes 
+                        ?>;
+      var espacio = document.getElementById("idEspacio");
+      var bus = document.getElementById("");
+      var horario = document.getElementById("");
+      var ruta = document.getElementById("");
+      var salida = document.getElementById("fechaSalida");
+      //var cedula = <?php #echo $idUsuario 
+                      ?>;
+      // var = emision = <?php #echo $fechaEmision 
+                          ?>;
       var ticket = {
 
         idtiquete: idTiquete,
@@ -572,7 +575,7 @@ $fechaSalida = 'fechaSalida';
         salida: salida
 
       };
-      
+
       console.log(ticket);
     } catch (error) {
       alert(error);
