@@ -568,16 +568,17 @@ $fechaSalida = 'fechaSalida';
         salida: salida
 
       };
+      obj = JSON.parse(ticket);
+       alert(obj);
+      }
+      catch (error) {
+        alert(error);
+        // expected output: ReferenceError: nonExistentFunction is not defined
+        // Note - error messages will vary depending on browser
+      }
 
-      alert(ticket.espacio);
-    } catch (error) {
-      alert(error);
-      // expected output: ReferenceError: nonExistentFunction is not defined
-      // Note - error messages will vary depending on browser
+
     }
-
-
-  }
 </script>
 <script type="text/javascript">
   function showIdBus(idbus) {
