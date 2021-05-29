@@ -552,15 +552,15 @@ $fechaSalida = 'fechaSalida';
 
 
     try {
-      
+
       var espacio = document.getElementById("idEspacio");
-      var bus = document.getElementById("");
+      var bus = document.getElementById("idhorario");
       var horario = document.getElementById("");
       var ruta = document.getElementById("");
       var salida = document.getElementById("fechaSalida");
-     
+
       var ticket = {
- 
+
         espacio: espacio,
         bus: bus,
         horario: horario,
