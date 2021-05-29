@@ -569,7 +569,7 @@ $fechaSalida = 'fechaSalida';
 
       };
 
-      alert(ticket);
+      alert(ticket.espacio);
     } catch (error) {
       alert(error);
       // expected output: ReferenceError: nonExistentFunction is not defined
