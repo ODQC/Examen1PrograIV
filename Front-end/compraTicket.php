@@ -32,12 +32,8 @@ function genCod()
   return bin2hex(random_bytes(10));
 }
 $idTiquetes = genCod();
-$Espacios_idEspacio = "";
-$Espacios_Buses_idBus = "";
-$Horarios_idhorario = "";
-$Horarios_Rutas_idRutas = "";
 $fechaEmision = date('Y-m-d H:i:s');
-$fechaSalida = 'fechaSalida';
+
 ?>
 
 <!DOCTYPE html>
@@ -553,23 +549,17 @@ $fechaSalida = 'fechaSalida';
 
     try {
       var ced = <?php echo $idUsuario?>;
+      var idTicket =<?php echo $idTiquetes?>;
+      var emision =<?php echo $fechaEmision ?>;
       var espacio = document.getElementById("idEspacio").value;
       var bus = document.getElementById("idhorario").value;
       var horario = document.getElementById("");
       var ruta = document.getElementById("");
       var salida = document.getElementById("fechaSalida").value;
 
-      var ticket = {
-
-        espacio: espacio,
-        bus: bus,
-        horario: horario,
-        ruta: ruta,
-        salida: salida
-
-      };
-
       alert(ced);
+      alert(idTicket);
+      alert(emision);
     } catch (error) {
       alert(error);
       // expected output: ReferenceError: nonExistentFunction is not defined
