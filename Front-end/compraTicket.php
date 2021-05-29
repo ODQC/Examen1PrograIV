@@ -351,7 +351,38 @@ $fechaEmision = date('Y-m-d H:i:s');
         </fieldset>
         <fieldset>
           <h2>Paso 3: Confirmar Compra</h2>
-          <div id="tbl_ticket"><b>Presione el botón para ver el ticket.</b></div>
+          <table class="table table-hover" id="tbl_ticket">
+
+            <thead>
+              <tr>
+                <th>Id Tiquete</th>
+                <th>Num. Espacio</th>
+                <th>Num. Bus</th>
+                <th>Horario</th>
+                <th>Ruta</th>
+                <th>Cédula</th>
+                <th>Emitido</th>
+                <th>Fecha Salida</th>
+
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>
+                  <$idTicker< /td>
+                <td>espacio</td>
+                <td>bus</td>
+                <td>horario</td>
+                <td>ruta</td>
+                <td>ced </td>
+                <td>emision</td>
+                <td>salida</td>
+              </tr>
+
+            </tbody>
+          </table>';
+
 
           <input type="button" name="btnCargar" class="" value="Cargar" onclick="CargarTicket()" />
           <h2>Paso 4: Método de pago</h2>
@@ -528,9 +559,9 @@ $fechaEmision = date('Y-m-d H:i:s');
       var salida = document.getElementById("fechaSalida").value;
       var xmlhttp = new XMLHttpRequest();
       xmlhttp.onreadystatechange = function() {
-        
-          document.getElementById("tbl_ticket").innerHTML = this.responseText;
-        
+
+        document.getElementById("tbl_ticket").innerHTML = this.responseText;
+
       }
       xmlhttp.open("GET", "Tiquete.php?q=" + ced + idTicket + emision + espacio + bus + horario + ruta + salida, true);
       xmlhttp.send();
