@@ -550,28 +550,36 @@ $fechaSalida = 'fechaSalida';
 <script type="text/javascript">
   function CargarTicket() {
 
-    var idTiquete = <?php echo $idTiquetes ?>;
-    var espacio = document.getElementById();
-    var bus = document.getElementById();
-    var horario = document.getElementById();
-    var ruta = document.getElementById();
-    var salida = document.getElementById();
-    var cedula = <?php echo $idUsuario ?>;
-    var = emision = <?php echo $fechaEmision ?>;
-    var ticket = {
 
-      idtiquete: idTiquete,
-      espacio: espacio,
-      bus: bus,
-      horario: horario,
-      ruta: ruta,
-      cedula: cedula,
-      emision: emision,
-      salida: salida
+    try {
+      var idTiquete = <?php echo $idTiquetes ?>;
+      var espacio = document.getElementById();
+      var bus = document.getElementById();
+      var horario = document.getElementById();
+      var ruta = document.getElementById();
+      var salida = document.getElementById();
+      var cedula = <?php echo $idUsuario ?>;
+      var = emision = <?php echo $fechaEmision ?>;
+      var ticket = {
 
-    };
-    var tiquete = ticket.idtiquete
-    alert(tiquete);
+        idtiquete: idTiquete,
+        espacio: espacio,
+        bus: bus,
+        horario: horario,
+        ruta: ruta,
+        cedula: cedula,
+        emision: emision,
+        salida: salida
+
+      };
+      var tiquete = ticket.idtiquete
+      alert(tiquete);
+    } catch (error) {
+      console.error(error);
+      // expected output: ReferenceError: nonExistentFunction is not defined
+      // Note - error messages will vary depending on browser
+    }
+
 
   }
 </script>
