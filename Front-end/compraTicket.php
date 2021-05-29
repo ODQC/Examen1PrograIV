@@ -552,14 +552,14 @@ $fechaSalida = 'fechaSalida';
 
 
     try {
-      var idTiquete = <?php echo $idTiquetes ?>;
+      //var idTiquete = <?php #echo $idTiquetes ?>;
       var espacio = document.getElementById();
       var bus = document.getElementById();
       var horario = document.getElementById();
       var ruta = document.getElementById();
       var salida = document.getElementById();
-      var cedula = <?php echo $idUsuario ?>;
-      var = emision = <?php echo $fechaEmision ?>;
+      //var cedula = <?php #echo $idUsuario ?>;
+     // var = emision = <?php #echo $fechaEmision ?>;
       var ticket = {
 
         idtiquete: idTiquete,
@@ -572,7 +572,7 @@ $fechaSalida = 'fechaSalida';
         salida: salida
 
       };
-      var tiquete = ticket.idtiquete
+      
       console.log(ticket);
     } catch (error) {
       alert(error);
