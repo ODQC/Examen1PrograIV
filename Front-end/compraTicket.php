@@ -557,8 +557,8 @@ $fechaEmision = date('Y-m-d H:i:s');
       var ruta = document.getElementById("");
       var salida = document.getElementById("fechaSalida").value;
 
-      //alert(ced);
-      alert(idTicket);
+      alert(ced);
+      alert(idTicket.toString());
       //alert(emision);
     } catch (error) {
       alert(error);
