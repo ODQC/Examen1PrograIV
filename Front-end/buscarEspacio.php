@@ -31,8 +31,8 @@ $result1 = mysqli_query($conn, $sql1);
 <option value="0">--Selecionar--</option>
 <?php
 
-while ($row = mysqli_fetch_array($result1)) { ?>
-    <option value=" <?php echo $row["idEspacio"]; ?>"><?php echo ($row["numAsiento"]); ?></option>';
+while ($row1 = mysqli_fetch_array($result1)) { ?>
+    <option value=" <?php echo $row1["idEspacio"]; ?>"><?php echo ($row1["numAsiento"]); ?></option>';
 <?php }
 
 mysqli_close($con); ?>
