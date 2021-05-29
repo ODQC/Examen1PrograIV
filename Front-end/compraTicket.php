@@ -549,7 +549,7 @@ $fechaEmision = date('Y-m-d H:i:s');
 
     try {
       var ced = <?php echo $idUsuario ?>;
-      var idTicket = Math.random().toString(36).substring(16);;
+      var idTicket = crypto.randomBytes(20).toString('hex');
       //var emision =<?php # echo $fechaEmision 
                       ?>;
       var espacio = document.getElementById("idEspacio").value;
