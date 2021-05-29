@@ -568,7 +568,7 @@ $fechaSalida = 'fechaSalida';
         salida: salida
 
       };
-      obj = JSON.parse(ticket);
+      obj = JSON.stringify(ticket);
        alert(obj);
       }
       catch (error) {
