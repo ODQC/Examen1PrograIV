@@ -613,7 +613,7 @@ function connection()
       var ced = $('#6').val();
       var emision = $('#7').val();
       var salida = $('#8').val();
-
+        alert(idTicket,espacio,bus,horario,ruta,ced,emision,salida);
       if (idTicket != "" && espacio != "" && bus != "" && horario != "" && ruta != "" && ced != "" && emision != "" && salida != "") {
         $.ajax({
           url: "crearTiquetes",
