@@ -24,6 +24,8 @@ function connection()
   $result = mysqli_query($conn, $sql);
 
   $row = mysqli_fetch_array($result);
-  return $row["Rutas_idRutas"];
+   
+
+    echo "<td>" . $row["Rutas_idRutas"] . "</td>";
 
 mysqli_close($con); ?>

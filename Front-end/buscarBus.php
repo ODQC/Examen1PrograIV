@@ -22,5 +22,7 @@ $sql = "SELECT Buses_idBus FROM HorariosBus.Horarios WHERE idhorario = '" . $q .
 $result = mysqli_query($conn, $sql);
 
 $row = mysqli_fetch_array($result);
-return $row["Buses_idBus"];
+
+echo "<td>" . $row["Buses_idBus"] . "</td>";
+
 mysqli_close($con); ?>
