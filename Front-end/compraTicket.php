@@ -606,14 +606,14 @@ function connection()
     $(document).ready(function() {
       $('#saveTicket').on('click', function() {
         $("#saveTicket").attr("disabled", "disabled");
-        var idTicket = document.getElementById("1").innerHTML;
-        var espacio = document.getElementById("2").innerHTML;
-        var bus = document.getElementById("3").innerHTML;
-        var horario = document.getElementById("4").innerHTML;
-        var ruta = document.getElementById("5").innerHTML;
-        var ced = document.getElementById("6").innerHTML;
-        var emision = document.getElementById("7").innerHTML;
-        var salida = document.getElementById("8").innerHTML;
+        var idTicket = document.getElementById("1").value;
+        var espacio = document.getElementById("2").value;
+        var bus = document.getElementById("3").value;
+        var horario = document.getElementById("4").value;
+        var ruta = document.getElementById("5").value;
+        var ced = document.getElementById("6").value;
+        var emision = document.getElementById("7").value;
+        var salida = document.getElementById("8").value;
         alert(idTicket, espacio, bus, horario, ruta, ced, emision, salida);
         if (idTicket != "" && espacio != "" && bus != "" && horario != "" && ruta != "" && ced != "" && emision != "" && salida != "") {
           $.ajax({
