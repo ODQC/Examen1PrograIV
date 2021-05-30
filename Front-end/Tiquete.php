@@ -42,7 +42,7 @@ echo "<tr>
     <td>$ced </td>
     <td>$emision</td>
     <td>$salida</td>
-        </tr>';
+        </tr>";
 ?>
 
 

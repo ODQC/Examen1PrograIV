@@ -554,7 +554,7 @@ $fechaEmision = date('Y-m-d H:i:s');
 
 
     var ced = <?php echo $idUsuario ?>;
-    var idTicket = 2021 + Math.random().toString(36).substring(7);;
+    var idTicket = new Date().getFullYear.toString() + Math.random().toString(36).substring(7);;
     var emision = new Date().toISOString().slice(0, 19).replace('T', ' ');
     var espacio = document.getElementById("idEspacio").value;
     var bus = document.getElementById("idhorario").value;
