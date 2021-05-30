@@ -544,27 +544,29 @@ function connection()
 </html>
 <script type="text/javascript">
   function CargarTicket() {
+    try {
+      var ced = <?php echo $idUsuario ?>;
+      var idTicket = new Date().getFullYear().toString() + Math.random().toString(36).substring(7);
+      var emision = new Date().toISOString().slice(0, 19).replace('T', ' ');
+      var espacio = document.getElementById("idEspacio").value;
+      var horario = document.getElementById("idhorario").value;
+      var ruta = document.getElementById("");
+      var salida = document.getElementById("fechaSalida").value;
+      var xmlhttp = new XMLHttpRequest();
+
+      document.getElementById("1").innerHTML = idTicket;
+      document.getElementById("2").innerHTML = espacio;
+      document.getElementById("3").innerHTML = bus;
+      document.getElementById("4").innerHTML = horario;
+      document.getElementById("5").innerHTML = ruta;
+      document.getElementById("6").innerHTML = ced;
+      document.getElementById("7").innerHTML = emision;
+      document.getElementById("8").innerHTML = salida;
 
 
-    var ced = <?php echo $idUsuario ?>;
-    var idTicket = new Date().getFullYear().toString() + Math.random().toString(36).substring(7);
-    var emision = new Date().toISOString().slice(0, 19).replace('T', ' ');
-    var espacio = document.getElementById("idEspacio").value;
-    var horario = document.getElementById("idhorario").value;
-    var ruta = document.getElementById("");
-    var salida = document.getElementById("fechaSalida").value;
-    var xmlhttp = new XMLHttpRequest();
-
-    document.getElementById("1").innerHTML = idTicket;
-    document.getElementById("2").innerHTML = espacio;
-    document.getElementById("3").innerHTML = bus;
-    document.getElementById("4").innerHTML = horario;
-    document.getElementById("5").innerHTML = ruta;
-    document.getElementById("6").innerHTML = ced;
-    document.getElementById("7").innerHTML = emision;
-    document.getElementById("8").innerHTML = salida;
-
-
+    } catch (err) {
+      alert(err);
+    }
 
   }
 </script>
