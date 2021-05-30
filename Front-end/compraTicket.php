@@ -602,52 +602,56 @@ function connection()
   }
 </script>
 <script type="text/javascript">
-  $(document).ready(function() {
-    $('#saveTicket').on('click', function() {
-      $("#saveTicket").attr("disabled", "disabled");
-      var idTicket = document.getElementById("1").innerHTML;
-      var espacio = document.getElementById("2").innerHTML;
-      var bus = document.getElementById("3").innerHTML;
-      var horario = document.getElementById("4").innerHTML;
-      var ruta = document.getElementById("5").innerHTML;
-      var ced = document.getElementById("6").innerHTML;
-      var emision = document.getElementById("7").innerHTML;
-      var salida = document.getElementById("8").innerHTML;
-      alert(idTicket, espacio, bus, horario, ruta, ced, emision, salida);
-      if (idTicket != "" && espacio != "" && bus != "" && horario != "" && ruta != "" && ced != "" && emision != "" && salida != "") {
-        $.ajax({
-          url: "crearTiquetes",
-          type: "POST",
-          data: {
-            idTicket: idTicket,
-            espacio: espacio,
-            bus: bus,
-            horario: horario,
-            ruta: ruta,
-            ced: ced,
-            emision: emision,
-            salida: salida
+  try {
+    $(document).ready(function() {
+      $('#saveTicket').on('click', function() {
+        $("#saveTicket").attr("disabled", "disabled");
+        var idTicket = document.getElementById("1").innerHTML;
+        var espacio = document.getElementById("2").innerHTML;
+        var bus = document.getElementById("3").innerHTML;
+        var horario = document.getElementById("4").innerHTML;
+        var ruta = document.getElementById("5").innerHTML;
+        var ced = document.getElementById("6").innerHTML;
+        var emision = document.getElementById("7").innerHTML;
+        var salida = document.getElementById("8").innerHTML;
+        alert(idTicket, espacio, bus, horario, ruta, ced, emision, salida);
+        if (idTicket != "" && espacio != "" && bus != "" && horario != "" && ruta != "" && ced != "" && emision != "" && salida != "") {
+          $.ajax({
+            url: "crearTiquetes",
+            type: "POST",
+            data: {
+              idTicket: idTicket,
+              espacio: espacio,
+              bus: bus,
+              horario: horario,
+              ruta: ruta,
+              ced: ced,
+              emision: emision,
+              salida: salida
 
-          },
-          cache: false,
-          success: function(dataResult) {
-            var dataResult = JSON.parse(dataResult);
-            if (dataResult.statusCode == 200) {
-              $("#saveTicket").removeAttr("disabled");
-              $('#fupForm').find('input:text').val('');
-              $("#success").show();
-              $('#success').html('Data added successfully !');
-            } else if (dataResult.statusCode == 201) {
-              alert("Error occured !");
+            },
+            cache: false,
+            success: function(dataResult) {
+              var dataResult = JSON.parse(dataResult);
+              if (dataResult.statusCode == 200) {
+                $("#saveTicket").removeAttr("disabled");
+                $('#fupForm').find('input:text').val('');
+                $("#success").show();
+                $('#success').html('Data added successfully !');
+              } else if (dataResult.statusCode == 201) {
+                alert("Error occured !");
+              }
+
             }
-
-          }
-        });
-      } else {
-        alert('Please fill all the field !');
-      }
+          });
+        } else {
+          alert('Please fill all the field !');
+        }
+      });
     });
-  });
+  } catch (err) {
+    alert(err);
+  }
 </script>
 <script type="text/javascript">
   function showIdBus(id) {
@@ -665,4 +669,5 @@ function connection()
     xmlhttp.open("GET", "buscarEspacio.php?q=" + id, true);
     xmlhttp.send();
   }
+  
 </script>
