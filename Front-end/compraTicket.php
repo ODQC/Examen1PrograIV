@@ -605,15 +605,15 @@ function connection()
   $(document).ready(function() {
     $('#saveTicket').on('click', function() {
       $("#saveTicket").attr("disabled", "disabled");
-      var idTicket = $('#1').val();
-      var espacio = $('#2').val();
-      var bus = $('#3').val();
-      var horario = $('#4').val();
-      var ruta = $('#5').val();
-      var ced = $('#6').val();
-      var emision = $('#7').val();
-      var salida = $('#8').val();
-        alert(idTicket,espacio,bus,horario,ruta,ced,emision,salida);
+      var idTicket = document.getElementById("1").innerHTML;
+      var espacio = document.getElementById("2").innerHTML;
+      var bus = document.getElementById("3").innerHTML;
+      var horario = document.getElementById("4").innerHTML;
+      var ruta = document.getElementById("5").innerHTML;
+      var ced = document.getElementById("6").innerHTML;
+      var emision = document.getElementById("7").innerHTML;
+      var salida = document.getElementById("8").innerHTML;
+      alert(idTicket, espacio, bus, horario, ruta, ced, emision, salida);
       if (idTicket != "" && espacio != "" && bus != "" && horario != "" && ruta != "" && ced != "" && emision != "" && salida != "") {
         $.ajax({
           url: "crearTiquetes",
