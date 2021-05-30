@@ -614,17 +614,10 @@ function connection()
         var ced = document.getElementById("6").innerHTML;
         var emision = document.getElementById("7").innerHTML;
         var salida = document.getElementById("8").innerHTML;
-        alert(idTicket);
-        alert(espacio);
-        alert(bus); 
-        alert(horario); 
-        alert(ruta); 
-        alert(ced) ;
-        alert(emision); 
-        alert(salida);
+        
         if (idTicket != "" && espacio != "" && bus != "" && horario != "" && ruta != "" && ced != "" && emision != "" && salida != "") {
           $.ajax({
-            url: "crearTiquetes",
+            url: "crearTiquetes.php",
             type: "POST",
             data: {
               idTicket: idTicket,
