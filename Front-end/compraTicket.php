@@ -261,7 +261,7 @@ function connection()
           <div class="form-group">
             <h4>Seleccione la fecha:</h4>
             <label for="fechaSalida">Fecha de salida:</label>
-            <input type="datetime-local" id="fechaSalida" name="fechaSalida">
+            <input type="date" id="fechaSalida" name="fechaSalida">
 
           </div>
           <div class="form-group">

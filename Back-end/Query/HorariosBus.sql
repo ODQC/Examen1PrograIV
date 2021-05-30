@@ -153,6 +153,9 @@ CHANGE COLUMN `horario` `horario` VARCHAR(10) NOT NULL ;
 ALTER TABLE `HorariosBus`.`Espacios` 
 ADD COLUMN `numAsiento` VARCHAR(5) NOT NULL AFTER `Buses_idBus`;
 
+ALTER TABLE `HorariosBus`.`Tiquetes` 
+CHANGE COLUMN `fechaSalida` `fechaSalida` DATE NOT NULL ;
+
 
 UPDATE `HorariosBus`.`Espacios` SET `numAsiento` = '1' WHERE (`idEspacio` = '1') and (`Buses_idBus` = '1');
 UPDATE `HorariosBus`.`Espacios` SET `numAsiento` = '2' WHERE (`idEspacio` = '2') and (`Buses_idBus` = '1');
