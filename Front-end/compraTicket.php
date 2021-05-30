@@ -551,7 +551,7 @@ function connection()
 
       var salida = document.getElementById("fechaSalida").value;
       var xmlhttp = new XMLHttpRequest();
-      
+
 
       document.getElementById("1").innerHTML = idTicket;
       document.getElementById("2").innerHTML = espacio;
@@ -571,16 +571,16 @@ function connection()
   function getBus(id) {
 
     if (id == 0) {
-      document.getElementById("idEspacio").innerHTML = "";
+      document.getElementById("3").innerHTML = "";
       return;
     }
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("idEspacio").innerHTML = this.responseText;
+        document.getElementById("3").innerHTML = this.responseText;
       }
     }
-    xmlhttp.open("GET", "buscarEspacio.php?q=" + id, true);
+    xmlhttp.open("GET", "buscarBus.php?q=" + id, true);
     xmlhttp.send();
   }
 
@@ -605,16 +605,16 @@ function connection()
   function showIdBus(id) {
 
     if (id == 0) {
-      document.getElementById("3").innerHTML = "";
+      document.getElementById("idEspacio").innerHTML = "";
       return;
     }
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("3").innerHTML = this.responseText;
+        document.getElementById("idEspacio").innerHTML = this.responseText;
       }
     }
-    xmlhttp.open("GET", "buscarBus.php?q=" + id, true);
+    xmlhttp.open("GET", "buscarEspacio.php?q=" + id, true);
     xmlhttp.send();
   }
 </script>
