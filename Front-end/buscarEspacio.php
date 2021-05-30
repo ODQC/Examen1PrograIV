@@ -19,10 +19,10 @@
         mysqli_select_db($conn, "ajax_demo");
         $sql = "SELECT Buses_idBus FROM HorariosBus.Horarios WHERE idhorario =  '" . $idhorario . "'";
         $result = mysqli_query($conn, $sql);
-        if(mysqli_fetch_array($result)!= NULL){
-            $row = mysqli_fetch_array($result);
-            return $row["Buses_idBus"];
-        }
+       
+        $row = mysqli_fetch_array($result);
+        return $row["Buses_idBus"];
+        
     }
 
 ?>
