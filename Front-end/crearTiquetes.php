@@ -31,7 +31,9 @@ try {
 	$fechaEmision = $_POST['emision'];
 	$fechaSalida = $_POST['salida'];
 
-
+	echo '<script type="text/JavaScript"> 
+			alert("llegué puto");
+		</script>';
 	$sql = "INSERT INTO usuario(idTiquetes,Espacios_idEspacio,Espacios_Buses_idBus,Horarios_idhorario,Horarios_Rutas_idRutas,Usuarios_idUsuario,fechaEmision,fechaSalida)
 	 VALUES('$idTiquetes','$Espacios_idEspacio','$Espacios_Buses_idBus','$Horarios_idhorario','$Horarios_Rutas_idRutas','$Usuarios_idUsuario','$fechaEmision','$fechaSalida')";
 	$result = mysqli_query($conn, $sql);
