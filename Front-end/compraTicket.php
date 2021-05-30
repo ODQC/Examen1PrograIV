@@ -570,7 +570,7 @@ function connection()
 </script>
 <script type="text/javascript">
   function showIdBus(id) {
-    alert(idbus);
+    alert(id);
     if (id == 0) {
       document.getElementById("idEspacio").innerHTML = "";
       return;
