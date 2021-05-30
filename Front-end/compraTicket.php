@@ -255,7 +255,7 @@ function connection()
         <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
       </div>
 
-      <form id="regiration_form" novalidate action="factura.php" method="post">
+      <form id="regiration_form" novalidate action="" method="post">
         <fieldset>
           <h2> Paso 1: Seleccione el Horario</h2>
           <div class="form-group">
@@ -426,7 +426,7 @@ function connection()
             </form>
           </div>
           <input type="button" name="previous" class="previous btn btn-default" value="Previo" />
-          <input type="submit" name="submit" class="submit btn btn-success" value="Enviar" id="submit_data" />
+          <input type="" name="" class="submit btn btn-success" value="Pagar" id="submit_data" onclick="saveTicket()" />
         </fieldset>
 
       </form>
@@ -598,6 +598,26 @@ function connection()
       }
     }
     xmlhttp.open("GET", "buscarRuta.php?q=" + id, true);
+    xmlhttp.send();
+  }
+
+  function saveTicket() {
+
+    idTicket = document.getElementById("1").innerHTML;
+    espacio = document.getElementById("2").innerHTML;
+    bus = document.getElementById("3").innerHTML;
+    horario = document.getElementById("4").innerHTML;
+    ruta = document.getElementById("5").innerHTML;
+    ced = document.getElementById("6").innerHTML;
+    emision = document.getElementById("7").innerHTML;
+    salida = document.getElementById("8").innerHTML;
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("5").innerHTML = this.responseText;
+      }
+    }
+    xmlhttp.open("GET", "crearTiquetes.php?q=" + idTicket + espacio + bus + horario + ruta + ced + emision + salida, true);
     xmlhttp.send();
   }
 </script>
