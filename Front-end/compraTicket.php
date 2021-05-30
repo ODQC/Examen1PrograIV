@@ -550,9 +550,7 @@ function connection()
     var idTicket = new Date().getFullYear().toString() + Math.random().toString(36).substring(7);
     var emision = new Date().toISOString().slice(0, 19).replace('T', ' ');
     var espacio = document.getElementById("idEspacio").value;
-    var optSelected = document.getElementById("idhorario").value;
-    var options = optSelected.split(" ").;
-    var horario = options
+    var horario = document.getElementById("idhorario").value;
     var ruta = document.getElementById("");
     var salida = document.getElementById("fechaSalida").value;
     var xmlhttp = new XMLHttpRequest();
@@ -571,7 +569,7 @@ function connection()
   }
 </script>
 <script type="text/javascript">
-  function showIdBus(idbus) {
+  function showIdBus(id) {
     alert(idbus);
     if (idbus == 0) {
       document.getElementById("idEspacio").innerHTML = "";
@@ -583,7 +581,7 @@ function connection()
         document.getElementById("idEspacio").innerHTML = this.responseText;
       }
     }
-    xmlhttp.open("GET", "buscarEspacio.php?q=" + idbus, true);
+    xmlhttp.open("GET", "buscarEspacio.php?q=" + id, true);
     xmlhttp.send();
   }
 </script>
