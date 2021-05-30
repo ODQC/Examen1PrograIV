@@ -27,8 +27,6 @@ function connection()
   return $conn;
 }
 
-
-
 ?>
 
 
@@ -550,29 +548,28 @@ function connection()
       var emision = new Date().toISOString().slice(0, 19).replace('T', ' ');
       var espacio = document.getElementById("idEspacio").value;
       var horario = document.getElementById("idhorario").value;
-      var ruta = document.getElementById("");
+
       var salida = document.getElementById("fechaSalida").value;
       var xmlhttp = new XMLHttpRequest();
+      
 
       document.getElementById("1").innerHTML = idTicket;
       document.getElementById("2").innerHTML = espacio;
-      document.getElementById("3").innerHTML = bus;
       document.getElementById("4").innerHTML = horario;
-      document.getElementById("5").innerHTML = ruta;
       document.getElementById("6").innerHTML = ced;
       document.getElementById("7").innerHTML = emision;
       document.getElementById("8").innerHTML = salida;
-
+      getBus(horario);
+      getRuta(horario);
 
     } catch (err) {
       alert(err);
     }
 
   }
-</script>
-<script type="text/javascript">
-  function showIdBus(id) {
-    alert(id);
+
+  function getBus(id) {
+
     if (id == 0) {
       document.getElementById("idEspacio").innerHTML = "";
       return;
@@ -584,6 +581,40 @@ function connection()
       }
     }
     xmlhttp.open("GET", "buscarEspacio.php?q=" + id, true);
+    xmlhttp.send();
+  }
+
+
+  function getRuta(id) {
+
+    if (id == 0) {
+      document.getElementById("5").innerHTML = "";
+      return;
+    }
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("5").innerHTML = this.responseText;
+      }
+    }
+    xmlhttp.open("GET", "buscarRuta.php?q=" + id, true);
+    xmlhttp.send();
+  }
+</script>
+<script type="text/javascript">
+  function showIdBus(id) {
+
+    if (id == 0) {
+      document.getElementById("3").innerHTML = "";
+      return;
+    }
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("3").innerHTML = this.responseText;
+      }
+    }
+    xmlhttp.open("GET", "buscarBus.php?q=" + id, true);
     xmlhttp.send();
   }
 </script>
