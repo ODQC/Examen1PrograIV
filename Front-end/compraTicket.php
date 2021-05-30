@@ -321,7 +321,7 @@ function connection()
 
               <?php while ($row1 = mysqli_fetch_array($result)) :; ?>
 
-                <option value="<?php echo $row1['idhorario'] ?>"> <?php echo ($row1["Rutas_idRutas"]), ("-"), ($row1["horario"]); ?> </option>
+                <option value="<?php echo ($row1['idhorario']), ("-"), ($row1["Rutas_idRutas"]), ("-"), ($row1['Buses_idBus']) ?>"> <?php echo ($row1["Rutas_idRutas"]), ("-"), ($row1["horario"]); ?> </option>
 
               <?php endwhile; ?>
             </select>
@@ -543,13 +543,11 @@ function connection()
 
 </html>
 <script type="text/javascript">
-  
-
   function CargarTicket() {
 
 
     var ced = <?php echo $idUsuario ?>;
-    var idTicket = new Date().getFullYear().toString() + Math.random().toString(36).substring(7);;
+    var idTicket = new Date().getFullYear().toString() + Math.random().toString(36).substring(7);
     var emision = new Date().toISOString().slice(0, 19).replace('T', ' ');
     var espacio = document.getElementById("idEspacio").value;
     var bus = document.getElementById("idhorario").value;
@@ -557,6 +555,7 @@ function connection()
     var ruta = document.getElementById("");
     var salida = document.getElementById("fechaSalida").value;
     var xmlhttp = new XMLHttpRequest();
+
     document.getElementById("1").innerHTML = idTicket;
     document.getElementById("2").innerHTML = espacio;
     document.getElementById("3").innerHTML = bus;
@@ -565,14 +564,14 @@ function connection()
     document.getElementById("6").innerHTML = ced;
     document.getElementById("7").innerHTML = emision;
     document.getElementById("8").innerHTML = salida;
-    
+
 
 
   }
 </script>
 <script type="text/javascript">
   function showIdBus(idbus) {
-
+    alert(idbus);
     if (idbus == 0) {
       document.getElementById("idEspacio").innerHTML = "";
       return;
