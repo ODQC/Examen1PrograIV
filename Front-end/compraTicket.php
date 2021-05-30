@@ -612,11 +612,8 @@ function connection()
     emision = document.getElementById("7").innerHTML;
     salida = document.getElementById("8").innerHTML;
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("5").innerHTML = this.responseText;
-      }
-    }
+    
+    
     xmlhttp.open("GET", "crearTiquetes.php?q=" + idTicket + espacio + bus + horario + ruta + ced + emision + salida, true);
     xmlhttp.send();
   }
