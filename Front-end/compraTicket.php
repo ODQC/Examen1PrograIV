@@ -57,6 +57,7 @@ function connection()
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  
   <!-- end Vendor CSS Files -->
 
   <!-- Template Main CSS File -->
@@ -615,7 +616,6 @@ function connection()
         var emision = document.getElementById("7").innerHTML;
         var salida = document.getElementById("8").innerHTML;
         
-        if (idTicket != "" && espacio != "" && bus != "" && horario != "" && ruta != "" && ced != "" && emision != "" && salida != "") {
           $.ajax({
             url: "crearTiquetes.php",
             type: "POST",
@@ -635,7 +635,7 @@ function connection()
               var dataResult = JSON.parse(dataResult);
               if (dataResult.statusCode == 200) {
                 $("#saveTicket").removeAttr("disabled");
-                $('#fupForm').find('input:text').val('');
+                
                 $("#success").show();
                 $('#success').html('Data added successfully !');
               } else if (dataResult.statusCode == 201) {
@@ -644,9 +644,7 @@ function connection()
 
             }
           });
-        } else {
-          alert('Please fill all the field !');
-        }
+        
       });
     });
   } catch (err) {
