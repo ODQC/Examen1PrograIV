@@ -26,13 +26,8 @@ function connection()
   }
   return $conn;
 }
-function genCod()
-{
 
-  return bin2hex(random_bytes(10));
-}
-$idTiquetes = genCod();
-$fechaEmision = date('Y-m-d H:i:s');
+
 
 ?>
 
@@ -554,7 +549,7 @@ $fechaEmision = date('Y-m-d H:i:s');
 
 
     var ced = <?php echo $idUsuario ?>;
-    var idTicket = new Date().getFullYear.toString() + Math.random().toString(36).substring(7);;
+    var idTicket = new Date().getFullYear().toString() + Math.random().toString(36).substring(7);;
     var emision = new Date().toISOString().slice(0, 19).replace('T', ' ');
     var espacio = document.getElementById("idEspacio").value;
     var bus = document.getElementById("idhorario").value;
