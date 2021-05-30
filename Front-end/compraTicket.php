@@ -426,7 +426,7 @@ function connection()
             </form>
           </div>
           <input type="button" name="previous" class="previous btn btn-default" value="Previo" />
-          <input type="" name="" class="submit btn btn-success" value="Pagar" id="submit_data" onclick="saveTicket()" />
+          <input type="" name="" class="submit btn btn-success" value="Pagar" id="saveTicket" onclick="" />
         </fieldset>
 
       </form>
@@ -600,23 +600,54 @@ function connection()
     xmlhttp.open("GET", "buscarRuta.php?q=" + id, true);
     xmlhttp.send();
   }
+</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#saveTicket').on('click', function() {
+      $("#saveTicket").attr("disabled", "disabled");
+      var idTicket = $('#1').val();
+      var espacio = $('#2').val();
+      var bus = $('#3').val();
+      var horario = $('#4').val();
+      var ruta = $('#5').val();
+      var ced = $('#6').val();
+      var emision = $('#7').val();
+      var salida = $('#8').val();
 
-  function saveTicket() {
+      if (idTicket != "" && espacio != "" && bus != "" && horario != "" && ruta != "" && ced != "" && emision != "" && salida != "") {
+        $.ajax({
+          url: "crearTiquetes",
+          type: "POST",
+          data: {
+            idTicket: idTicket,
+            espacio: espacio,
+            bus: bus,
+            horario: horario,
+            ruta: ruta,
+            ced: ced,
+            emision: emision,
+            salida: salida
 
-    idTicket = document.getElementById("1").innerHTML;
-    espacio = document.getElementById("2").innerHTML;
-    bus = document.getElementById("3").innerHTML;
-    horario = document.getElementById("4").innerHTML;
-    ruta = document.getElementById("5").innerHTML;
-    ced = document.getElementById("6").innerHTML;
-    emision = document.getElementById("7").innerHTML;
-    salida = document.getElementById("8").innerHTML;
-    var xmlhttp = new XMLHttpRequest();
-    
-    
-    xmlhttp.open("GET", "crearTiquetes.php?q=" + idTicket + espacio + bus + horario + ruta + ced + emision + salida, true);
-    xmlhttp.send();
-  }
+          },
+          cache: false,
+          success: function(dataResult) {
+            var dataResult = JSON.parse(dataResult);
+            if (dataResult.statusCode == 200) {
+              $("#saveTicket").removeAttr("disabled");
+              $('#fupForm').find('input:text').val('');
+              $("#success").show();
+              $('#success').html('Data added successfully !');
+            } else if (dataResult.statusCode == 201) {
+              alert("Error occured !");
+            }
+
+          }
+        });
+      } else {
+        alert('Please fill all the field !');
+      }
+    });
+  });
 </script>
 <script type="text/javascript">
   function showIdBus(id) {

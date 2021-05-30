@@ -1,37 +1,35 @@
 <?php
+
 function connection()
 {
-$servername = "localhost";
-$username = "root";
-$password = "207460988";
-$dbname = "HorariosBus";
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-die("Connection failed: " . $conn->connect_error);
-}
-return $conn;
+	$servername = "localhost";
+	$username = "root";
+	$password = "207460988";
+	$dbname = "HorariosBus";
+	// Create connection
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	// Check connection
+	if ($conn->connect_error) {
+		die("Connection failed: " . $conn->connect_error);
+	}
+	return $conn;
 }
 ?>
-<?php
 
+<?php
 
 try {
 
-	$idTiquetes = intval($_GET['idTicket']);
-	$Espacios_idEspacio = intval($_GET['espacio']);
-	$Espacios_Buses_idBus = intval($_GET['bus']);
-	$Horarios_idhorario = intval($_GET['horario']);
-	$Horarios_Rutas_idRutas = intval($_GET['ruta']);
-	$Usuarios_idUsuario = intval($_GET['ced']);
-	$fechaEmision = intval($_GET['emision']);
-	$fechaSalida = intval($_GET['salida']);
+	$conn = connection();
 
-
-	
-
-	$conn =connection();
+	$idTiquetes = $_POST['idTicket'];
+	$Espacios_idEspacio = $_POST['espacio'];
+	$Espacios_Buses_idBus = $_POST['bus'];
+	$Horarios_idhorario = $_POST['horario'];
+	$Horarios_Rutas_idRutas = $_POST['ruta'];
+	$Usuarios_idUsuario = $_POST['ced'];
+	$fechaEmision = $_POST['emision'];
+	$fechaSalida = $_POST['salida'];
 
 	$sql = "INSERT INTO usuario(idTiquetes,Espacios_idEspacio,Espacios_Buses_idBus,Horarios_idhorario,Horarios_Rutas_idRutas,Usuarios_idUsuario,fechaEmision,fechaSalida)
 	 VALUES('$idTiquetes','$Espacios_idEspacio','$Espacios_Buses_idBus','$Horarios_idhorario','$Horarios_Rutas_idRutas','$Usuarios_idUsuario','$fechaEmision','$fechaSalida')";
