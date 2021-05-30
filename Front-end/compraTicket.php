@@ -550,7 +550,7 @@ function connection()
     var idTicket = new Date().getFullYear().toString() + Math.random().toString(36).substring(7);
     var emision = new Date().toISOString().slice(0, 19).replace('T', ' ');
     var espacio = document.getElementById("idEspacio").value;
-    var horario = document.getElementById("idhorario").value;
+    //var horario = document.getElementById("idhorario").value;
     var ruta = document.getElementById("");
     var salida = document.getElementById("fechaSalida").value;
     var xmlhttp = new XMLHttpRequest();
