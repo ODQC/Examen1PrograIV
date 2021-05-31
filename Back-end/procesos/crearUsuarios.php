@@ -36,8 +36,11 @@ try{
 		echo '<script type="text/JavaScript"> 
 			alert("No se pudo crear el usuario");
 		</script>';
-		header("Location: ../Front-end/registrar.php");
+		
 	}
+	
+	$ipAdd = $_SERVER['HTTP_HOST'];
+	header("Location:http://$ipAdd/Examen1PrograIV/Front-end/registrar.php");
 	
 }catch (mysqli_sql_exception $e) {
 	throw $e;

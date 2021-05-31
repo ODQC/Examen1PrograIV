@@ -34,7 +34,7 @@
               <input name="ingresar" id="ingresar" class="btn btn-block login-btn" type="submit" value="Ingresar">
             </form>
 
-            <p class="login-wrapper-footer-text">No tiene una cuenta? <a href="registrar.html" class="text-reset">Registrese aquí</a></p>
+            <p class="login-wrapper-footer-text">No tiene una cuenta? <a href="registrar.php" class="text-reset">Registrese aquí</a></p>
             <p class="login-wrapper-footer-text"><a href="index.php" class="text-reset">Volver a inicio</a></p>
           </div>
         </div>

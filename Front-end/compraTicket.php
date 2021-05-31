@@ -7,6 +7,7 @@ $user = $_SESSION['user'];
 $usuario = implode(", ", $user);
 $idUsuario = $_SESSION['idUsuario'];
 $idBus = "";
+$localhost = "$_SERVER['HTTP_HOST']";
 
 
 ?>
@@ -545,6 +546,7 @@ function connection()
   function CargarTicket() {
     try {
       var ced = <?php echo $idUsuario ?>;
+      
       var idTicket = new Date().getFullYear().toString() + Math.random().toString(36).substring(7);
       var emision = new Date().toISOString().slice(0, 19).replace('T', ' ');
       var espacio = document.getElementById("idEspacio").value;
@@ -562,6 +564,7 @@ function connection()
       document.getElementById("8").innerHTML = salida;
       getBus(horario);
       getRuta(horario);
+      
 
     } catch (err) {
       alert(err);
