@@ -631,7 +631,7 @@ function connection()
         salida: salida
 
       };
-      alert(data.toISOString());
+      alert(data.toString);
 
     } catch (err) {
       alert(err);
