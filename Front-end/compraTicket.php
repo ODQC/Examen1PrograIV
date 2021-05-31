@@ -349,9 +349,6 @@ function connection()
         </fieldset>
         <fieldset>
           <h2>Paso 3: Confirmar Compra</h2>
-          <script type="text/javascript">
-            idTicker
-          </script>
           <table class="table table-hover" id="tbl_ticket">
 
             <thead>
@@ -385,7 +382,7 @@ function connection()
 
 
           <input type="button" name="btnCargar" class="" value="Cargar" onclick="CargarTicket()" />
-          <input type="button" name="saveTicket" id="saveTicket" class="" value="Pagar" />
+          <input type="button" name="saveTicket" id="saveTicket" class="" value="Pagar" onclick="saveTicket()" />
           <h2>Paso 4: Método de pago</h2>
 
           <div class="form-group">
@@ -610,51 +607,45 @@ function connection()
   }
 </script>
 <script type="text/javascript">
-  try {
-    $(document).ready(function() {
-      $('#saveTicket').on('click', function() {
+  function saveTicket() {
 
-        var idTicket = document.getElementById("1").innerHTML;
-        var espacio = document.getElementById("2").innerHTML;
-        var bus = document.getElementById("3").innerHTML;
-        var horario = document.getElementById("4").innerHTML;
-        var ruta = document.getElementById("5").innerHTML;
-        var ced = document.getElementById("6").innerHTML;
-        var emision = document.getElementById("7").innerHTML;
-        var salida = document.getElementById("8").innerHTML;
-        alert(1);
+    var idTicket = document.getElementById("1").innerHTML;
+    var espacio = document.getElementById("2").innerHTML;
+    var bus = document.getElementById("3").innerHTML;
+    var horario = document.getElementById("4").innerHTML;
+    var ruta = document.getElementById("5").innerHTML;
+    var ced = document.getElementById("6").innerHTML;
+    var emision = document.getElementById("7").innerHTML;
+    var salida = document.getElementById("8").innerHTML;
+    alert(ced);
 
-        $.ajax({
-          url: "crearTiquetes.php",
-          type: "POST",
-          data: {
-            idTicket: idTicket,
-            espacio: espacio,
-            bus: bus,
-            horario: horario,
-            ruta: ruta,
-            ced: ced,
-            emision: emision,
-            salida: salida
+    $.ajax({
+      url: "crearTiquetes.php",
+      type: "POST",
+      data: {
+        idTicket: idTicket,
+        espacio: espacio,
+        bus: bus,
+        horario: horario,
+        ruta: ruta,
+        ced: ced,
+        emision: emision,
+        salida: salida
 
-          },
-          cache: false,
-          success: function(dataResult) {
-            var dataResult = JSON.parse(dataResult);
-            if (dataResult.statusCode == 200) {
-              $("#success").show();
-              $('#success').html('Data added successfully !');
-            } else if (dataResult.statusCode == 201) {
-              alert("Error occured !");
-            }
+      },
+      cache: false,
+      success: function(dataResult) {
+        var dataResult = JSON.parse(dataResult);
+        if (dataResult.statusCode == 200) {
+          $("#success").show();
+          $('#success').html('Data added successfully !');
+          alert("se guardaron correctamente");
+        } else if (dataResult.statusCode == 201) {
+          alert("Error occured !");
+        }
 
-          }
-        });
-
-      });
+      }
     });
-  } catch (err) {
-    alert(err);
   }
 </script>
 <script type="text/javascript">
