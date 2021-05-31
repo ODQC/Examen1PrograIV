@@ -622,10 +622,8 @@ function connection()
         var ced = document.getElementById("6").innerHTML;
         var emision = document.getElementById("7").innerHTML;
         var salida = document.getElementById("8").innerHTML;
-        var ip = <?php echo $ipAdd ?>;
-        var url = "http:" + ip + "//$ipAdd/Examen1PrograIV/Front-end/crearTiquetes.php"
-        alert(url);
-        
+        alert(1);
+
         $.ajax({
           url: "crearTiquetes.php",
           type: "POST",
