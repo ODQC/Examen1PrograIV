@@ -380,6 +380,7 @@ function connection()
             </tbody>
           </table>
 
+        <input type="hiden" name="hola" id="hola" value="hola"> 
 
           <input type="button" name="btnCargar" class="" value="Cargar" onclick="CargarTicket()" />
 
