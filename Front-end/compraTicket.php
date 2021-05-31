@@ -617,22 +617,33 @@ function connection()
       var ced = document.getElementById("6").innerHTML;
       var emision = document.getElementById("7").innerHTML;
       var salida = document.getElementById("8").innerHTML;
+      $.ajax({
+        url: "crearTiquetes.php",
+        type: "POST",
+        data: {
+          idTicket: idTicket,
+          espacio: espacio,
+          bus: bus,
+          horario: horario,
+          ruta: ruta,
+          ced: ced,
+          emision: emision,
+          salida: salida
 
+        },
+        cache: false,
+        success: function(dataResult) {
+          var dataResult = JSON.parse(dataResult);
+          if (dataResult.statusCode == 200) {
+            $("#success").show();
+            $('#success').html('Data added successfully !');
+            alert("se guardaron correctamente");
+          } else if (dataResult.statusCode == 201) {
+            alert("Error occured !");
+          }
 
-
-      var data = {
-        idTicket: idTicket,
-        espacio: espacio,
-        bus: bus,
-        horario: horario,
-        ruta: ruta,
-        ced: ced,
-        emision: emision,
-        salida: salida
-
-      };
-      alert(data.toString);
-
+        }
+      });
     } catch (err) {
       alert(err);
     }
