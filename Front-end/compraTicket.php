@@ -367,14 +367,14 @@ function connection()
 
             <tbody>
               <tr>
-                <td id="1"></td>
-                <td id="2"></td>
-                <td id="3"></td>
-                <td id="4"></td>
-                <td id="5"></td>
-                <td id="6"> </td>
-                <td id="7"></td>
-                <td id="8"></td>
+                <td name="1" id="1"></td>
+                <td name="2" id="2"></td>
+                <td name="3" id="3"></td>
+                <td name="4" id="4"></td>
+                <td name="5" id="5"></td>
+                <td name="6" id="6"> </td>
+                <td name="7" id="7"></td>
+                <td name="7" id="8"></td>
               </tr>
 
             </tbody>
@@ -382,50 +382,50 @@ function connection()
 
 
           <input type="button" name="btnCargar" class="" value="Cargar" onclick="CargarTicket()" />
-         
+
           <h2>Paso 4: Método de pago</h2>
 
           <div class="form-group">
-            
 
 
-              <div class="form-group">
-                <label for="cc-number" class="control-label mb-1">Nombre de tarjeta</label>
-                <input id="tarjeta" name="tarjeta" type="text" class="form-control cc-number identified visa" required autocomplete="off">
-                <label for="cc-number" class="control-label mb-1">Número de tarjeta</label>
-                <input id="idTarjetas" name="idTarjetas" type="tel" class="form-control cc-number identified visa" required autocomplete="off">
-                <span class="invalid-feedback">Enter a valid 12 to 16 digit card number</span>
-              </div>
-              <div class="row">
-                <div class="col-6">
-                  <div class="form-group">
-                    <label for="cc-exp" class="control-label mb-1">Expiration</label>
-                    <input id="fechaVencimineto" name="fechaVencimineto" type="tel" class="form-control cc-exp" required placeholder="MM / YY" autocomplete="cc-exp">
-                    <span class="invalid-feedback">Fecha de expiración</span>
-                  </div>
+
+            <div class="form-group">
+              <label for="cc-number" class="control-label mb-1">Nombre de tarjeta</label>
+              <input id="tarjeta" name="tarjeta" type="text" class="form-control cc-number identified visa" required autocomplete="off">
+              <label for="cc-number" class="control-label mb-1">Número de tarjeta</label>
+              <input id="idTarjetas" name="idTarjetas" type="tel" class="form-control cc-number identified visa" required autocomplete="off">
+              <span class="invalid-feedback">Enter a valid 12 to 16 digit card number</span>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="cc-exp" class="control-label mb-1">Expiration</label>
+                  <input id="fechaVencimineto" name="fechaVencimineto" type="tel" class="form-control cc-exp" required placeholder="MM / YY" autocomplete="cc-exp">
+                  <span class="invalid-feedback">Fecha de expiración</span>
                 </div>
-                <div class="col-6">
-                  <label for="x_card_code" class="control-label mb-1">CVV</label>
-                  <div class="input-group">
-                    <input id="cvv" name="cvv" type="tel" class="form-control cc-cvc" required autocomplete="off">
-                    <span class="invalid-feedback order-last">Enter the 3-digit code on back</span>
-                    <div class="input-group-append">
-                      <div class="input-group-text">
-                        <span class="fa fa-question-circle fa-lg" data-toggle="popover" data-container="body" data-html="true" data-title="CVV" data-content="<div class='text-center one-card'>The 3 digit code on back of the card..<div class='visa-mc-cvc-preview'></div></div>" data-trigger="hover"></span>
-                      </div>
+              </div>
+              <div class="col-6">
+                <label for="x_card_code" class="control-label mb-1">CVV</label>
+                <div class="input-group">
+                  <input id="cvv" name="cvv" type="tel" class="form-control cc-cvc" required autocomplete="off">
+                  <span class="invalid-feedback order-last">Enter the 3-digit code on back</span>
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <span class="fa fa-question-circle fa-lg" data-toggle="popover" data-container="body" data-html="true" data-title="CVV" data-content="<div class='text-center one-card'>The 3 digit code on back of the card..<div class='visa-mc-cvc-preview'></div></div>" data-trigger="hover"></span>
                     </div>
                   </div>
                 </div>
               </div>
+            </div>
 
-              <div>
-                <button id="payment-button" name="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
-                  <i class="fa fa-lock fa-lg"></i>&nbsp;
-                  <span id="payment-button-amount">Verificar método de pago </span>
-                  <span id="payment-button-sending" style="display:none;">Sending…</span>
-                </button>
-              </div>
-            
+            <div>
+              <button id="payment-button" name="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
+                <i class="fa fa-lock fa-lg"></i>&nbsp;
+                <span id="payment-button-amount">Verificar método de pago </span>
+                <span id="payment-button-sending" style="display:none;">Sending…</span>
+              </button>
+            </div>
+
           </div>
           <input type="button" name="previous" class="previous btn btn-default" value="Previo" />
 
