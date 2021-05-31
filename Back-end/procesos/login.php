@@ -22,7 +22,9 @@ try {
 		$_SESSION['verificar'] = true;
 		$_SESSION['start'] = time();
 		$_SESSION['expire'] = $_SESSION['start'] + (15 * 60);
-		header("Location: ../Front-end/compraTicket.php");
+		$ipAdd = $_SERVER['HTTP_HOST'];
+		header("Location:http://$ipAdd/Examen1PrograIV/Front-end/registrar.php");
+	
 		
 	} else {
 		echo '<script type="text/JavaScript"> 

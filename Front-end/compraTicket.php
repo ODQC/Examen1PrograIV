@@ -7,7 +7,7 @@ $user = $_SESSION['user'];
 $usuario = implode(", ", $user);
 $idUsuario = $_SESSION['idUsuario'];
 $idBus = "";
-$localhost = "$_SERVER['HTTP_HOST']";
+
 
 
 ?>

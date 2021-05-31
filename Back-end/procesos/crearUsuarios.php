@@ -31,16 +31,19 @@ try{
 		echo '<script type="text/JavaScript"> 
 			alert("El usuario se creó correctamente");
 		</script>';
-		header("Location: ../Front-end/login.php");
+		$ipAdd = $_SERVER['HTTP_HOST'];
+		header("Location:http://$ipAdd/Proyecto1_PrograIV/Front-end/logIn.php");
+		
 	} else {
 		echo '<script type="text/JavaScript"> 
 			alert("No se pudo crear el usuario");
 		</script>';
+		$ipAdd = $_SERVER['HTTP_HOST'];
+		header("Location:http://$ipAdd/Examen1PrograIV/Front-end/registrar.php");
+	
 		
 	}
 	
-	$ipAdd = $_SERVER['HTTP_HOST'];
-	header("Location:http://$ipAdd/Examen1PrograIV/Front-end/registrar.php");
 	
 }catch (mysqli_sql_exception $e) {
 	throw $e;
