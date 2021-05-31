@@ -382,7 +382,7 @@ function connection()
 
 
           <input type="button" name="btnCargar" class="" value="Cargar" onclick="CargarTicket()" />
-          <input type="button" name="saveTicket" id="saveTicket" class="" value="Pagar" onclick="saveTicket()" />
+          <input type="button" name="saveTicket" id="saveTicket" class="" value="Pagar" onclick="SaveTicket()" />
           <h2>Paso 4: Método de pago</h2>
 
           <div class="form-group">
@@ -607,7 +607,7 @@ function connection()
   }
 </script>
 <script type="text/javascript">
-  function saveTicket() {
+  function SaveTicket() {
     try {
       var idTicket = document.getElementById("1").innerHTML;
       var espacio = document.getElementById("2").innerHTML;
