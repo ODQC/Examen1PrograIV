@@ -608,44 +608,48 @@ function connection()
 </script>
 <script type="text/javascript">
   function saveTicket() {
+    try {
+      var idTicket = document.getElementById("1").innerHTML;
+      var espacio = document.getElementById("2").innerHTML;
+      var bus = document.getElementById("3").innerHTML;
+      var horario = document.getElementById("4").innerHTML;
+      var ruta = document.getElementById("5").innerHTML;
+      var ced = document.getElementById("6").innerHTML;
+      var emision = document.getElementById("7").innerHTML;
+      var salida = document.getElementById("8").innerHTML;
+      alert(ced);
 
-    var idTicket = document.getElementById("1").innerHTML;
-    var espacio = document.getElementById("2").innerHTML;
-    var bus = document.getElementById("3").innerHTML;
-    var horario = document.getElementById("4").innerHTML;
-    var ruta = document.getElementById("5").innerHTML;
-    var ced = document.getElementById("6").innerHTML;
-    var emision = document.getElementById("7").innerHTML;
-    var salida = document.getElementById("8").innerHTML;
-    alert(ced);
+      $.ajax({
+        url: "crearTiquetes.php",
+        type: "POST",
+        data: {
+          idTicket: idTicket,
+          espacio: espacio,
+          bus: bus,
+          horario: horario,
+          ruta: ruta,
+          ced: ced,
+          emision: emision,
+          salida: salida
 
-    $.ajax({
-      url: "crearTiquetes.php",
-      type: "POST",
-      data: {
-        idTicket: idTicket,
-        espacio: espacio,
-        bus: bus,
-        horario: horario,
-        ruta: ruta,
-        ced: ced,
-        emision: emision,
-        salida: salida
+        },
+        cache: false,
+        success: function(dataResult) {
+          var dataResult = JSON.parse(dataResult);
+          if (dataResult.statusCode == 200) {
+            $("#success").show();
+            $('#success').html('Data added successfully !');
+            alert("se guardaron correctamente");
+          } else if (dataResult.statusCode == 201) {
+            alert("Error occured !");
+          }
 
-      },
-      cache: false,
-      success: function(dataResult) {
-        var dataResult = JSON.parse(dataResult);
-        if (dataResult.statusCode == 200) {
-          $("#success").show();
-          $('#success').html('Data added successfully !');
-          alert("se guardaron correctamente");
-        } else if (dataResult.statusCode == 201) {
-          alert("Error occured !");
         }
+      });
 
-      }
-    });
+    } catch (err) {
+      alert(err);
+    }
   }
 </script>
 <script type="text/javascript">
