@@ -386,7 +386,7 @@ function connection()
           <h2>Paso 4: Método de pago</h2>
 
           <div class="form-group">
-            <form id="metodoPago" method="post" novalidate="novalidate" class="needs-validation">
+            
 
 
               <div class="form-group">
@@ -425,7 +425,7 @@ function connection()
                   <span id="payment-button-sending" style="display:none;">Sending…</span>
                 </button>
               </div>
-            </form>
+            
           </div>
           <input type="button" name="previous" class="previous btn btn-default" value="Previo" />
 

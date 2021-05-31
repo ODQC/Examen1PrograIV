@@ -23,13 +23,13 @@ try {
 	$conn = connection();
 
 	$idTiquetes = $_POST['idTicket'];
-	$Espacios_idEspacio = $_POST['espacio'];
+	$Espacios_idEspacio = $_POST['idEspacio'];
 	$Espacios_Buses_idBus = $_POST['bus'];
-	$Horarios_idhorario = $_POST['horario'];
+	$Horarios_idhorario = $_POST['idhorario'];
 	$Horarios_Rutas_idRutas = $_POST['ruta'];
 	$Usuarios_idUsuario = $_POST['ced'];
 	$fechaEmision = $_POST['emision'];
-	$fechaSalida = $_POST['salida'];
+	$fechaSalida = $_POST['fechaSalida'];
 	
 	
 	$sql = "INSERT INTO usuario(idTiquetes,Espacios_idEspacio,Espacios_Buses_idBus,Horarios_idhorario,Horarios_Rutas_idRutas,Usuarios_idUsuario,fechaEmision,fechaSalida)
