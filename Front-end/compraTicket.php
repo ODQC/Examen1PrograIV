@@ -380,9 +380,10 @@ function connection()
             </tbody>
           </table>
 
-        <input type="hiden" name="hola" id="hola" value="hola"> 
+
 
           <input type="button" name="btnCargar" class="" value="Cargar" onclick="CargarTicket()" />
+          <input type="button" name="btnPagar" id="btnPagar" class="" value="Pagar" />
 
           <h2>Paso 4: Método de pago</h2>
 
@@ -608,7 +609,7 @@ function connection()
   }
 </script>
 <script type="text/javascript">
-  function SaveTicket() {
+  $("button").click(function() {
     try {
       var idTicket = document.getElementById("1").innerHTML;
       var espacio = document.getElementById("2").innerHTML;
@@ -618,10 +619,8 @@ function connection()
       var ced = document.getElementById("6").innerHTML;
       var emision = document.getElementById("7").innerHTML;
       var salida = document.getElementById("8").innerHTML;
-      $.ajax({
-        url: "crearTiquetes.php",
-        type: "POST",
-        data: {
+
+      $.post("crearTiquetes.php", {
           idTicket: idTicket,
           espacio: espacio,
           bus: bus,
@@ -630,22 +629,16 @@ function connection()
           ced: ced,
           emision: emision,
           salida: salida
-
         },
-        cache: false,
-        success: function(r) {
+        function(data, status) {
+          alert("Data: " + data + "\nStatus: " + status);
+        });
 
-          if (r == '200') { // Si el php anterior, imprimió 200
-            $('#estado').html('<hr><p>Datos guardados correctamente.</p><hr>');
-          } else {
-            $('#estado').html('<hr><p>Error al guardar los datos.</p><hr>');
-          }
-        }
-      });
+
     } catch (err) {
       alert(err);
     }
-  }
+  });
 </script>
 <script type="text/javascript">
   function showIdBus(id) {
