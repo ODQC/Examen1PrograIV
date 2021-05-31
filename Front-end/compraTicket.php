@@ -58,7 +58,7 @@ function connection()
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  
+
   <!-- end Vendor CSS Files -->
 
   <!-- Template Main CSS File -->
@@ -181,6 +181,7 @@ function connection()
   <!-- ======= Section1 ======= -->
   <section class="inner-page" id="Mistiquetes">
     <form name="MisTiquetes" id="MisTiquetes" action="" method="post" role="form" class="php-email-form">
+    
       <div class="container">
         <p>
         <h4>Mis tiquetes</h4>
@@ -428,7 +429,8 @@ function connection()
             </form>
           </div>
           <input type="button" name="previous" class="previous btn btn-default" value="Previo" />
-          <input type="" name="" class="submit btn btn-success" value="Pagar" id="saveTicket" onclick="" />
+         
+          <input type="submit" name="submit" class="submit btn btn-success" value="Enviar" id="submit_data" />
         </fieldset>
 
       </form>
@@ -546,7 +548,7 @@ function connection()
   function CargarTicket() {
     try {
       var ced = <?php echo $idUsuario ?>;
-      
+
       var idTicket = new Date().getFullYear().toString() + Math.random().toString(36).substring(7);
       var emision = new Date().toISOString().slice(0, 19).replace('T', ' ');
       var espacio = document.getElementById("idEspacio").value;
@@ -564,7 +566,7 @@ function connection()
       document.getElementById("8").innerHTML = salida;
       getBus(horario);
       getRuta(horario);
-      
+
 
     } catch (err) {
       alert(err);
@@ -609,7 +611,7 @@ function connection()
   try {
     $(document).ready(function() {
       $('#saveTicket').on('click', function() {
-      
+
         var idTicket = document.getElementById("1").innerHTML;
         var espacio = document.getElementById("2").innerHTML;
         var bus = document.getElementById("3").innerHTML;
@@ -618,36 +620,36 @@ function connection()
         var ced = document.getElementById("6").innerHTML;
         var emision = document.getElementById("7").innerHTML;
         var salida = document.getElementById("8").innerHTML;
-        
-          $.ajax({
-            url: "crearTiquetes.php",
-            type: "POST",
-            data: {
-              idTicket: idTicket,
-              espacio: espacio,
-              bus: bus,
-              horario: horario,
-              ruta: ruta,
-              ced: ced,
-              emision: emision,
-              salida: salida
 
-            },
-            cache: false,
-            success: function(dataResult) {
-              var dataResult = JSON.parse(dataResult);
-              if (dataResult.statusCode == 200) {
-                
-                
-                $("#success").show();
-                $('#success').html('Data added successfully !');
-              } else if (dataResult.statusCode == 201) {
-                alert("Error occured !");
-              }
+        $.ajax({
+          url: "crearTiquetes.php",
+          type: "POST",
+          data: {
+            idTicket: idTicket,
+            espacio: espacio,
+            bus: bus,
+            horario: horario,
+            ruta: ruta,
+            ced: ced,
+            emision: emision,
+            salida: salida
 
+          },
+          cache: false,
+          success: function(dataResult) {
+            var dataResult = JSON.parse(dataResult);
+            if (dataResult.statusCode == 200) {
+
+
+              $("#success").show();
+              $('#success').html('Data added successfully !');
+            } else if (dataResult.statusCode == 201) {
+              alert("Error occured !");
             }
-          });
-        
+
+          }
+        });
+
       });
     });
   } catch (err) {
@@ -670,5 +672,4 @@ function connection()
     xmlhttp.open("GET", "buscarEspacio.php?q=" + id, true);
     xmlhttp.send();
   }
-  
 </script>
