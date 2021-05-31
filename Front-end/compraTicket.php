@@ -383,7 +383,7 @@ function connection()
 
 
           <input type="button" name="btnCargar" class="" value="Cargar" onclick="CargarTicket()" />
-          <input type="button" name="btnPagar" id="btnPagar" class="" value="Pagar" />
+          
 
           <h2>Paso 4: Método de pago</h2>
 
