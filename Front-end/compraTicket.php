@@ -7,6 +7,7 @@ $user = $_SESSION['user'];
 $usuario = implode(", ", $user);
 $idUsuario = $_SESSION['idUsuario'];
 $idBus = "";
+$ipAdd = $_SERVER['HTTP_HOST'];
 
 
 
@@ -351,7 +352,7 @@ function connection()
           <script type="text/javascript">
             idTicker
           </script>
-          <table  class="table table-hover" id="tbl_ticket" >
+          <table class="table table-hover" id="tbl_ticket">
 
             <thead>
               <tr>
@@ -384,6 +385,7 @@ function connection()
 
 
           <input type="button" name="btnCargar" class="" value="Cargar" onclick="CargarTicket()" />
+          <input type="button" name="saveTicket" id="saveTicket" class="" value="Pagar" />
           <h2>Paso 4: Método de pago</h2>
 
           <div class="form-group">
@@ -620,7 +622,10 @@ function connection()
         var ced = document.getElementById("6").innerHTML;
         var emision = document.getElementById("7").innerHTML;
         var salida = document.getElementById("8").innerHTML;
-
+        var ip = <?php echo $ipAdd ?>;
+        var url = "http:" + ip + "//$ipAdd/Examen1PrograIV/Front-end/crearTiquetes.php"
+        alert(url);
+        
         $.ajax({
           url: "crearTiquetes.php",
           type: "POST",
@@ -639,8 +644,6 @@ function connection()
           success: function(dataResult) {
             var dataResult = JSON.parse(dataResult);
             if (dataResult.statusCode == 200) {
-
-
               $("#success").show();
               $('#success').html('Data added successfully !');
             } else if (dataResult.statusCode == 201) {
