@@ -615,7 +615,7 @@ function connection()
         var ced = document.getElementById("6").innerHTML;
         var emision = document.getElementById("7").innerHTML;
         var salida = document.getElementById("8").innerHTML;
-        alert(ruta);
+        
           $.ajax({
             url: "crearTiquetes.php",
             type: "POST",
