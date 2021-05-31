@@ -22,19 +22,19 @@ try {
 
 	$conn = connection();
 
-	$idTiquetes = $_POST['1'];
-	$Espacios_idEspacio = $_POST['2'];
-	$Espacios_Buses_idBus = $_POST['3'];
-	$Horarios_idhorario = $_POST['4'];
-	$Horarios_Rutas_idRutas = $_POST['5'];
-	$Usuarios_idUsuario = $_POST['6'];
-	$fechaEmision = $_POST['7'];
-	$fechaSalida = $_POST['8'];
+	$idTiquetes = $_POST['idTicket'];
+	$Espacios_idEspacio = $_POST['espacio'];
+	$Espacios_Buses_idBus = $_POST['bus'];
+	$Horarios_idhorario = $_POST['horario'];
+	$Horarios_Rutas_idRutas = $_POST['ruta'];
+	$Usuarios_idUsuario = $_POST['ced'];
+	$fechaEmision = $_POST['emision'];
+	$fechaSalida = $_POST['salida'];
 	
 	
 	$sql = "INSERT INTO usuario(idTiquetes,Espacios_idEspacio,Espacios_Buses_idBus,Horarios_idhorario,Horarios_Rutas_idRutas,Usuarios_idUsuario,fechaEmision,fechaSalida)
 	 VALUES('$idTiquetes','$Espacios_idEspacio','$Espacios_Buses_idBus','$Horarios_idhorario','$Horarios_Rutas_idRutas','$Usuarios_idUsuario','$fechaEmision','$fechaSalida')";
-	echo $sql;
+	
 	$result = mysqli_query($conn, $sql);
 	if ($result) {
 		echo '<script type="text/JavaScript"> 
@@ -45,7 +45,8 @@ try {
 			alert("No se pudo realizar la compra");
 		</script>';
 	}
-	
+	$ipAdd = $_SERVER['HTTP_HOST'];
+	header("Location:http://$ipAdd/Examen1PrograIV/Front-end/factura.php");
 } catch (mysqli_sql_exception $e) {
 	throw $e;
 } catch (Exception $e) {

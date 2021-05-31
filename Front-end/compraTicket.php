@@ -430,7 +430,7 @@ function connection()
           </div>
           <input type="button" name="previous" class="previous btn btn-default" value="Previo" />
 
-          <input type="submit" name="submit" class="submit btn btn-success" value="Enviar" id="submit_data" />
+          <input type="submit" name="submit" class="submit btn btn-success" value="Imprimir" id="submit_data" />
         </fieldset>
 
       </form>
