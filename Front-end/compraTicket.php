@@ -382,7 +382,7 @@ function connection()
 
 
           <input type="button" name="btnCargar" class="" value="Cargar" onclick="CargarTicket()" />
-          <input type="button" name="saveTicket" id="saveTicket" class="" value="Pagar" onclick="SaveTicket()" />
+         
           <h2>Paso 4: Método de pago</h2>
 
           <div class="form-group">
