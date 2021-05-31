@@ -23,7 +23,7 @@ try {
 		$_SESSION['start'] = time();
 		$_SESSION['expire'] = $_SESSION['start'] + (15 * 60);
 		$ipAdd = $_SERVER['HTTP_HOST'];
-		header("Location:http://$ipAdd/Examen1PrograIV/Front-end/registrar.php");
+		header("Location:http://$ipAdd/Examen1PrograIV/Front-end/index.php");
 	
 		
 	} else {
