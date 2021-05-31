@@ -46,6 +46,8 @@ try {
 			alert("No se pudo realizar la compra");
 		</script>';
 	}
+	$ipAdd = $_SERVER['HTTP_HOST'];
+	header("Location:http://$ipAdd/Examen1PrograIV/Front-end/factura.php");
 } catch (mysqli_sql_exception $e) {
 	throw $e;
 } catch (Exception $e) {

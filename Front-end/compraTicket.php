@@ -181,7 +181,7 @@ function connection()
   <!-- ======= Section1 ======= -->
   <section class="inner-page" id="Mistiquetes">
     <form name="MisTiquetes" id="MisTiquetes" action="" method="post" role="form" class="php-email-form">
-    
+
       <div class="container">
         <p>
         <h4>Mis tiquetes</h4>
@@ -258,7 +258,7 @@ function connection()
         <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
       </div>
 
-      <form id="regiration_form" novalidate action="" method="post">
+      <form id="regiration_form" novalidate action="crearTiquetes.php" method="post">
         <fieldset>
           <h2> Paso 1: Seleccione el Horario</h2>
           <div class="form-group">
@@ -351,7 +351,7 @@ function connection()
           <script type="text/javascript">
             idTicker
           </script>
-          <table class="table table-hover" id="tbl_ticket">
+          <table  class="table table-hover" id="tbl_ticket" >
 
             <thead>
               <tr>
@@ -429,7 +429,7 @@ function connection()
             </form>
           </div>
           <input type="button" name="previous" class="previous btn btn-default" value="Previo" />
-         
+
           <input type="submit" name="submit" class="submit btn btn-success" value="Enviar" id="submit_data" />
         </fieldset>
 
