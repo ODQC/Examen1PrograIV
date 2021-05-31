@@ -26,7 +26,7 @@
             <form action="../Back-end/procesos/crearUsuarios.php" method="POST">
               <div class="form-group">
                 <label for="idUsuario">Cédula</label>
-                <input type="text" name="idUsuario" id="idUsuario" class="form-control" placeholder="">
+                <input maxlength="9" type="text" name="idUsuario" id="idUsuario" class="form-control" placeholder="">
               </div>
               <div class="form-group">
                 <label for="nombre">Nombre</label>
