@@ -606,7 +606,7 @@ function connection()
   try {
     $(document).ready(function() {
       $('#saveTicket').on('click', function() {
-        $("#saveTicket").attr("disabled", "disabled");
+      
         var idTicket = document.getElementById("1").innerHTML;
         var espacio = document.getElementById("2").innerHTML;
         var bus = document.getElementById("3").innerHTML;
@@ -634,7 +634,7 @@ function connection()
             success: function(dataResult) {
               var dataResult = JSON.parse(dataResult);
               if (dataResult.statusCode == 200) {
-                $("#saveTicket").removeAttr("disabled");
+                
                 
                 $("#success").show();
                 $('#success').html('Data added successfully !');
