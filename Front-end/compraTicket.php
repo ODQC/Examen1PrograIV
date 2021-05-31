@@ -632,16 +632,13 @@ function connection()
 
         },
         cache: false,
-        success: function(dataResult) {
-          var dataResult = JSON.parse(dataResult);
-          if (dataResult.statusCode == 200) {
-            $("#success").show();
-            $('#success').html('Data added successfully !');
-            alert("se guardaron correctamente");
-          } else if (dataResult.statusCode == 201) {
-            alert("Error occured !");
-          }
+        success: function(r) {
 
+          if (r == '200') { // Si el php anterior, imprimió 200
+            $('#estado').html('<hr><p>Datos guardados correctamente.</p><hr>');
+          } else {
+            $('#estado').html('<hr><p>Error al guardar los datos.</p><hr>');
+          }
         }
       });
     } catch (err) {
